@@ -1,0 +1,31 @@
+{% extends "basic_template.html" %}
+{% block title %} Регистрация {% endblock title %}
+{% block content %}
+<div class="register-form">
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <div class="form-line">
+                {{ form.name.label_tag }}
+                {{ form.name }}
+                {{ form.name.errors }}
+            </div>
+            <div class="form-line">
+                {{ form.last_name.label_tag }}
+                {{ form.last_name }}
+                {{ form.last_name.errors }}
+            </div>
+            <div class="form-line">
+                {{ form.e_mail.label_tag }}
+                {{ form.e_mail }}
+                {{ form.e_mail.errors }}
+            </div>
+            <div class="form-line">
+                {{ form.password.label_tag }}
+                {{ form.password }}
+                {{ form.password.errors }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
