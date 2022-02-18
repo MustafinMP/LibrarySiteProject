@@ -23,7 +23,7 @@ class Author(models.Model):
     name = models.CharField(max_length=30,
                             verbose_name='')
     last_name = models.CharField(max_length=100,
-                                 verbose_name='')
+                                 verbose_name='Автор')
 
     def __str__(self):
         return f'{self.name} {self.last_name}'
@@ -31,21 +31,24 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100,
-                             verbose_name='')
+                             verbose_name='Название книги')
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT)
     author = models.ManyToManyField(Author)
-    image = models.ImageField(verbose_name='')
+    image = models.ImageField(verbose_name='Изображение обложки книги')
 
     def __str__(self):
         return self.title
 
 
 class BookInstance(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.PROTECT)
-    status = models.ForeignKey(Status, on_delete=models.PROTECT)
-    take_date = models.DateField(verbose_name='')
-    return_date = models.DateField(verbose_name='')
-    borrower = models.ForeignKey(User, on_delete=models.PROTECT)
+    book = models.ForeignKey(Book,
+                             on_delete=models.PROTECT)
+    status = models.ForeignKey(Status,
+                               on_delete=models.PROTECT)
+    take_date = models.DateField(verbose_name='Дата выдачи')
+    return_date = models.DateField(verbose_name='Дата возврата')
+    borrower = models.OneToOneField(User,
+                                    on_delete=models.PROTECT)
 
     def __str__(self):
         return f'{self.id}, {self.book}'
