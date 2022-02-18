@@ -8,7 +8,7 @@ class Genre(models.Model):
                              verbose_name='Жанр книги')
 
     def __str__(self):
-        self.title
+        return self.title
 
 
 class Status(models.Model):
@@ -16,7 +16,7 @@ class Status(models.Model):
                              verbose_name='Статус книги')
 
     def __str__(self):
-        self.title
+        return self.title
 
 
 class Author(models.Model):
@@ -24,6 +24,9 @@ class Author(models.Model):
                             verbose_name='')
     last_name = models.CharField(max_length=100,
                                  verbose_name='')
+
+    def __str__(self):
+        return f'{self.name} {self.last_name}'
 
 
 class Book(models.Model):
@@ -33,6 +36,9 @@ class Book(models.Model):
     author = models.ManyToManyField(Author)
     image = models.ImageField(verbose_name='')
 
+    def __str__(self):
+        return self.title
+
 
 class BookInstance(models.Model):
     book = models.ForeignKey(Book, on_delete=models.PROTECT)
@@ -40,3 +46,6 @@ class BookInstance(models.Model):
     take_date = models.DateField(verbose_name='')
     return_date = models.DateField(verbose_name='')
     borrower = models.ForeignKey(User, on_delete=models.PROTECT)
+
+    def __str__(self):
+        return f'{self.id}, {self.book}'
