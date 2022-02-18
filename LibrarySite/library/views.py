@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .forms import RegisterForm
 from django.contrib.auth.models import User
+from django.http import HttpResponsePermanentRedirect
 
 
 # Create your views here.
@@ -19,8 +20,9 @@ def register(request):
             password = request.POST.get('password')
             user = User.objects.create_user(name, e_mail, password)
             user.last_name = last_name
+            user.first_name = name
             user.save()
-            return  # TODO: завершить возврат формы
+            return HttpResponsePermanentRedirect('login/')
     else:
         register_form = RegisterForm()
         return render(request, 'register.html', {'form': register_form})
