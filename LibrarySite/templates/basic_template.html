@@ -1,30 +1,33 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Lib117{% endblock title %}</title>
+    <link href="{% static 'css/basic_style.css' %}" rel="stylesheet" type="text/css">
+<!--    <link href="../static/css/basic_style.css" rel="stylesheet">-->
 </head>
 <body>
-<header>
-    <div>
-        <div class="header-lable"></div>
-        <a href="/about"><h3>О сайте</h3></a>
-        <a href="/autors"><h3>Авторы</h3></a>
-        <a href="/books"><h3>Книги</h3></a>
-    </div>
-    <div>
-        <a href="/login">Войти</a>
-    </div>
+<header class="header">
+    <ul class="header-menu">
+        <li>
+            <div class="header-lable">Lib117</div>
+        </li>
+        <li><a href="/about"><h3>О сайте</h3></a></li>
+        <li><a href="/autors"><h3>Авторы</h3></a></li>
+        <li><a href="/books"><h3>Книги</h3></a></li>
+        <li><a href="/login" class="login">Войти</a></li>
+    </ul>
 </header>
 <main>
     {% block content %}{% endblock content %}
 </main>
 <footer>
-    <div class="footer-nav">
-        <a href="/about"><h4>О сайте</h4></a>
-        <a href="/autors"><h4>Авторы</h4></a>
-        <a href="/books"><h4>Книги</h4></a>
-    </div>
+    <ul class="footer-nav">
+        <li><a href="/about"><h4>О сайте</h4></a></li>
+        <li><a href="/autors"><h4>Авторы</h4></a></li>
+        <li><a href="/books"><h4>Книги</h4></a></li>
+    </ul>
     <!--    поликита конф-->
     <!--    условия польз-->
     <div>
