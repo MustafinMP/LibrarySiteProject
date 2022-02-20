@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645196428836</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Making a first version of basic_style.css">
+      <created>1645279574155</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1645279574155</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -105,12 +109,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Creating the basic of the program&#10;Создание каркаса программы" />
     <MESSAGE value="Creating a registration form and some models" />
     <MESSAGE value="Error correction in models.py" />
     <MESSAGE value="Correction of small errors in models.py" />
     <MESSAGE value="Corrections in registration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrections in registration files" />
+    <MESSAGE value="Making a first version of basic_style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Making a first version of basic_style.css" />
   </component>
 </project>
