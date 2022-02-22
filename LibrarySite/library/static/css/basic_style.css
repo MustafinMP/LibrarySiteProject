@@ -13,7 +13,6 @@
   font-family: Rockwell, Goudy Old Style, Gabriola, Century Gothic;
   display: block;
   height: 100%;
-  background: #ecae7d;
   position: absolute;
   left :0;
   width: 10%;
@@ -21,41 +20,34 @@
   bottom:0;
   text-align: center;
   line-height: 60px;
-  color: #026c80;
+  color: #5c7998;
   font-size: 40px;
 }
 
 .header-menu {
-  background: #8db4ad;
   position: relative;
   height: 65px;
   list-style: none;
   margin: 0;
-}
-
-.login {
-  display: block;
-  height: 80%;
-  position: absolute;
-  right:0;
-  width: 18%;
-  top: 10%;
-  bottom:0;
-  text-align: center;
-  line-height: 55px;
-  color: #026c80;
-  font-size: 30px;
-  border-left: 3px solid;
+  color: #5c7998;
+  border-bottom: 3px solid;
 }
 
 .header-menu a {
   text-decoration: none;
-  color: #064c72;
+  color: #5c7998;
 }
 
 .header-menu li {
+  text-decoration: none;
   display: inline-block;
   width: 19%;
+  right: 0;
+  text-align: right;
+  line-height: 0px;
+  line-height: 65px;
+  font-size: 30px;
+  font-family: Century Gothic sans-serif;
 }
 
 body {
@@ -63,4 +55,9 @@ body {
   margin: 0;
   position: relative;
   background-color: #ffffff;
+}
+
+footer {
+  background: #5c7998;
+  height: 300px;
 }

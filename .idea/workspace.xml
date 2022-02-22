@@ -4,6 +4,7 @@
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645279574155</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Change background color in basic_style.css">
+      <created>1645346940673</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1645346940673</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +123,7 @@
     <MESSAGE value="Correction of small errors in models.py" />
     <MESSAGE value="Corrections in registration files" />
     <MESSAGE value="Making a first version of basic_style.css" />
-    <option name="LAST_COMMIT_MESSAGE" value="Making a first version of basic_style.css" />
+    <MESSAGE value="Change background color in basic_style.css" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change background color in basic_style.css" />
   </component>
 </project>
