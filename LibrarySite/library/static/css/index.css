@@ -1,19 +1,22 @@
 .index-choice-block {
   display: inline-block;
-  height: 450px;
+  height: 400px;
   width: 42.5%;
   margin-left: 5%;
   margin-top: 45px;
   margin-bottom: 45px;
   border-radius: 30px;
+  background: #e4e7ee;
  }
 
 .block1 {
-  background: #fbb18c;
+  border-left: 5px solid #fbb18c;
+  border-right: 5px solid #fbb18c;
  }
 
 .block2 {
-  background: #adc2ea;
+  border-left: 5px solid #adc2ea;
+  border-right: 5px solid #adc2ea;
  }
 
 .index-choice-block a {
@@ -47,7 +50,7 @@
 }
 
 .right-block a {
-  margin-top: 43%;
+  margin-top: 33%;
   width: 450px;
   margin-left: -10px;
 }
@@ -61,6 +64,8 @@
   margin-bottom: 45px;
   border-radius: 30px;
   background: #e4e7ee;
+  border-left: 5px solid #b5c9c8;
+  border-right: 5px solid #b5c9c8;
 }
 
 .guide-block h3 {

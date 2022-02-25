@@ -21,9 +21,9 @@ class Status(models.Model):
 
 class Author(models.Model):
     name = models.CharField(max_length=30,
-                            verbose_name='')
+                            verbose_name='Имя')
     last_name = models.CharField(max_length=100,
-                                 verbose_name='Автор')
+                                 verbose_name='Фамилия')
 
     def __str__(self):
         return f'{self.name} {self.last_name}'
@@ -39,16 +39,23 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    def display_author(self):
+        return ', '.join([f'{author.name} {author.last_name}' for author in self.author.all()])
+    display_author.short_description = 'Авторы'
+
 
 class BookInstance(models.Model):
     book = models.ForeignKey(Book,
                              on_delete=models.PROTECT)
     status = models.ForeignKey(Status,
                                on_delete=models.PROTECT)
-    take_date = models.DateField(verbose_name='Дата выдачи')
-    return_date = models.DateField(verbose_name='Дата возврата')
+    take_date = models.DateField(verbose_name='Дата выдачи',
+                                 blank=True)
+    return_date = models.DateField(verbose_name='Дата возврата',
+                                   blank=True)
     borrower = models.OneToOneField(User,
-                                    on_delete=models.PROTECT)
+                                    on_delete=models.PROTECT,
+                                    blank=True)
 
     def __str__(self):
         return f'{self.id}, {self.book}'
