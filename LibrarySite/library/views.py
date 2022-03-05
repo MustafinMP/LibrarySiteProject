@@ -2,9 +2,12 @@ from django.shortcuts import render
 from .forms import RegisterForm
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
+import logging
 
+logging.basicConfig(filename='views_logging.log',
+                    format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
+                    level=logging.INFO)
 
-# Create your views here.
 
 def index(request):
     return render(request, 'index.html')
@@ -22,6 +25,7 @@ def register(request):
             user.last_name = last_name
             user.first_name = name
             user.save()
+            logging.info(f'created user "{name}_{last_name}"')
             return HttpResponsePermanentRedirect('login/')
     else:
         register_form = RegisterForm()
