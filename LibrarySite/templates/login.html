@@ -1,0 +1,27 @@
+{% extends "basic_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Lib117 {% endblock title %}
+{% block content %}
+
+<div class="form-block">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-line">
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        <div class="form-line">
+            {{ form.password.label_tag }}
+            {{ form.password }}
+            {{ form.password.errors }}
+        </div>
+        <input type="submit" value="Войти">
+    </form>
+</div>
+{% endblock content %}

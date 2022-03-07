@@ -10,13 +10,11 @@
  }
 
 .block1 {
-  border-left: 5px solid #fbb18c;
-  border-right: 5px solid #fbb18c;
+  border: 5px solid #fbb18c;
  }
 
 .block2 {
-  border-left: 5px solid #adc2ea;
-  border-right: 5px solid #adc2ea;
+  border: 5px solid #adc2ea;
  }
 
 .index-choice-block a {
@@ -31,8 +29,8 @@
 
 .text-block {
   display: inline-block;
-  margin-left: 10%;
-  font-size: 30px;
+  margin-left: 7%;
+  font-size: 60px;
   font-family: Century Gothic sans-serif;
   color: #5f7493;
 }
@@ -40,7 +38,7 @@
 .right-block {
   display: inline-block;
   margin-left: 35%;
-  margin-top: -10%;
+  margin-top: -30%;
   width: 70%;
 }
 
@@ -64,14 +62,13 @@
   margin-bottom: 45px;
   border-radius: 30px;
   background: #e4e7ee;
-  border-left: 5px solid #b5c9c8;
-  border-right: 5px solid #b5c9c8;
+  border: 5px solid #b5c9c8;
 }
 
 .guide-block h3 {
   display: inline-block;
-  margin-left: 5%;
-  font-size: 35px;
+  margin-left: 3%;
+  font-size: 60px;
   font-family: Century Gothic sans-serif;
   color: #5f7493;
 }

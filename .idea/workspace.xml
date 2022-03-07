@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
+    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="Add a new file books.html">
+      <change afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,8 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -155,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645708579927</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Add a simple logging. Fixed some troubles with branches">
+      <created>1646483219523</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1646483219523</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,6 +192,7 @@
     <MESSAGE value="Redesign basic_style.css" />
     <MESSAGE value="Creating index.html and index.css" />
     <MESSAGE value="Add a new file books.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add a new file books.html" />
+    <MESSAGE value="Add a simple logging. Fixed some troubles with branches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a simple logging. Fixed some troubles with branches" />
   </component>
 </project>
