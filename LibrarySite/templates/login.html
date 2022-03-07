@@ -5,23 +5,26 @@
 <link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
-{% block title %} Lib117 {% endblock title %}
+{% block title %} Вход на сайт {% endblock title %}
 {% block content %}
 
 <div class="form-block">
     <form method="post">
+        <div class="enter-lable">Вход</div>
         {% csrf_token %}
         <div class="form-line">
-            {{ form.username.label_tag }}
-            {{ form.username }}
+            <div class="label-tag">{{ form.username.label_tag }}</div><br>
+            {{ form.username }}<br>
             {{ form.username.errors }}
         </div>
         <div class="form-line">
-            {{ form.password.label_tag }}
-            {{ form.password }}
+            <div class="label-tag">{{ form.password.label_tag }}</div><br>
+            {{ form.password }}<br>
             {{ form.password.errors }}
         </div>
-        <input type="submit" value="Войти">
+        <div class="form-line button-input">
+            <input type="submit" value="Войти">
+        </div>
     </form>
 </div>
 {% endblock content %}
