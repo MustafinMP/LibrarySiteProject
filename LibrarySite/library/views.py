@@ -4,9 +4,15 @@ from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 import logging
 
+# подключение файла для логирования
 logging.basicConfig(filename='views_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)
+
+
+def page_not_found_view(request):
+    # ,exception
+    return render(request, '404.html', status=404)
 
 
 def index(request):

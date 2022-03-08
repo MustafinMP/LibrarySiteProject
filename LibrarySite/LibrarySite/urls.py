@@ -20,9 +20,11 @@ from library import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('admin/', views.call_admin),
     path('', views.index),
+    path('404testing/', views.page_not_found_view),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', views.register),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'))
 ]
+
+# handler404 = "library.views.page_not_found_view"
