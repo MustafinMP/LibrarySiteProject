@@ -18,7 +18,7 @@
         <li><a href="/autors">Авторы</a></li>
         <li><a href="/books">Книги</a></li>
         {% if user.is_authenticated %}
-        <li><a href="/login" class="login">{{ user.first_name }}</a></li>
+        <li><a href="/login" class="login">{{ user.username }}</a></li>
         {% else %}
         <li><a href="/login" class="login">Войти</a></li>
         {% endif %}
