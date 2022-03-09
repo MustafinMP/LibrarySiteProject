@@ -1,7 +1,7 @@
 .form-block {
   display: block;
   width: 30%;
-  height: 370px;
+  height: 500px;
   background: #eee3dd;
   border: 2px solid #d89279;
   border-radius: 20px;
@@ -48,9 +48,4 @@
   color: #111111;
   width: 30%;
   margin-top: 13px;
-}
-
-.no-account {
-  text-align: center;
-  color: #d89279;
 }

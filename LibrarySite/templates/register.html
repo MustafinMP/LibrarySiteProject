@@ -1,32 +1,43 @@
 {% extends "basic_template.html" %}
+{% load static %}
 {% block title %} Регистрация {% endblock title %}
+
+{% block styles_link %}
+<link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
 {% block content %}
-<div class="register-form">
+<div class="form-block">
     <form method="post">
         {% csrf_token %}
-        <div>
-            <div class="form-line">
-                {{ form.name.label_tag }}
-                {{ form.name }}
-                {{ form.name.errors }}
-            </div>
-            <div class="form-line">
-                {{ form.last_name.label_tag }}
-                {{ form.last_name }}
-                {{ form.last_name.errors }}
-            </div>
-            <div class="form-line">
-                {{ form.e_mail.label_tag }}
-                {{ form.e_mail }}
-                {{ form.e_mail.errors }}
-            </div>
-            <div class="form-line">
-                {{ form.password.label_tag }}
-                {{ form.password }}
-                {{ form.password.errors }}
-            </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.username.label_tag }}</div><br>
+            {{ form.username }}<br>
+            {{ form.username.errors }}
         </div>
-        <input type="submit" value="Сохранить">
+        <div class="form-line">
+            <div class="label-tag">{{ form.name.label_tag }}</div>
+            {{ form.name }}
+            {{ form.name.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.last_name.label_tag }}</div>
+            {{ form.last_name }}
+            {{ form.last_name.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.e_mail.label_tag }}</div>
+            {{ form.e_mail }}
+            {{ form.e_mail.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.password.label_tag }}</div>
+            {{ form.password }}
+            {{ form.password.errors }}
+        </div>
+        <div class="form-line button-input">
+            <input type="submit" value="Сохранить">
+        </div>
     </form>
 </div>
 {% endblock content %}

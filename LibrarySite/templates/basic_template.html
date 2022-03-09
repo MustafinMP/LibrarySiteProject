@@ -6,23 +6,19 @@
     <title>{% block title %}Lib117{% endblock title %}</title>
     <link href="{% static 'css/basic_style.css' %}" rel="stylesheet" type="text/css">
     {% block styles_link %}{% endblock styles_link %}
-<!--    <link href="../static/css/basic_style.css" rel="stylesheet">-->
+    <!--    <link href="../static/css/basic_style.css" rel="stylesheet">-->
 </head>
 <body>
 <header class="header">
-    <ul class="header-menu">
-        <li>
-            <div class="header-lable">Lib117</div>
-        </li>
-        <li><a href="/about">О сайте</a></li>
-        <li><a href="/autors">Авторы</a></li>
-        <li><a href="/books">Книги</a></li>
+    <div class="header-block"><div class="header-lable">Lib117</div></div>
+            <a href="/about" class="header-block">О сайте</a>
+            <a href="/autors" class="header-block">Авторы</a>
+            <a href="/books" class="header-block">Книги</a>
         {% if user.is_authenticated %}
-        <li><a href="/login" class="login">{{ user.username }}</a></li>
+            <a href="/login" class="login header-block">{{ user.username }}</a>
         {% else %}
-        <li><a href="/login" class="login">Войти</a></li>
+            <a href="/login" class="login header-block">Войти</a>
         {% endif %}
-    </ul>
 </header>
 <main>
     {% block content %}{% endblock content %}
