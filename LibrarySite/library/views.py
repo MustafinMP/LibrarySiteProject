@@ -2,6 +2,8 @@ from django.shortcuts import render
 from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
+from django.conf import settings
+from .models import Book, Author
 import logging
 
 # подключение файла для логирования
@@ -9,14 +11,24 @@ logging.basicConfig(filename='views_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)
 
+# ========================================= Функции представлений =========================================
+
+# главная страница
+def index(request):
+    return render(request, 'index.html')
+
+
+def books_view(request):
+    books = Book.objects.all()
+    context = {'books': books, 'media': settings.STATIC_URL}
+    return render(request, 'books.html', context=context)
+
+
+
 
 def page_not_found_view(request):
     # ,exception
     return render(request, '404.html', status=404)
-
-
-def index(request):
-    return render(request, 'index.html')
 
 
 def register(request):

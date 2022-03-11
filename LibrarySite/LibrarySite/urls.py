@@ -16,15 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from django.conf import settings
+from django.conf.urls.static import static
 from library import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('books/', views.books_view),
     path('404testing/', views.page_not_found_view),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', views.register),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # handler404 = "library.views.page_not_found_view"

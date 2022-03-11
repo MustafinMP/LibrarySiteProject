@@ -34,7 +34,8 @@ class Book(models.Model):
                              verbose_name='Название книги')
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT)
     author = models.ManyToManyField(Author)
-    image = models.ImageField(verbose_name='Изображение обложки книги')
+    image = models.ImageField(verbose_name='Изображение обложки книги',
+                              upload_to='bookimg/')
 
     def __str__(self):
         return self.title
@@ -42,6 +43,11 @@ class Book(models.Model):
     def display_author(self):
         return ', '.join([f'{author.name} {author.last_name}' for author in self.author.all()])
     display_author.short_description = 'Авторы'
+
+    @property
+    def img_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
 
 
 class BookInstance(models.Model):

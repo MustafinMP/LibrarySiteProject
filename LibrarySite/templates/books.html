@@ -8,5 +8,16 @@
 {% block title %} Lib117 {% endblock title %}
 
 {% block content %}
-
+{% for book in books %}
+<div class="one-book">
+    <div class="inline-block">
+        <img src="{{ book.img_url }}">
+    </div>
+    <div class="inline-block">
+        <h2>{{ book.title }}</h2>
+        <h3>{% for author in book.author.all %}{{ author }} {% endfor %}</h3>
+        <h4>{{ book.genre }}</h4>
+    </div>
+</div>
+{% endfor %}
 {% endblock content %}
