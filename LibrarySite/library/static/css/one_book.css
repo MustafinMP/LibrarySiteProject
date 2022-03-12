@@ -1,0 +1,60 @@
+a {
+  color: black;
+}
+
+.book-block {
+  width: 95%;
+  height: 600px;
+  background: grey;
+  margin-top: 20px;
+  margin-left: 2.5%;
+  border-radius: 35px;
+}
+
+.disp-inline {
+  display: inline-block;
+  height: 500px;
+  margin-top: 50px;
+  background: #aaaaaa;
+  vertical-align: top;
+}
+
+.image-block {
+  width: 38%;
+  border-right: 2px solid #ffffff;
+  text-align: center;
+}
+
+.image-block img {
+  width: 315px;
+  height: 450px;
+  margin-top: 25px;
+}
+
+.text-block {
+  width: 59%;
+  margin-left: 2%;
+}
+
+.book-title {
+  font-size: 45px;
+  text-align: center;
+}
+
+.about-book {
+  margin-left: 3%;
+}
+
+.authors {
+  font-size: 20px;
+}
+
+.genre {
+  font-size: 17px;
+}
+
+.count {
+  vertical-align: bottom;
+  margin-top: 100px;
+  font-size: 20px;
+}

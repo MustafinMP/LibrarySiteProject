@@ -5,19 +5,19 @@
 <link href="{% static 'css/books.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
-{% block title %} Lib117 {% endblock title %}
+{% block title %} Все книги {% endblock title %}
 
 {% block content %}
 {% for book in books %}
-<div class="one-book">
-    <div class="inline-block">
+<a class="one-book" href="/books/{{ book.id }}/">
+    <div class="image-block">
         <img src="{{ book.img_url }}">
     </div>
-    <div class="inline-block">
+    <div class="text-block">
         <h2>{{ book.title }}</h2>
-        <h3>{% for author in book.author.all %}{{ author }} {% endfor %}</h3>
-        <h4>{{ book.genre }}</h4>
+        <h3> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</h3>
+        <h3>Жанр: {{ book.genre }}</h3>
     </div>
-</div>
+</a>
 {% endfor %}
 {% endblock content %}

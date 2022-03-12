@@ -24,7 +24,13 @@ def books_view(request):
     return render(request, 'books.html', context=context)
 
 
-
+def one_book(request, book_id):
+    if request == 'POST':
+        pass
+    else:
+        book = Book.objects.get(id=book_id)
+        count = book.bookinstance_set.all().filter(status=1).count()
+        return render(request, 'one_book.html', context={'book': book, 'count': count})
 
 def page_not_found_view(request):
     # ,exception

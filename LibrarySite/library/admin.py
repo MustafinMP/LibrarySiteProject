@@ -22,7 +22,7 @@ class BookAdmin(admin.ModelAdmin):
 
 @admin.register(BookInstance)
 class BookInstanceAdmin(admin.ModelAdmin):
-    list_display = ('book', 'status', 'borrower')
+    list_display = ('book', 'id', 'status', 'borrower')
 
 
 @admin.register(Genre)

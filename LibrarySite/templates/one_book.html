@@ -1,0 +1,31 @@
+{% extends "basic_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/one_book.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Lib117 {% endblock title %}
+
+{% block content %}
+<div class="book-block">
+    <div class="disp-inline image-block">
+        <img src="{{ book.img_url }}">
+    </div>
+    <div class="disp-inline text-block">
+        <div class="book-title">
+            {{ book.title }}
+        </div>
+        <div class="about-book">
+            <div class="authors">
+                Авторы: {% for author in book.author.all %}
+                <a href="/authors/{{ author.id }}/">{{ author }}</a>
+                {% endfor %}
+            </div>
+            <div class="genre">Жанр: {{ book.genre }}</div>
+            <div class="count">Количество свободных книг: {{ count }}</div>
+        </div>
+
+    </div>
+</div>
+{% endblock content %}
