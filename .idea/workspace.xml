@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/one_book.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/one_book.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647099567878</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Create the book page style">
+      <created>1647180505230</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1647180505230</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +256,7 @@
     <MESSAGE value="Change the text in site header" />
     <MESSAGE value="Create simple books page, fix media settings" />
     <MESSAGE value="Create a one-book page and books page style" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create a one-book page and books page style" />
+    <MESSAGE value="Create the book page style" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create the book page style" />
   </component>
 </project>

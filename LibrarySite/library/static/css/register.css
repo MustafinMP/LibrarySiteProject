@@ -2,8 +2,7 @@
   display: block;
   width: 30%;
   height: 500px;
-  background: #eee3dd;
-  border: 2px solid #d89279;
+  background: #d8d8d6;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 0px #777777;
   margin-top: 5%;
@@ -32,18 +31,18 @@
 
 .form-line .label-tag {
   font-size: 25px;
-  color: #d89279;
+  color: #2f5d8c;
 }
 
 .form-line input {
   width: 70%;
   height: 35px;
   border-radius: 12px;
-  background: #ffffff;
+  background: #f9f9f9;
 }
 
 .button-input input {
-  background: #d89279;
+  background: #a0b3c1;
   font-size: 17px;
   color: #111111;
   width: 30%;
