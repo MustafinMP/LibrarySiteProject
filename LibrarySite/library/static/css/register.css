@@ -1,26 +1,24 @@
 .form-block {
   display: block;
   width: 30%;
-  height: 500px;
+  height: 550px;
   background: #d8d8d6;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 0px #777777;
   margin-top: 5%;
   margin-bottom: 5%;
   margin-left: 35%;
+  padding-top: 20px;
 }
 
-.enter-lable {
-  display: block;
-  width: 30%;
+.register-label {
   font-size: 35px;
   text-align: center;
-  border-bottom: 2px solid;
-  color: #d89279;
-  margin-top: 13px;
-  margin-bottom: 20px;
-  margin-left: 35%;
-  border-bottom: 2px solid;
+  color: #d55e2d;
+}
+
+form {
+  margin-top: 25px;
 }
 
 .form-line {
