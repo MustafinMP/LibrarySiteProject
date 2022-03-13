@@ -40,12 +40,12 @@ header a {
 body {
   padding: 0;
   margin: 0;
-  background-color: #eee3dd;
+  background-color: #f9f9f9;
 }
 
 footer {
   display: block;
-  background: #cdd3c2;
+  background: #a0b3c1;
   height: 300px;
   margin-bottom: 0;
 }

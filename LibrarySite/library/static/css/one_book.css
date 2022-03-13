@@ -1,11 +1,7 @@
-a {
-  color: black;
-}
-
 .book-block {
   width: 95%;
   height: 600px;
-  background: grey;
+  background: #d8d8d6;
   margin-top: 20px;
   margin-left: 2.5%;
   border-radius: 35px;
@@ -15,13 +11,12 @@ a {
   display: inline-block;
   height: 500px;
   margin-top: 50px;
-  background: #aaaaaa;
   vertical-align: top;
 }
 
 .image-block {
   width: 38%;
-  border-right: 2px solid #ffffff;
+  border-right: 3px solid #2f5d8c;
   text-align: center;
 }
 
@@ -38,19 +33,29 @@ a {
 
 .book-title {
   font-size: 45px;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
+  border-left: 4px solid #d55e2d;
+  color: #2f5d8c;
 }
 
 .about-book {
-  margin-left: 3%;
+  margin-left: 1%;
+  margin-top: 30px;
+  color: #2f5d8c;
 }
 
 .authors {
   font-size: 20px;
 }
 
+.authors a {
+  color: #d55e2d;
+}
+
 .genre {
-  font-size: 17px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .count {
