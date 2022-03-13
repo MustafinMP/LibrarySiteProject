@@ -1,40 +1,40 @@
 .header {
   display: block;
   width: 100%;
-  height: 70px;
-  padding-top: -100px;
+  height: 210px;
   margin: 0;
-  background: #efb58f;
+  background: #dfdfdd;
+}
+
+.header-label {
+  display: block;
+  width: 35%;
+  margin-left: 32.5%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  font-family: Rockwell, Goudy Old Style, Gabriola, Century Gothic;
+  font-size: 50px;
+  border-bottom: 3px solid #d55e2d;
+  color: #2f5d8c;
 }
 
 header .header-block {
   display: inline-block;
-  width: 19%;
-  height: 100%;
+  width: 24%;
+  height: 70px;
   font-family: Century Gothic sans-serif;
   text-align: center;
   line-height: 65px;
+  margin-top: 20px;
   margin-left: 0.5%;
   vertical-align: top;
-}
-
-.header-lable {
-  display: block;
-  font-family: Rockwell, Goudy Old Style, Gabriola, Century Gothic;
-  font-size: 40px;
-  color: #ffffff;
 }
 
 header a {
   font-size: 30px;
   text-decoration: none;
-  background: #d89279;
-  color: #eee3dd;
-}
-
-.login {
-  background: #efb58f;
-  color: #ffffff;
+  color: #2f5d8c;
 }
 
 body {
