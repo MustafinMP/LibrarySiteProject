@@ -9,8 +9,8 @@
 {% block content %}
 
 <div class="form-block">
+        <div class="enter-label">Вход</div>
     <form method="post">
-        <div class="enter-lable">Вход</div>
         {% csrf_token %}
         <div class="form-line">
             <div class="label-tag">{{ form.username.label_tag }}</div><br>

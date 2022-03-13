@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647180945995</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Redesign label on register page">
+      <created>1647181437341</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1647181437341</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,6 +272,7 @@
     <MESSAGE value="Create a one-book page and books page style" />
     <MESSAGE value="Create the book page style" />
     <MESSAGE value="Redesign register page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Redesign register page" />
+    <MESSAGE value="Redesign label on register page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Redesign label on register page" />
   </component>
 </project>

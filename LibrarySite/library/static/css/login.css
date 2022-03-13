@@ -2,26 +2,23 @@
   display: block;
   width: 30%;
   height: 370px;
-  background: #eee3dd;
-  border: 2px solid #d89279;
+  background: #d8d8d6;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 0px #777777;
   margin-top: 5%;
   margin-bottom: 5%;
   margin-left: 35%;
+  padding-top: 20px;
 }
 
-.enter-lable {
-  display: block;
-  width: 30%;
+.enter-label {
   font-size: 35px;
   text-align: center;
-  border-bottom: 2px solid;
-  color: #d89279;
-  margin-top: 13px;
-  margin-bottom: 20px;
-  margin-left: 35%;
-  border-bottom: 2px solid;
+  color: #d55e2d;
+}
+
+form {
+  margin-top: 25px;
 }
 
 .form-line {
@@ -32,18 +29,18 @@
 
 .form-line .label-tag {
   font-size: 25px;
-  color: #d89279;
+  color: #2f5d8c;
 }
 
 .form-line input {
   width: 70%;
   height: 35px;
   border-radius: 12px;
-  background: #ffffff;
+  background: #f9f9f9;
 }
 
 .button-input input {
-  background: #d89279;
+  background: #a0b3c1;
   font-size: 17px;
   color: #111111;
   width: 30%;
@@ -52,5 +49,5 @@
 
 .no-account {
   text-align: center;
-  color: #d89279;
+  color: #d55e2d;
 }
