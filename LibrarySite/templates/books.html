@@ -8,16 +8,19 @@
 {% block title %} Все книги {% endblock title %}
 
 {% block content %}
-{% for book in books %}
-<a class="one-book" href="/books/{{ book.id }}/">
-    <div class="image-block">
-        <img src="{{ book.img_url }}">
-    </div>
-    <div class="text-block">
-        <h2>{{ book.title }}</h2>
-        <h3> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</h3>
-        <h3>Жанр: {{ book.genre }}</h3>
-    </div>
-</a>
-{% endfor %}
+<section class="books">
+    <h1>Книги</h1>
+    {% for book in books %}
+    <a class="one-book" href="/books/{{ book.id }}/">
+        <div class="image-block">
+            <img src="{{ book.img_url }}">
+        </div>
+        <article class="text-block">
+            <h2>{{ book.title }}</h2>
+            <h3> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</h3>
+            <h3>Жанр: {{ book.genre }}</h3>
+        </article>
+    </a>
+    {% endfor %}
+</section>
 {% endblock content %}

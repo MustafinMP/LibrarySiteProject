@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/books.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ai_lessons" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -252,7 +251,21 @@
       <option name="project" value="LOCAL" />
       <updated>1647181821449</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="New header design">
+      <created>1647186684939</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1647186684939</updated>
+    </task>
+    <task id="LOCAL-00026" summary="New homepage design">
+      <created>1647763289273</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1647763289273</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,7 +280,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating the basic of the program&#10;Создание каркаса программы" />
     <MESSAGE value="Creating a registration form and some models" />
     <MESSAGE value="Error correction in models.py" />
     <MESSAGE value="Correction of small errors in models.py" />
@@ -291,6 +303,8 @@
     <MESSAGE value="Redesign label on register page" />
     <MESSAGE value="Redesign login page" />
     <MESSAGE value="Change one color" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change one color" />
+    <MESSAGE value="New header design" />
+    <MESSAGE value="New homepage design" />
+    <option name="LAST_COMMIT_MESSAGE" value="New homepage design" />
   </component>
 </project>
