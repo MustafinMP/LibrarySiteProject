@@ -1,23 +1,13 @@
-.index-choice-block {
-  display: inline-block;
-  height: 400px;
-  width: 42.5%;
-  margin-left: 5%;
-  margin-top: 45px;
-  margin-bottom: 45px;
-  border-radius: 30px;
-  background: #e4e7ee;
+.choice-block {
+  display: block;
+  height: 700px;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-bottom: 0;
  }
 
-.block1 {
-  border: 5px solid #fbb18c;
- }
-
-.block2 {
-  border: 5px solid #adc2ea;
- }
-
-.index-choice-block a {
+.choice-block a {
   text-decoration: none;
   display: block;
   margin-top: 55%;
@@ -27,47 +17,35 @@
   color: #5f7493;
 }
 
+.section-1 {
+  background: #f9f9f9;
+ }
+
+.section-2 {
+  background: #dfdfdd;
+ }
+
+.section-label {
+  display: block;
+  width: 30%;
+  height: 70px;
+  margin-left: 35%;
+  text-align: center;
+  font-size: 40px;
+  color: #2f5d8c;
+}
+
+.section-1 .section-label {
+  border-bottom: 2px solid #dfdfdd;
+ }
+
+.section-2 .section-label {
+  border-bottom: 2px solid #f9f9f9;
+ }
+
 .text-block {
   display: inline-block;
   margin-left: 7%;
-  font-size: 60px;
-  font-family: Century Gothic sans-serif;
-  color: #5f7493;
-}
-
-.right-block {
-  display: inline-block;
-  margin-left: 35%;
-  margin-top: -30%;
-  width: 70%;
-}
-
-.right-block div {
-  display: block;
-  margin-left: 50%;
-}
-
-.right-block a {
-  margin-top: 33%;
-  width: 450px;
-  margin-left: -10px;
-}
-
-.guide-block {
-  display: block;
-  height: 300px;
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 45px;
-  margin-bottom: 45px;
-  border-radius: 30px;
-  background: #e4e7ee;
-  border: 5px solid #b5c9c8;
-}
-
-.guide-block h3 {
-  display: inline-block;
-  margin-left: 3%;
   font-size: 60px;
   font-family: Century Gothic sans-serif;
   color: #5f7493;

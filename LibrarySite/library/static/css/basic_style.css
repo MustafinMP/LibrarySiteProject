@@ -1,20 +1,20 @@
 .header {
   display: block;
   width: 100%;
-  height: 210px;
+  height: 290px;
   margin: 0;
-  background: #dfdfdd;
+  background: #f9f9f9;
 }
 
 .header-label {
   display: block;
   width: 35%;
   margin-left: 32.5%;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 60px;
+  padding-bottom: 40px;
   text-align: center;
   font-family: Rockwell, Goudy Old Style, Gabriola, Century Gothic;
-  font-size: 50px;
+  font-size: 60px;
   border-bottom: 3px solid #d55e2d;
   color: #2f5d8c;
 }
@@ -40,6 +40,7 @@ header a {
 body {
   padding: 0;
   margin: 0;
+  width: 100%;
   background-color: #f9f9f9;
 }
 
@@ -47,5 +48,6 @@ footer {
   display: block;
   background: #a0b3c1;
   height: 300px;
+  margin-top: 0;
   margin-bottom: 0;
 }

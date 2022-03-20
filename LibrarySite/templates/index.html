@@ -8,37 +8,18 @@
 {% block title %} Lib117 {% endblock title %}
 {% block content %}
 
-<div class="index-choice-block block1">
-    <div class="text-block">
-        <h3>Книги</h3>
-        <p></p>
-    </div>
-    <div class="right-block">
-        <div>
-            <img src="{% static 'images/book_icon.png' %}">
-        </div>
-        <a href="/autors/">Перейти к выбору >>></a>
-    </div>
-</div>
+<section class="choice-block section-1">
+    <h3 class="section-label">О сайте</h3>
 
-    <div class="index-choice-block block2">
-        <div class="text-block">
-            <h3>Авторы</h3>
-            <p></p>
-        </div>
-        <div class="right-block">
-            <div>
-                <img src="{% static 'images/pen_icon.png' %}">
-            </div>
-            <a href="/autors/">Перейти к выбору >>></a>
-        </div>
-    </div>
-    <div class="guide-block">
-        <h3>Как это работает</h3>
-        <div>
-            <h4></h4>
-        </div>
-        <div>
-        </div>
-    </div>
-    {% endblock content %}
+</section>
+
+<section class="choice-block section-2">
+    <h3 class="section-label">Авторы</h3>
+
+</section>
+
+<section class="choice-block section-1">
+    <h3 class="section-label">Книги</h3>
+
+</section>
+{% endblock content %}
