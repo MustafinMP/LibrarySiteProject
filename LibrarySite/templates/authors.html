@@ -1,0 +1,25 @@
+{% extends "basic_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/authors.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Все книги {% endblock title %}
+
+{% block content %}
+<section class="authors">
+    <h1>Авторы</h1>
+    {% for author in authors %}
+    <a class="one-author" href="/authors/{{ author.id }}/">
+        <article class="text-block">
+            <h2>{{ author.name }} {{ author.last_name }}</h2>
+            <h3>
+                Книги: {% for book in author.book.all %}<q>{{ book.title }}</q>{% endfor %}
+                {% if book.count > 3 %} и другие {% endif %}
+            </h3>
+        </article>
+    </a>
+    {% endfor %}
+</section>
+{% endblock content %}

@@ -11,6 +11,7 @@ logging.basicConfig(filename='views_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)
 
+
 # ========================================= Функции представлений =========================================
 
 # главная страница
@@ -18,6 +19,7 @@ def index(request):
     return render(request, 'index.html')
 
 
+# ------------------------------------------------- Книги -------------------------------------------------
 def books_view(request):
     books = Book.objects.all()
     context = {'books': books, 'media': settings.STATIC_URL}
@@ -32,10 +34,18 @@ def one_book(request, book_id):
         count = book.bookinstance_set.all().filter(status=1).count()
         return render(request, 'one_book.html', context={'book': book, 'count': count})
 
-def page_not_found_view(request):
-    # ,exception
-    return render(request, '404.html', status=404)
 
+# ---------------------------------------------------------------------------------------------------------
+
+
+# ------------------------------------------------- Авторы ------------------------------------------------
+def authors_view(request):
+    authors = Author.objects.all()
+    context = {'authors': authors, 'media': settings.STATIC_URL}
+    return render(request, 'authors.html', context=context)
+
+
+# ---------------------------------------------------------------------------------------------------------
 
 def register(request):
     if request.method == 'POST':
@@ -66,3 +76,8 @@ def login(request):
             user = User.objects.get(username=username)
             if user.password == password:
                 pass
+
+
+def page_not_found_view(request):
+    # ,exception
+    return render(request, '404.html', status=404)

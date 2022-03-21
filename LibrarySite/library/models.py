@@ -32,9 +32,15 @@ class Author(models.Model):
         max_length=100,
         verbose_name='Фамилия'
     )
+    book = None
 
     def __str__(self):
         return f'{self.name} {self.last_name}'
+
+    def display_book(self):
+        return ', '.join([f'{book.title}' for book in self.book.all()])
+
+    display_book.short_description = 'Книги'
 
 
 class Book(models.Model):
@@ -46,7 +52,7 @@ class Book(models.Model):
         Genre,
         on_delete=models.PROTECT
     )
-    author = models.ManyToManyField(Author)
+    author = models.ManyToManyField(Author, related_name='book')
     image = models.ImageField(
         verbose_name='Изображение обложки книги',
         upload_to='bookimg/'
