@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Author, Book, BookInstance, Genre, Status
+from .models import Author, Book, BookInstance, Genre, Status, Textbook, TextbookInstance, PublishingHouse
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
@@ -25,6 +25,16 @@ class BookInstanceAdmin(admin.ModelAdmin):
     list_display = ('book', 'id', 'status', 'borrower')
 
 
+@admin.register(Textbook)
+class TextbookAdmin(admin.ModelAdmin):
+    list_display = ('title', 'display_author', 'publishing_house')
+
+
+@admin.register(TextbookInstance)
+class TextbookInstanceAdmin(admin.ModelAdmin):
+    list_display = ('book', 'id', 'status', 'borrower')
+
+
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
     pass
@@ -32,4 +42,10 @@ class GenreAdmin(admin.ModelAdmin):
 
 @admin.register(Status)
 class StatusAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PublishingHouse)
+class PublishingHouseAdmin(admin.ModelAdmin):
+    # list_display = ('id', 'name')
     pass
