@@ -3,7 +3,7 @@ from .forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
-from .models import Book, Author
+from .models import Book, Author, BookInstance
 import logging
 
 # подключение файла для логирования
@@ -19,6 +19,9 @@ def index(request):
     return render(request, 'index.html')
 
 
+# страница с информацией о сайте
+def about(request):
+    return render(request, 'about.html')
 # ------------------------------------------------- Книги -------------------------------------------------
 def books_view(request):
     books = Book.objects.all()
@@ -33,8 +36,6 @@ def one_book(request, book_id):
         book = Book.objects.get(id=book_id)
         count = book.bookinstance_set.all().filter(status=1).count()
         return render(request, 'one_book.html', context={'book': book, 'count': count})
-
-
 # ---------------------------------------------------------------------------------------------------------
 
 
@@ -82,6 +83,30 @@ def login(request):
             user = User.objects.get(username=username)
             if user.password == password:
                 pass
+
+
+def profile(request, user_id):
+    user = User.objects.get(id=user_id)
+    user2 = request.user
+    try:
+        book_ins = BookInstance.objects.get(borrower=user2)
+        book = book_ins.book
+        have_book = True
+        context = {
+            'user_data': user,
+            'have_book': have_book,
+            'book': book,
+            'book_ins': book_ins
+        }
+    except Exception:
+        have_book = False
+        context = {
+            'user_data': user,
+            'have_book': have_book
+        }
+    if user == user2:
+        return render(request, 'profile.html', context=context)
+
 
 
 def page_not_found_view(request):

@@ -5,7 +5,7 @@
 <link href="{% static 'css/one_author.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
-{% block title %} Lib117 {% endblock title %}
+{% block title %} {{ author.name }} {{ author.last_name }} {% endblock title %}
 
 {% block content %}
 <h1>{{ author.name }} {{ author.last_name }}</h1>

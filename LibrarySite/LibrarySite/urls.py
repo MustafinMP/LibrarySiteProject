@@ -23,12 +23,14 @@ from library import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
+    path('about/', views.about),
     path('books/', views.books_view),
     path('books/<int:book_id>/', views.one_book),
     path('authors/', views.authors_view),
     path('authors/<int:author_id>/', views.one_author),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', views.register),
+    path('profile/<int:user_id>/', views.profile),
     path('login/', auth_views.LoginView.as_view(template_name='login.html')),
     path('404testing/', views.page_not_found_view),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

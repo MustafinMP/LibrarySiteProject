@@ -1,0 +1,15 @@
+{% extends "basic_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/about.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} О сайте {% endblock title %}
+
+{% block content %}
+<h1>Что такое Lib117</h1>
+<p>
+    здесь будет описание сайта
+</p>
+{% endblock content %}

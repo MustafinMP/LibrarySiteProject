@@ -8,18 +8,22 @@
 {% block title %} {{ user.first_name }} {{ user.last_name }} {% endblock title %}
 {% block content %}
 <div class="header-profile\">
-{{ user.first_name }} {{ user.last_name }}
+    {{ user.first_name }} {{ user.last_name }}
 </div>
 <div class="my-books\">
     <div>Мои книги</div>
     <div class="book-image">
-        <img src="{{ book.image }}">
+        <img src="{{ book.img_url }}">
     </div>
+    {% if book %}
     <div class="book-info">
-        <h3>{{ book.lable }}</h3>
+        <h3>{{ book.title }}</h3>
         <h4>{{ book.author }}</h4>
         <h4>{{ book_ins.take_date }}</h4>
         <h4>{{ book_ins.return_date }}</h4>
     </div>
+    {% else %}
+    <h2>На данный момент у вас нет книг</h2>
+    {% endif %}
 </div>
 {% endblock content %}
