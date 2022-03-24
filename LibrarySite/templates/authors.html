@@ -11,6 +11,7 @@
 <section class="authors">
     <h1>Авторы</h1>
     {% for author in authors %}
+    {% if author.book.count > 0 %}
     <a class="one-author" href="/authors/{{ author.id }}/">
         <article class="text-block">
             <h2>{{ author.name }} {{ author.last_name }}</h2>
@@ -20,6 +21,7 @@
             </h3>
         </article>
     </a>
+    {% endif %}
     {% endfor %}
 </section>
 {% endblock content %}

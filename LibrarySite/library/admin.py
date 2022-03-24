@@ -32,7 +32,7 @@ class TextbookAdmin(admin.ModelAdmin):
 
 @admin.register(TextbookInstance)
 class TextbookInstanceAdmin(admin.ModelAdmin):
-    list_display = ('book', 'id', 'status', 'borrower')
+    list_display = ('textbook', 'status', 'borrower')
 
 
 @admin.register(Genre)
@@ -47,5 +47,4 @@ class StatusAdmin(admin.ModelAdmin):
 
 @admin.register(PublishingHouse)
 class PublishingHouseAdmin(admin.ModelAdmin):
-    # list_display = ('id', 'name')
     pass

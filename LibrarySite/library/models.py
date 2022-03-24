@@ -182,9 +182,12 @@ class Textbook(models.Model):
 
 
 class TextbookInstance(models.Model):
-    book = models.ForeignKey(
-        Book,
-        on_delete=models.PROTECT
+    textbook = models.ForeignKey(
+        Textbook,
+        on_delete=models.PROTECT,
+        related_name='textbook',
+        blank=True,
+        null=True
     )
     status = models.ForeignKey(
         Status,
@@ -198,5 +201,5 @@ class TextbookInstance(models.Model):
     )
 
     def __str__(self):
-        return f'{self.id}, {self.book}'
+        return f'{self.id}, {self.textbook}'
 # ------------------------------------------------------------------------------
