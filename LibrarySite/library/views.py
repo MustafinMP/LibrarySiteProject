@@ -45,7 +45,13 @@ def authors_view(request):
     return render(request, 'authors.html', context=context)
 
 
+def one_author(request, author_id):
+    author = Author.objects.get(id=author_id)
+    books = author.book.all()
+    context = {'author': author, 'books': books}
+    return render(request, 'one_author.html', context=context)
 # ---------------------------------------------------------------------------------------------------------
+
 
 def register(request):
     if request.method == 'POST':

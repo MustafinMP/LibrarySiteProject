@@ -26,6 +26,7 @@ urlpatterns = [
     path('books/', views.books_view),
     path('books/<int:book_id>/', views.one_book),
     path('authors/', views.authors_view),
+    path('authors/<int:author_id>/', views.one_author),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register/', views.register),
     path('login/', auth_views.LoginView.as_view(template_name='login.html')),

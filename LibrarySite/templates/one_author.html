@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "basic_template.html" %}
+{% load static %}
 
-</body>
-</html>
+{% block styles_link %}
+<link href="{% static 'css/one_author.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Lib117 {% endblock title %}
+
+{% block content %}
+<h1>{{ author.name }} {{ author.last_name }}</h1>
+{% for book in books %}
+    <a class="one-book" href="/books/{{ book.id }}/">
+        <div class="image-block">
+            <img src="{{ book.img_url }}">
+        </div>
+        <article class="text-block">
+            <h2>{{ book.title }}</h2>
+            <h3>Жанр: {{ book.genre }}</h3>
+        </article>
+    </a>
+    {% endfor %}
+{% endblock content %}
