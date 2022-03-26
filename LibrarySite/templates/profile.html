@@ -7,23 +7,29 @@
 
 {% block title %} {{ user.first_name }} {{ user.last_name }} {% endblock title %}
 {% block content %}
-<div class="header-profile\">
+<h1 class="profile-header">
     {{ user.first_name }} {{ user.last_name }}
-</div>
+</h1>
 <div class="my-books\">
-    <div>Мои книги</div>
-    <div class="book-image">
-        <img src="{{ book.img_url }}">
-    </div>
+    <h2>Мои книги</h2>
     {% if book %}
-    <div class="book-info">
+    <div class="disp-inline">
+        <div class="book-image">
+            <img src="{{ book.img_url }}">
+        </div>
+    </div>
+    <div class="disp-inline book-info">
         <h3>{{ book.title }}</h3>
-        <h4>{{ book.author }}</h4>
-        <h4>{{ book_ins.take_date }}</h4>
-        <h4>{{ book_ins.return_date }}</h4>
+        <p>Авторы: {% for author in book.author.all %}
+            <a href="/authors/{{ author.id }}/">{{ author }}</a>
+        </p>
+        {% endfor %}
+        <p> Жанр: {{ book.genre }}</p>
+        <p>Дата получения: {{ book_ins.take_date }}</p>
+        <p>Дата возврата: {{ book_ins.return_date }}</p>
     </div>
     {% else %}
-    <h2>На данный момент у вас нет книг</h2>
+    <h2 class="no-books">На данный момент у вас нет книг</h2>
     {% endif %}
 </div>
 {% endblock content %}
