@@ -5,6 +5,11 @@
   color: #2f5d8c;
 }
 
+h2 {
+  text-align: center;
+  color: #2f5d8c;
+}
+
 .disp-inline {
   display: inline-block;
   vertical-align: top;

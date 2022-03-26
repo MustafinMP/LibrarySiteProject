@@ -5,18 +5,18 @@
 <link href="{% static 'css/one_book.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
-{% block title %} Lib117 {% endblock title %}
+{% block title %} {{ book.title }} {% endblock title %}
 
 {% block content %}
-<div class="book-block">
-    <div class="disp-inline image-block">
+<section class="book-block">
+    <article class="disp-inline image-block">
         <img src="{{ book.img_url }}">
-    </div>
-    <div class="disp-inline text-block">
+    </article>
+    <article class="disp-inline text-block">
         <div class="book-title">
             {{ book.title }}
         </div>
-        <div class="about-book">
+        <section class="about-book">
             <div class="authors">
                 Авторы: {% for author in book.author.all %}
                 <a href="/authors/{{ author.id }}/">{{ author }}</a>
@@ -24,8 +24,15 @@
             </div>
             <div class="genre">Жанр: {{ book.genre }}</div>
             <div class="count">Количество свободных книг: {{ count }}</div>
-        </div>
-
-    </div>
-</div>
+        </section>
+        {% if count > 0 and user.is_authentificated and have_book %}
+        <form method="post">
+            <input type="submit" value="Зарезервировать" class="reserve">
+        </form>
+        {% else %}
+        <p class="return-label">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
+        <a class="return-label" href="/profile/{{ user.id }}/">Перейти в профиль >></a>
+        {% endif %}
+    </article>
+</section>
 {% endblock content %}

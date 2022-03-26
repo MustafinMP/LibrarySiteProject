@@ -22,6 +22,8 @@ def index(request):
 # страница с информацией о сайте
 def about(request):
     return render(request, 'about.html')
+
+
 # ------------------------------------------------- Книги -------------------------------------------------
 def books_view(request):
     books = Book.objects.all()
@@ -35,7 +37,19 @@ def one_book(request, book_id):
     else:
         book = Book.objects.get(id=book_id)
         count = book.bookinstance_set.all().filter(status=1).count()
-        return render(request, 'one_book.html', context={'book': book, 'count': count})
+        user2 = request.user
+        try:
+            user_books = BookInstance.objects.get(borrower=user2)
+            have_book = bool(user_books)
+        except Exception:
+            have_book = False
+        return render(request, 'one_book.html', context={
+            'book': book,
+            'count': count,
+            'have_book': have_book
+        })
+
+
 # ---------------------------------------------------------------------------------------------------------
 
 
@@ -51,6 +65,8 @@ def one_author(request, author_id):
     books = author.book.all()
     context = {'author': author, 'books': books}
     return render(request, 'one_author.html', context=context)
+
+
 # ---------------------------------------------------------------------------------------------------------
 
 
@@ -106,7 +122,6 @@ def profile(request, user_id):
         }
     if user == user2:
         return render(request, 'profile.html', context=context)
-
 
 
 def page_not_found_view(request):

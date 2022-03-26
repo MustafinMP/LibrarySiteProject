@@ -59,6 +59,22 @@
   margin-top: 10px;
 }
 
+.reserve {
+  width: 350px;
+  height: 70px;
+  margin-top: 150px;
+  margin-left: 20px;
+  background: white;
+  border-radius: 5px;
+}
+
+.return-label {
+  margin-top: 150px;
+  margin-left: 20px;
+  font-size: 25px;
+  color: #d55e2d;
+}
+
 .count {
   vertical-align: bottom;
   margin-top: 100px;
