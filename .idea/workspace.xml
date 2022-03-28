@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/books.html" afterDir="false" />
+    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="Create logout function">
+      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +25,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
