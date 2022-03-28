@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import RegisterForm, LoginForm
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
@@ -87,13 +88,23 @@ def register(request):
         return render(request, 'register.html', {'form': register_form})
 
 
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = User.objects.get(username=username)
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return HttpResponsePermanentRedirect('/')
+            else:
+                login_form = LoginForm()
+                return render(request, 'login.html', {'form': login_form, 'errors': 'Неверный пароль'})
+    else:
+        login_form = LoginForm()
+        return render(request, 'login.html', {'form': login_form, 'errors': ''})
 
 
 def profile(request, user_id):

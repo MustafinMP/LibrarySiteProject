@@ -1,7 +1,7 @@
 .form-block {
   display: block;
   width: 30%;
-  height: 370px;
+  height: 410px;
   background: #dfdfdd;
   border-radius: 20px;
   box-shadow: 5px 5px 5px 0px #777777;
@@ -49,5 +49,11 @@ form {
 
 .no-account {
   text-align: center;
+  color: #d55e2d;
+}
+
+.errors {
+  text-align: center;
+  font-size: 20px;
   color: #d55e2d;
 }

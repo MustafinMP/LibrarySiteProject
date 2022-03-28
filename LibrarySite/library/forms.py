@@ -26,10 +26,12 @@ class RegisterForm(forms.Form):
     )
 
 
-class LoginForm(AuthenticationForm):
+class LoginForm(forms.Form):
+# class LoginForm(AuthenticationForm):
     username = forms.CharField(
-        label='username'
+        label='Введите имя'
     )
     password = forms.CharField(
         widget=forms.PasswordInput,
+        label='Введите пароль'
     )
