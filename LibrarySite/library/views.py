@@ -94,7 +94,6 @@ def login_view(request):
         if login_form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
-            user = User.objects.get(username=username)
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
