@@ -27,9 +27,13 @@
         <p> Жанр: {{ book.genre }}</p>
         <p>Дата получения: {{ book_ins.take_date }}</p>
         <p>Дата возврата: {{ book_ins.return_date }}</p>
+        <p class="return-book">Вернуть книгу можно в библиотеке</p>
     </div>
     {% else %}
     <h2 class="no-books">На данный момент у вас нет книг</h2>
     {% endif %}
 </div>
+<p class="profile-exit">
+    <a href="/logout/">Выйти из профиля</a>
+</p>
 {% endblock content %}

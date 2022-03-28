@@ -52,7 +52,21 @@ h2 {
   text-align: left;
 }
 
+.book-info .return-book {
+  font-size: 18px;
+  color: #d55e2d;
+}
+
 .no-books {
   padding-top: 30px;
   text-align: center;
+}
+
+.profile-exit a {
+  color: #2f5d8c;
+}
+
+.profile-exit {
+  text-align: center;
+  font-size: 22px;
 }

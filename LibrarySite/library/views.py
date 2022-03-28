@@ -5,7 +5,6 @@ from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
 from .models import Book, Author, BookInstance
 import logging
-
 # подключение файла для логирования
 logging.basicConfig(filename='views_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
@@ -68,8 +67,6 @@ def one_author(request, author_id):
 
 
 # ---------------------------------------------------------------------------------------------------------
-
-
 def register(request):
     if request.method == 'POST':
         register_form = RegisterForm(request.POST)
@@ -97,8 +94,6 @@ def login(request):
             username = request.POST.get('username')
             password = request.POST.get('password')
             user = User.objects.get(username=username)
-            if user.password == password:
-                pass
 
 
 def profile(request, user_id):
