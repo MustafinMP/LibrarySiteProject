@@ -25,13 +25,22 @@
             <div class="genre">Жанр: {{ book.genre }}</div>
             <div class="count">Количество свободных книг: {{ count }}</div>
         </section>
-        {% if count > 0 and user.is_authentificated and have_book %}
+        {% if user.is_authenticated %}
+        {% if not have_book %}
+        {% if count > 0%}
         <form method="post">
+        {% csrf_token %}
             <input type="submit" value="Зарезервировать" class="reserve">
         </form>
         {% else %}
+        <p class="return-label">Книг нет в наличии</p>
+        {% endif %}
+        {% else %}
         <p class="return-label">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
         <a class="return-label" href="/profile/{{ user.id }}/">Перейти в профиль >></a>
+        {% endif %}
+        {% else %}
+        <p class="return-label">Вы не зарегистрированы</p>
         {% endif %}
     </article>
 </section>

@@ -25,9 +25,15 @@
         </p>
         {% endfor %}
         <p> Жанр: {{ book.genre }}</p>
+        <p>Статус: {{ book_ins.status }}</p>
+        {% if book_ins.status.id == 4 %}
+        <p class="return-book">Получить книгу можно в библиотеке</p>
+        {% else %}
+        {{ book_ins.status }}
         <p>Дата получения: {{ book_ins.take_date }}</p>
         <p>Дата возврата: {{ book_ins.return_date }}</p>
         <p class="return-book">Вернуть книгу можно в библиотеке</p>
+        {% endif %}
     </div>
     {% else %}
     <h2 class="no-books">На данный момент у вас нет книг</h2>

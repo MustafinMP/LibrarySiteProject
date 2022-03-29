@@ -4,15 +4,18 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
-from .models import Book, Author, BookInstance
+from .models import Book, Author, BookInstance, Status
 import logging
+
 # подключение файла для логирования
-logging.basicConfig(filename='views_logging.log',
+logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)
 
+'''=====================================================================================================================
+Функции представлений
+====================================================================================================================='''
 
-# ========================================= Функции представлений =========================================
 
 # главная страница
 def index(request):
@@ -24,7 +27,11 @@ def about(request):
     return render(request, 'about.html')
 
 
-# ------------------------------------------------- Книги -------------------------------------------------
+'''---------------------------------------------------------------------------------------------------------------------
+Книги 
+---------------------------------------------------------------------------------------------------------------------'''
+
+
 def books_view(request):
     books = Book.objects.all()
     context = {'books': books, 'media': settings.STATIC_URL}
@@ -32,8 +39,20 @@ def books_view(request):
 
 
 def one_book(request, book_id):
-    if request == 'POST':
-        pass
+    if request.method == 'POST':
+        user = request.user
+        book_instance = BookInstance.objects.all().filter(status=1, book=book_id)[0]
+        book_instance.borrower = user
+        book_instance.status = Status.objects.get(id=4)
+        book_instance.save()
+        logging.info(f'user {user} reserved book {Book.objects.get(id=book_id).title}')
+        book = Book.objects.get(id=book_id)
+        count = book.bookinstance_set.all().filter(status=1).count()
+        return render(request, 'one_book.html', context={
+            'book': book,
+            'count': count,
+            'have_book': True
+        })
     else:
         book = Book.objects.get(id=book_id)
         count = book.bookinstance_set.all().filter(status=1).count()
@@ -50,10 +69,11 @@ def one_book(request, book_id):
         })
 
 
-# ---------------------------------------------------------------------------------------------------------
+'''---------------------------------------------------------------------------------------------------------------------
+Авторы
+---------------------------------------------------------------------------------------------------------------------'''
 
 
-# ------------------------------------------------- Авторы ------------------------------------------------
 def authors_view(request):
     authors = Author.objects.all()
     context = {'authors': authors, 'media': settings.STATIC_URL}
@@ -67,16 +87,22 @@ def one_author(request, author_id):
     return render(request, 'one_author.html', context=context)
 
 
-# ---------------------------------------------------------------------------------------------------------
+'''---------------------------------------------------------------------------------------------------------------------
+Действия с пользователем
+---------------------------------------------------------------------------------------------------------------------'''
+
+
 def register(request):
     if request.method == 'POST':
         register_form = RegisterForm(request.POST)
         if register_form.is_valid():
+            # получение данных из формы
             username = request.POST.get('username')
             name = request.POST.get('name')
             last_name = request.POST.get('last_name')
             e_mail = request.POST.get('e_mail')
             password = request.POST.get('password')
+            # создание пользователя
             user = User.objects.create_user(username, e_mail, password)
             user.last_name = last_name
             user.first_name = name
@@ -97,6 +123,7 @@ def login_view(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                logging.info(f'login user "{username}"')
                 return HttpResponsePermanentRedirect('/')
             else:
                 login_form = LoginForm()
@@ -109,26 +136,31 @@ def login_view(request):
 def profile(request, user_id):
     user = User.objects.get(id=user_id)
     user2 = request.user
-    try:
-        book_ins = BookInstance.objects.get(borrower=user2)
-        book = book_ins.book
-        have_book = True
-        context = {
-            'user_data': user,
-            'have_book': have_book,
-            'book': book,
-            'book_ins': book_ins
-        }
-    except Exception:
-        have_book = False
-        context = {
-            'user_data': user,
-            'have_book': have_book
-        }
     if user == user2:
+        try:
+            book_ins = BookInstance.objects.get(borrower=user2)
+            book = book_ins.book
+            have_book = True
+            context = {
+                'user_data': user,
+                'have_book': have_book,
+                'book': book,
+                'book_ins': book_ins
+            }
+        except Exception:
+            have_book = False
+            context = {
+                'user_data': user,
+                'have_book': have_book
+            }
+
         return render(request, 'profile.html', context=context)
+    return render(request, 'not_your_profile.html')
 
 
 def page_not_found_view(request):
     # ,exception
     return render(request, '404.html', status=404)
+
+
+'''=================================================================================================================='''
