@@ -50,6 +50,9 @@ urlpatterns = [
                        {'next_page': settings.LOGOUT_REDIRECT_URL},
                        name='logout'),
 
+                  path('staff/reserve/',
+                       views.staff_reserve),
+
                   path('404testing/',
                        views.page_not_found_view),
 

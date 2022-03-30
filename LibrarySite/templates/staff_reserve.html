@@ -1,0 +1,36 @@
+{% extends "basic_staff_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/staff_reserve.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Все книги {% endblock title %}
+
+{% block content %}
+<h1 class="reserve-header">Список зарезервированных книг</h1>
+<h3 class="instruction">Для управления книгой нажмите на соответсвующий ряд</h3>
+{% if book_instances %}
+<table>
+    <thead>
+    <tr>
+        <th>Книга</th>
+        <th>id экземпляра</th>
+        <th>Ученик</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for book_instance in book_instances %}
+    <tr onclick="window.location.href='/staff/reserve/{{ book_instance.id }}/'; return false"
+        class="table-row">
+        <th>{{ book_instance.book }}</th>
+        <th>{{ book_instance.id }}</th>
+        <th>{{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h2 class="no-books">Зарезервированные книги отсутствуют</h2>
+{% endif %}
+{% endblock content %}

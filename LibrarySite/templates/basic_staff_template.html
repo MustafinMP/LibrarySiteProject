@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Lib117{% endblock title %}</title>
+    <link href="{% static 'css/basic_staff_style.css' %}" rel="stylesheet" type="text/css">
+    {% block styles_link %}{% endblock styles_link %}
+</head>
+<body>
+<header>
+    <h1 class="header-title">Lib117 | панель персонала</h1>
+    <a class="header-links" href="/">На главную страницу сайта</a>
+    <a class="header-links" href="/staff/">На главную страницу персонала</a>
+</header>
+<main>
+    {% block content %}{% endblock content %}
+</main>
+<footer>
+</footer>
+</body>
+</html>

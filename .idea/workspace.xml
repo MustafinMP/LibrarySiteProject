@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_staff_style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff_reserve.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_staff_template.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/staff_reserve.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
@@ -292,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648557066384</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Finish clean-up code&#10;&#10;Version 1.0.02">
+      <created>1648639557816</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1648639557816</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,7 +318,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Making a first version of basic_style.css" />
     <MESSAGE value="Change background color in basic_style.css" />
     <MESSAGE value="Redesign basic_style.css" />
     <MESSAGE value="Creating index.html and index.css" />
@@ -332,6 +342,7 @@
     <MESSAGE value="Clean in views.py" />
     <MESSAGE value="Fix some troubles&#10;&#10;First working version&#10;&#10;Version 1.0" />
     <MESSAGE value="Start clean-up code&#10;&#10;Version 1.0.01" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start clean-up code&#10;&#10;Version 1.0.01" />
+    <MESSAGE value="Finish clean-up code&#10;&#10;Version 1.0.02" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish clean-up code&#10;&#10;Version 1.0.02" />
   </component>
 </project>

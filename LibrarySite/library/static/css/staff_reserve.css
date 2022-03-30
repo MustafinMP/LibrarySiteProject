@@ -1,0 +1,33 @@
+.no-books {
+  text-align: center;
+  color: #d55e2d;
+}
+
+.reserve-header {
+  text-align: center;
+}
+
+.instruction {
+  text-align: center;
+  color: #2f5d8c;
+}
+
+table {
+  width: 90%;
+  margin-left: 5%;
+  border-bottom: 2px solid #a0b3c1;
+}
+
+thead {
+  height: 50px;
+  background: #a0b3c1;
+}
+
+.table-row {
+  height: 45px;
+}
+
+.table-row:hover {
+  background: #dfdfdd;
+}
+

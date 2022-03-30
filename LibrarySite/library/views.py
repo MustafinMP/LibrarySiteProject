@@ -171,4 +171,12 @@ def page_not_found_view(request):
     return render(request, '404.html', status=404)
 
 
-'''=================================================================================================================='''
+'''---------------------------------------------------------------------------------------------------------------------
+Представления персонала
+---------------------------------------------------------------------------------------------------------------------'''
+
+
+def staff_reserve(request):
+    book_instances = BookInstance.objects.all().filter(status=4)
+    context = {'book_instances': book_instances}
+    return render(request, 'staff_reserve.html', context=context)
