@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648549415230</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Start clean-up code&#10;&#10;Version 1.0.01">
+      <created>1648557066384</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1648557066384</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,7 +307,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Corrections in registration files" />
     <MESSAGE value="Making a first version of basic_style.css" />
     <MESSAGE value="Change background color in basic_style.css" />
     <MESSAGE value="Redesign basic_style.css" />
@@ -325,6 +331,7 @@
     <MESSAGE value="Create logout function" />
     <MESSAGE value="Clean in views.py" />
     <MESSAGE value="Fix some troubles&#10;&#10;First working version&#10;&#10;Version 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix some troubles&#10;&#10;First working version&#10;&#10;Version 1.0" />
+    <MESSAGE value="Start clean-up code&#10;&#10;Version 1.0.01" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start clean-up code&#10;&#10;Version 1.0.01" />
   </component>
 </project>

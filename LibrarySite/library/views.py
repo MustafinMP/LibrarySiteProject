@@ -95,6 +95,7 @@ def one_author(request, author_id):
 def register(request):
     if request.method == 'POST':
         register_form = RegisterForm(request.POST)
+
         if register_form.is_valid():
             # получение данных из формы
             username = request.POST.get('username')
@@ -102,11 +103,13 @@ def register(request):
             last_name = request.POST.get('last_name')
             e_mail = request.POST.get('e_mail')
             password = request.POST.get('password')
+
             # создание пользователя
             user = User.objects.create_user(username, e_mail, password)
             user.last_name = last_name
             user.first_name = name
             user.save()
+
             logging.info(f'created user "{username}"')
             return HttpResponsePermanentRedirect('login/')
     else:
@@ -117,14 +120,18 @@ def register(request):
 def login_view(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
+
         if login_form.is_valid():
             username = request.POST.get('username')
             password = request.POST.get('password')
+
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+
                 logging.info(f'login user "{username}"')
                 return HttpResponsePermanentRedirect('/')
+
             else:
                 login_form = LoginForm()
                 return render(request, 'login.html', {'form': login_form, 'errors': 'Неверный пароль'})
@@ -155,6 +162,7 @@ def profile(request, user_id):
             }
 
         return render(request, 'profile.html', context=context)
+
     return render(request, 'not_your_profile.html')
 
 
