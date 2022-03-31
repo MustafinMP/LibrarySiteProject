@@ -1,0 +1,29 @@
+.image-block {
+  display: inline-block;
+  margin-top: 70px;
+  margin-left: 5%;
+  vertical-align: top;
+}
+
+.image-block img {
+  width: 280px;
+  height: 400px;
+  text-align: center;
+}
+
+.description {
+  display: inline-block;
+  margin-top: 70px;
+  margin-left: 5%;
+  vertical-align: top;
+  color: #2f5d8c;
+}
+
+.description h1 {
+  font-size: 30px;
+  color: #d55e2d;
+}
+
+.description h1 h2 {
+  text-align: left;
+}

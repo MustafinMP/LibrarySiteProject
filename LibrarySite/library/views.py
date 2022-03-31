@@ -5,8 +5,13 @@ from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
 from .models import Book, Author, BookInstance, Status
+import datetime
 import logging
 
+STATUS_FREE = 1
+STATUS_BORROW = 2
+
+STATUS_RESERVE = 4
 # подключение файла для логирования
 logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
@@ -41,9 +46,9 @@ def books_view(request):
 def one_book(request, book_id):
     if request.method == 'POST':
         user = request.user
-        book_instance = BookInstance.objects.all().filter(status=1, book=book_id)[0]
+        book_instance = BookInstance.objects.all().filter(status=STATUS_FREE, book=book_id)[0]
         book_instance.borrower = user
-        book_instance.status = Status.objects.get(id=4)
+        book_instance.status = Status.objects.get(id=STATUS_RESERVE)
         book_instance.save()
         logging.info(f'user {user} reserved book {Book.objects.get(id=book_id).title}')
         book = Book.objects.get(id=book_id)
@@ -55,7 +60,7 @@ def one_book(request, book_id):
         })
     else:
         book = Book.objects.get(id=book_id)
-        count = book.bookinstance_set.all().filter(status=1).count()
+        count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
         user2 = request.user
         try:
             user_books = BookInstance.objects.get(borrower=user2)
@@ -177,6 +182,26 @@ def page_not_found_view(request):
 
 
 def staff_reserve(request):
-    book_instances = BookInstance.objects.all().filter(status=4)
+    book_instances = BookInstance.objects.all().filter(status=STATUS_RESERVE)
     context = {'book_instances': book_instances}
     return render(request, 'staff_reserve.html', context=context)
+
+
+def staff_reserve_one_book(request, book_id):
+    book_instance = BookInstance.objects.get(id=book_id)
+    if request.method == 'POST':
+        if '_approve' in request.POST:
+            book_instance.status = Status.objects.get(id=STATUS_BORROW)
+            today = datetime.date.today()
+            book_instance.take_date = today
+            book_instance.return_date = today + datetime.timedelta(days=7)
+        elif '_reject' in request.POST:
+            book_instance.status = Status.objects.get(id=STATUS_FREE)
+            book_instance.borrower = None
+        book_instance.save()
+        return HttpResponsePermanentRedirect('/staff/reserve/')
+    else:
+
+        context = {'book_instance': book_instance}
+        return render(request, 'staff_reserve_one_book.html', context=context)
+

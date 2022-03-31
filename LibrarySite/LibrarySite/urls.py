@@ -52,6 +52,8 @@ urlpatterns = [
 
                   path('staff/reserve/',
                        views.staff_reserve),
+                  path('staff/reserve/<book_id>/',
+                       views.staff_reserve_one_book),
 
                   path('404testing/',
                        views.page_not_found_view),

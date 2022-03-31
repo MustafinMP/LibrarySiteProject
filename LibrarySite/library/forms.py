@@ -28,3 +28,7 @@ class LoginForm(forms.Form):
                                label='Пароль',
                                help_text='Введите пароль'
                                )
+
+
+class ReserveYesForm(forms.Form):
+    pass

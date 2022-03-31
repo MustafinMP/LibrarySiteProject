@@ -14,7 +14,11 @@
     <a class="header-links" href="/staff/">На главную страницу персонала</a>
 </header>
 <main>
+    {% if user.is_staff %}
     {% block content %}{% endblock content %}
+    {% else %}
+    <h2>Доступ ограничен</h2>
+    {% endif %}
 </main>
 <footer>
 </footer>

@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_staff_style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff_reserve.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_staff_template.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/staff_reserve.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff_reserve_one_book.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/staff_reserve_one_book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_staff_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_staff_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/one_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff_reserve.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff_reserve.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648639557816</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Add 'reserved books' view for staff&#10;&#10;Version 1.1.01">
+      <created>1648650556057</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1648650556057</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -318,7 +328,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change background color in basic_style.css" />
     <MESSAGE value="Redesign basic_style.css" />
     <MESSAGE value="Creating index.html and index.css" />
     <MESSAGE value="Add a new file books.html" />
@@ -343,6 +352,7 @@
     <MESSAGE value="Fix some troubles&#10;&#10;First working version&#10;&#10;Version 1.0" />
     <MESSAGE value="Start clean-up code&#10;&#10;Version 1.0.01" />
     <MESSAGE value="Finish clean-up code&#10;&#10;Version 1.0.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish clean-up code&#10;&#10;Version 1.0.02" />
+    <MESSAGE value="Add 'reserved books' view for staff&#10;&#10;Version 1.1.01" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add 'reserved books' view for staff&#10;&#10;Version 1.1.01" />
   </component>
 </project>

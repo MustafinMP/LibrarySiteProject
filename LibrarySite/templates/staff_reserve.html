@@ -15,6 +15,8 @@
     <thead>
     <tr>
         <th>Книга</th>
+        <th>Издательство</th>
+        <th>Год издания</th>
         <th>id экземпляра</th>
         <th>Ученик</th>
     </tr>
@@ -23,7 +25,9 @@
     {% for book_instance in book_instances %}
     <tr onclick="window.location.href='/staff/reserve/{{ book_instance.id }}/'; return false"
         class="table-row">
-        <th>{{ book_instance.book }}</th>
+        <th>{{ book_instance.book.title }}</th>
+        <th>{{ book_instance.book.publishing_house }}</th>
+        <th>{{ book_instance.book.year_of_publication }}</th>
         <th>{{ book_instance.id }}</th>
         <th>{{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}</th>
     </tr>

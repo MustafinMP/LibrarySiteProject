@@ -29,7 +29,7 @@
         {% if not have_book %}
         {% if count > 0%}
         <form method="post">
-        {% csrf_token %}
+            {% csrf_token %}
             <input type="submit" value="Зарезервировать" class="reserve">
         </form>
         {% else %}
