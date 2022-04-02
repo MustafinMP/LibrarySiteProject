@@ -54,6 +54,10 @@ urlpatterns = [
                        views.staff_reserve),
                   path('staff/reserve/<book_id>/',
                        views.staff_reserve_one_book),
+                  path('staff/borrow/',
+                       views.staff_borrow),
+                  path('staff/borrow/<book_id>/',
+                       views.staff_borrow_one_book),
 
                   path('404testing/',
                        views.page_not_found_view),

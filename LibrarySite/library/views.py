@@ -10,7 +10,7 @@ import logging
 
 STATUS_FREE = 1
 STATUS_BORROW = 2
-
+STATUS_LOST = 3
 STATUS_RESERVE = 4
 # подключение файла для логирования
 logging.basicConfig(filename='site_logging.log',
@@ -189,19 +189,51 @@ def staff_reserve(request):
 
 def staff_reserve_one_book(request, book_id):
     book_instance = BookInstance.objects.get(id=book_id)
+
     if request.method == 'POST':
         if '_approve' in request.POST:
             book_instance.status = Status.objects.get(id=STATUS_BORROW)
             today = datetime.date.today()
-            book_instance.take_date = today
-            book_instance.return_date = today + datetime.timedelta(days=7)
+            book_instance.take_date = today + datetime.timedelta(days=1)
+            book_instance.return_date = today + datetime.timedelta(days=8)
+
         elif '_reject' in request.POST:
             book_instance.status = Status.objects.get(id=STATUS_FREE)
             book_instance.borrower = None
+
         book_instance.save()
         return HttpResponsePermanentRedirect('/staff/reserve/')
     else:
-
         context = {'book_instance': book_instance}
         return render(request, 'staff_reserve_one_book.html', context=context)
 
+
+def staff_borrow(request):
+    book_instances = BookInstance.objects.all().filter(status=STATUS_BORROW)
+    today = datetime.date.today()
+    context = {'book_instances': book_instances, 'today': today}
+    return render(request, 'staff_borrow.html', context=context)
+
+
+def staff_borrow_one_book(request, book_id):
+    book_instance = BookInstance.objects.get(id=book_id)
+
+    if request.method == 'POST':
+        if '_return' in request.POST:
+            book_instance.status = Status.objects.get(id=STATUS_FREE)
+            book_instance.borrower = None
+            book_instance.take_date = None
+            book_instance.return_date = None
+
+        elif '_lost' in request.POST:
+            book_instance.status = Status.objects.get(id=STATUS_LOST)
+            book_instance.take_date = None
+        # при утере книги пользователь теряет возможность получить новую книгу на 10 дней
+            today = datetime.date.today()
+            book_instance.return_date = today + datetime.timedelta(days=10)
+
+        book_instance.save()
+        return HttpResponsePermanentRedirect('/staff/borrow/')
+    else:
+        context = {'book_instance': book_instance}
+        return render(request, 'staff_borrow_one_book.html', context=context)

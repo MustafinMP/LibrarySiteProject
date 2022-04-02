@@ -23,6 +23,10 @@ thead {
   background: #a0b3c1;
 }
 
+.row-danger {
+  color: #d55e2d;
+}
+
 .table-row {
   height: 45px;
 }
