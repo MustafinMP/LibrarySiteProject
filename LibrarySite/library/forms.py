@@ -30,5 +30,12 @@ class LoginForm(forms.Form):
                                )
 
 
-class ReserveYesForm(forms.Form):
-    pass
+class AddNewBookForm(forms.Form):
+    title = forms.CharField(label='Название книги',
+                            help_text='Введите название книги'
+                            )
+    genre = None
+    author = None
+    image = forms.ImageField(label='Обложка книги (можно добавить позже)')
+    count = forms.IntegerField(label='Количество экземпляров книги')
+

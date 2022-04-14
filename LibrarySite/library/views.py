@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
-from .models import Book, Author, BookInstance, Status
+from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook
 import datetime
 import logging
 
@@ -237,3 +237,10 @@ def staff_borrow_one_book(request, book_id):
     else:
         context = {'book_instance': book_instance}
         return render(request, 'staff_borrow_one_book.html', context=context)
+
+
+def staff_borrow_textbook(request):
+    textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_BORROW)
+    print(textbook_instances)
+    context = {'textbook_instances': textbook_instances}
+    return render(request, 'staff_borrow_textbook.html', context=context)
