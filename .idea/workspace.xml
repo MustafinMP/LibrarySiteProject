@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff_borrow_textbook.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff_borrow_textbook.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -325,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649932428027</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix table fields in staff_borrow_textbook.html&#10;&#10;Version 1.1.05">
+      <created>1649932646411</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1649932646411</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -340,7 +349,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add a simple logging. Fixed some troubles with branches" />
     <MESSAGE value="Create a simple login" />
     <MESSAGE value="Create the login design" />
     <MESSAGE value="New login design" />
@@ -365,6 +373,7 @@
     <MESSAGE value="Add 'approve-reject' view for staff&#10;&#10;Version 1.1.02" />
     <MESSAGE value="Add 'return book - lose book' view for staff&#10;&#10;Version 1.1.03" />
     <MESSAGE value="add staff_borrow_textbook.html&#10;&#10;Version 1.1.04" />
-    <option name="LAST_COMMIT_MESSAGE" value="add staff_borrow_textbook.html&#10;&#10;Version 1.1.04" />
+    <MESSAGE value="fix table fields in staff_borrow_textbook.html&#10;&#10;Version 1.1.05" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix table fields in staff_borrow_textbook.html&#10;&#10;Version 1.1.05" />
   </component>
 </project>
