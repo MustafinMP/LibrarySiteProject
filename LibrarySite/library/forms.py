@@ -1,4 +1,5 @@
 from django import forms
+from .models import Author, Genre
 
 
 class RegisterForm(forms.Form):
@@ -30,12 +31,23 @@ class LoginForm(forms.Form):
                                )
 
 
+genres = Genre.objects.all()
+authors = Author.objects.all()
+
+
 class AddNewBookForm(forms.Form):
     title = forms.CharField(label='Название книги',
                             help_text='Введите название книги'
                             )
-    genre = None
-    author = None
+    author = forms.TypedMultipleChoiceField(label='Автор(ы)',
+                                            choices=(
+                                                [(i, authors[i]) for i in range(len(authors))]
+                                            )
+                                            )
+    genre = forms.TypedChoiceField(label='Жанр',
+                                   choices=(
+                                       [(i, genres[i]) for i in range(len(genres))]
+                                   )
+                                   )
     image = forms.ImageField(label='Обложка книги (можно добавить позже)')
     count = forms.IntegerField(label='Количество экземпляров книги')
-

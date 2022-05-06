@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, AddNewBookForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
@@ -244,3 +244,11 @@ def staff_borrow_textbook(request):
     print(textbook_instances)
     context = {'textbook_instances': textbook_instances}
     return render(request, 'staff_borrow_textbook.html', context=context)
+
+
+def add_book(request):
+    if request.method == 'POST':
+        add_book_form = AddNewBookForm(request.POST)
+    else:
+        add_book_form = AddNewBookForm()
+        return render(request, 'add_book.html', {'form': add_book_form, 'errors': ''})

@@ -61,6 +61,9 @@ urlpatterns = [
                   path('staff/borrow-textbook/',
                        views.staff_borrow_textbook),
 
+                  path('staff/add_book/',
+                       views.add_book),
+
                   path('404testing/',
                        views.page_not_found_view),
 
