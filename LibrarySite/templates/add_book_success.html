@@ -1,0 +1,14 @@
+{% extends "basic_staff_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/add_book_success.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %} {{ book_instance.book.title }} {% endblock %}
+
+{% block content %}
+<h1 class="success">Книга добавлена успешно</h1>
+<a href="/staff/add_book/">Добавить новую книгу</a>
+<a href="/staff/">Вернуться в главное меню</a>
+{% endblock %}

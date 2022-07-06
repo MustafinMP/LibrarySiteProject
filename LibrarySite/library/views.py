@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
-from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook
+from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
 import datetime
 import logging
 
@@ -228,9 +228,6 @@ def staff_borrow_one_book(request, book_id):
         elif '_lost' in request.POST:
             book_instance.status = Status.objects.get(id=STATUS_LOST)
             book_instance.take_date = None
-        # при утере книги пользователь теряет возможность получить новую книгу на 10 дней
-            today = datetime.date.today()
-            book_instance.return_date = today + datetime.timedelta(days=10)
 
         book_instance.save()
         return HttpResponsePermanentRedirect('/staff/borrow/')
@@ -249,6 +246,30 @@ def staff_borrow_textbook(request):
 def add_book(request):
     if request.method == 'POST':
         add_book_form = AddNewBookForm(request.POST)
+        if add_book_form.is_valid():
+            title = add_book_form.cleaned_data.get('title')
+            authors = add_book_form.cleaned_data.get('authors')
+            genre = add_book_form.cleaned_data.get('genre')
+            image = add_book_form.cleaned_data.get('image')
+            publishing_house = add_book_form.cleaned_data.get('publishing_house')
+            year_of_publication = add_book_form.cleaned_data.get('year_of_publication')
+            count = add_book_form.cleaned_data.get('count')
+            new_book = Book.objects.create(title=title,
+                                           genre=Genre.objects.all().filter(
+                                               id=int(genre))[0],
+                                           image=image,
+                                           publishing_house=PublishingHouse.objects.all().filter(
+                                               id=int(publishing_house))[0],
+                                           year_of_publication=year_of_publication)
+            new_book.save()
+            list_authors = Author.objects.all().filter(id__in=list(map(int, authors)))
+            for author in list_authors:
+                new_book.author.add(author)
+
+            for i in range(count):
+                book_instance = BookInstance.objects.create(book=new_book,
+                                                            status=Status.objects.get(id=STATUS_FREE))
+                return render(request, 'add_book_success.html')
     else:
         add_book_form = AddNewBookForm()
         return render(request, 'add_book.html', {'form': add_book_form, 'errors': ''})

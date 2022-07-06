@@ -20,9 +20,9 @@
         {{ form.title.errors }}
     </div>
     <div class="form-line">
-        <div class="label-tag">{{ form.author.label_tag }}</div>
-        {{ form.author }}<br>
-        {{ form.author.errors }}
+        <div class="label-tag">{{ form.authors.label_tag }}</div>
+        {{ form.authors }}<br>
+        {{ form.authors.errors }}
     </div>
     <div class="form-line">
         <div class="label-tag">{{ form.genre.label_tag }}</div>
@@ -39,5 +39,16 @@
         {{ form.count }}<br>
         {{ form.count.errors }}
     </div>
+    <div class="form-line">
+        <div class="label-tag">{{ form.publishing_house.label_tag }}</div>
+        {{ form.publishing_house }}<br>
+        {{ form.publishing_house.errors }}
+    </div>
+    <div class="form-line">
+        <div class="label-tag">{{ form.year_of_publication.label_tag }}</div>
+        {{ form.year_of_publication }}<br>
+        {{ form.year_of_publication.errors }}
+    </div>
+    <input type="submit" value="Сохранить">
 </form>
 {% endblock content %}
