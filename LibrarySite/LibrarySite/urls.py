@@ -63,6 +63,8 @@ urlpatterns = [
 
                   path('staff/add_book/',
                        views.add_book),
+                  path('staff/add_book_ins/',
+                       views.add_book),
 
                   path('404testing/',
                        views.page_not_found_view),

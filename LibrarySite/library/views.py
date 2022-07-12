@@ -273,3 +273,12 @@ def add_book(request):
     else:
         add_book_form = AddNewBookForm()
         return render(request, 'add_book.html', {'form': add_book_form, 'errors': ''})
+
+
+def add_book_ins(request, book_id):
+    if request.method == 'POST':
+        count = request.POST.get('count')
+        for i in range(count):
+            book_instance = BookInstance.objects.create(book=book_id,
+                                                        status=Status.objects.get(id=STATUS_FREE))
+            return render(request, 'add_book_success.html')
