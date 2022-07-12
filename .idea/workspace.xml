@@ -4,7 +4,6 @@
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -391,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657627097126</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="new header style&#10;&#10;Version 1.1.09">
+      <created>1657631201116</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1657631201116</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,7 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Change the text in site header" />
     <MESSAGE value="Create simple books page, fix media settings" />
     <MESSAGE value="Create a one-book page and books page style" />
     <MESSAGE value="Create the book page style" />
@@ -431,6 +436,7 @@
     <MESSAGE value="add add_book_form&#10;&#10;Version 1.1.07" />
     <MESSAGE value="add working add-book function&#10;&#10;Version 1.1.07" />
     <MESSAGE value="add &quot;add new book instances&quot; function (without interface)&#10;&#10;Version 1.1.08" />
-    <option name="LAST_COMMIT_MESSAGE" value="add &quot;add new book instances&quot; function (without interface)&#10;&#10;Version 1.1.08" />
+    <MESSAGE value="new header style&#10;&#10;Version 1.1.09" />
+    <option name="LAST_COMMIT_MESSAGE" value="new header style&#10;&#10;Version 1.1.09" />
   </component>
 </project>
