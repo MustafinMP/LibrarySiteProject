@@ -1,3 +1,46 @@
+.description-block {
+  width: 100%;
+  align: center;
+}
+
+.description-label {
+  text-align: center;
+  font-size: 45px;
+  margin-top: 130px;
+}
+
+.description-text {
+  width: 40%;
+  margin-top: 45px;
+  margin-bottom: 120px;
+  margin-left: 30%;
+  font-size: 27px;
+  text-align: center;
+}
+
+hr {
+  width: 80%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .choice-block {
   display: block;
   height: 700px;
