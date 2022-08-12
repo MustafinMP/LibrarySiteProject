@@ -9,20 +9,100 @@
 {% block content %}
 
 <section class="description-block">
-    <h1 class="description-label">Что такое Lib117?</h1>
+    <h2 class="description-label">Что такое Lib117?</h2>
     <p class="description-text">
         Lib117 - онлайн сервис, позволяющий узнать информацию о книгах школьной библиотеки до ее реального посещения
     </p>
 </section>
 <hr>
+<div class="air-block"></div>
 
-<section class="choice-block section-2">
-    <h3 class="section-label">Авторы</h3>
+<section class="description-block">
+    <h2 class="description-label">Почему Lib117?</h2>
+    <p class="description-text">
+        Главные преимущества сервиса, которые облегчат пользование библиотекой
+    </p>
+    <article class="advantages-container">
+        <div class="advantages">
 
+            <div class="advantages-item advantages-item-icon">
+                <img src="{% static 'images/search_icon.png' %}" class="advantages-item-img">
+            </div>
+            <div class="advantages-item advantages-item-description">
+                <h3>Удобный доступ</h3>
+                <p>Онлайн формат позволит узнать всю информацию о наличии книг до посещения библиотеки</p>
+            </div>
+        </div>
+
+        <div class="advantages">
+            <div class="advantages-item advantages-item-icon">
+                <img src="{% static 'images/protect_icon.png' %}" class="advantages-item-img">
+            </div>
+            <div class="advantages-item advantages-item-description">
+                <h3>Надежность</h3>
+                <p>Электронная система защитит данные от влияния человеческого фактора</p>
+            </div>
+        </div>
+
+        <div class="advantages">
+            <div class="advantages-item advantages-item-icon">
+                <img src="{% static 'images/ecology_icon.png' %}" class="advantages-item-img">
+            </div>
+            <div class="advantages-item advantages-item-description">
+                <h3>Экологичность</h3>
+                <p>Электронная база данных не требует использования бумаги</p>
+            </div>
+        </div>
+
+    </article>
 </section>
+<hr>
+<div class="air-block"></div>
 
-<section class="choice-block section-1">
-    <h3 class="section-label">Книги</h3>
+<section class="description-block">
+    <h2 class="description-label">Как это работает</h2>
+    <article class="how-it-works">
 
+        <div class="hiw-container">
+            <div class="hiw-number">
+                <h3>1</h3>
+            </div>
+            <div class="hiw-description">
+                <h3>Выбор</h3>
+                <p>Ученики подыскивают подходящую им книгу и проверяют ее наличие</p>
+            </div>
+        </div>
+
+        <div class="hiw-container">
+            <div class="hiw-number">
+                <h3>2</h3>
+            </div>
+            <div class="hiw-description">
+                <h3>Заявка</h3>
+                <p>Если книга нашлась, и она свободна, ученик оставляет на нее онлайн заявку</p>
+            </div>
+        </div>
+
+        <div class="hiw-container">
+            <div class="hiw-number">
+                <h3>3</h3>
+            </div>
+            <div class="hiw-description">
+                <h3>Получение</h3>
+                <p>Ученик идет в библиотеку, где получает выбранную книгу</p>
+            </div>
+        </div>
+
+        <div class="hiw-container">
+            <div class="hiw-number">
+                <h3>4</h3>
+            </div>
+            <div class="hiw-description">
+                <h3>Возврат</h3>
+                <p>Для возврата ученик идет в библиотеку и возвращает книгу (все как обычно)</p>
+            </div>
+        </div>
+
+    </article>
 </section>
 {% endblock content %}

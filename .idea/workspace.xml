@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -405,7 +407,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657631711413</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="update description block on homepage&#10;&#10;Version 1.1.10">
+      <created>1657632811352</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1657632811352</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,7 +429,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create a one-book page and books page style" />
     <MESSAGE value="Create the book page style" />
     <MESSAGE value="Redesign register page" />
     <MESSAGE value="Redesign label on register page" />
@@ -445,6 +453,7 @@
     <MESSAGE value="add &quot;add new book instances&quot; function (without interface)&#10;&#10;Version 1.1.08" />
     <MESSAGE value="new header style&#10;&#10;Version 1.1.09" />
     <MESSAGE value="update header style&#10;&#10;Version 1.1.10" />
-    <option name="LAST_COMMIT_MESSAGE" value="update header style&#10;&#10;Version 1.1.10" />
+    <MESSAGE value="update description block on homepage&#10;&#10;Version 1.1.10" />
+    <option name="LAST_COMMIT_MESSAGE" value="update description block on homepage&#10;&#10;Version 1.1.10" />
   </component>
 </project>
