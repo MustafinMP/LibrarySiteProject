@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="update new homepage design&#10;&#10;Version 1.1.11">
+    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/books.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +14,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -47,7 +45,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.forms">
+  <component name="RunManager" selected="Python.services">
     <configuration name="admin" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="LibrarySite" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -90,8 +88,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="services" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="LibrarySite" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/LibrarySite/library" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/LibrarySite/library/services.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.services" />
         <item itemvalue="Python.forms" />
         <item itemvalue="Python.admin" />
       </list>
@@ -421,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660310279408</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="add social networks&#10;&#10;Version 1.1.12">
+      <created>1660567887033</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1660567887033</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -436,7 +463,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Redesign register page" />
     <MESSAGE value="Redesign label on register page" />
     <MESSAGE value="Redesign login page" />
     <MESSAGE value="Change one color" />
@@ -461,6 +487,7 @@
     <MESSAGE value="update header style&#10;&#10;Version 1.1.10" />
     <MESSAGE value="update description block on homepage&#10;&#10;Version 1.1.10" />
     <MESSAGE value="update new homepage design&#10;&#10;Version 1.1.11" />
-    <option name="LAST_COMMIT_MESSAGE" value="update new homepage design&#10;&#10;Version 1.1.11" />
+    <MESSAGE value="add social networks&#10;&#10;Version 1.1.12" />
+    <option name="LAST_COMMIT_MESSAGE" value="add social networks&#10;&#10;Version 1.1.12" />
   </component>
 </project>

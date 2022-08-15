@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
+from . import services
 import datetime
 import logging
 
@@ -149,25 +150,8 @@ def profile(request, user_id):
     user = User.objects.get(id=user_id)
     user2 = request.user
     if user == user2:
-        try:
-            book_ins = BookInstance.objects.get(borrower=user2)
-            book = book_ins.book
-            have_book = True
-            context = {
-                'user_data': user,
-                'have_book': have_book,
-                'book': book,
-                'book_ins': book_ins
-            }
-        except Exception:
-            have_book = False
-            context = {
-                'user_data': user,
-                'have_book': have_book
-            }
-
+        context = services.get_profile_info(user2)
         return render(request, 'profile.html', context=context)
-
     return render(request, 'not_your_profile.html')
 
 
@@ -238,7 +222,6 @@ def staff_borrow_one_book(request, book_id):
 
 def staff_borrow_textbook(request):
     textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_BORROW)
-    print(textbook_instances)
     context = {'textbook_instances': textbook_instances}
     return render(request, 'staff_borrow_textbook.html', context=context)
 
