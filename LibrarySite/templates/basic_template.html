@@ -25,15 +25,22 @@
     {% block content %}{% endblock %}
 </main>
 <footer>
-    <ul class="footer-nav">
-        <li><a href="/about"><h4>О сайте</h4></a></li>
-        <li><a href="/autors"><h4>Авторы</h4></a></li>
-        <li><a href="/books"><h4>Книги</h4></a></li>
-    </ul>
-    <!--    поликита конф-->
-    <!--    условия польз-->
-    <div>
-    </div>
+    <section class="footer-nav">
+        <a href="/about">О сайте<</a>
+        <a href="/autors">Авторы</a>
+        <a href="/books">Книги</a>
+    </section>
+    <section class="social-networks">
+        <h4>Мы в соцсетях</h4>
+        <a class="s-network tg-link" href="https://t.me/mbouschool117ufa">
+            <img src="{% static 'images/tg_logo.png' %}">
+            <p>МБОУ "Школа N117"</p>
+        </a>
+        <a class="s-network vk-link" href="https://vk.com/club132521788">
+            <img src="{% static 'images/vk_logo.png' %}">
+            <p>#Мы117</p>
+        </a>
+    </section>
 </footer>
 </body>
 </html>

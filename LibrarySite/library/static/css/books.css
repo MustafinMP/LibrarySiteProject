@@ -6,10 +6,8 @@
   width: 20%;
   margin-left: 40%;
   display: block;
-  border-bottom: 2px solid #d55e2d;
   text-align: center;
   font-size: 40px;
-  color: #2f5d8c;
 }
 
 .one-book {
@@ -18,9 +16,7 @@
   height: 550px;
   margin-top: 20px;
   margin-left: 2.5%;
-  border-radius: 30px;
-  border: 3px solid #dfdfdd;
-  box-shadow: 5px 5px 5px 0px #999999;
+  border: 2px solid #dfdfdd;
   vertical-align: top;
   text-align: center;
   text-decoration: none;
@@ -28,9 +24,6 @@
 }
 
 .one-book:hover {
-  width: 29.5%;
-  margin-right: 0.25%;
-  margin-left: 2.75%;
   box-shadow: 3px 3px 3px 0px #999999;
 }
 
