@@ -55,11 +55,11 @@ urlpatterns = [
                   path('staff/reserve/<book_id>/',
                        views.staff_reserve_one_book),
                   path('staff/borrow/',
-                       views.staff_borrow),
+                       views.staff_borrow_view),
                   path('staff/borrow/<book_id>/',
                        views.staff_borrow_one_book),
                   path('staff/borrow-textbook/',
-                       views.staff_borrow_textbook),
+                       views.staff_borrow_textbook_view),
 
                   path('staff/add_book/',
                        views.add_book),

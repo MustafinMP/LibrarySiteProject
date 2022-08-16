@@ -46,19 +46,8 @@ def books_view(request):
 
 def one_book(request, book_id):
     if request.method == 'POST':
-        user = request.user
-        book_instance = BookInstance.objects.all().filter(status=STATUS_FREE, book=book_id)[0]
-        book_instance.borrower = user
-        book_instance.status = Status.objects.get(id=STATUS_RESERVE)
-        book_instance.save()
-        logging.info(f'user {user} reserved book {Book.objects.get(id=book_id).title}')
-        book = Book.objects.get(id=book_id)
-        count = book.bookinstance_set.all().filter(status=1).count()
-        return render(request, 'one_book.html', context={
-            'book': book,
-            'count': count,
-            'have_book': True
-        })
+        context = services.add_book_to_user(book_id, request.user)
+        return render(request, 'one_book.html', context=context)
     else:
         book = Book.objects.get(id=book_id)
         count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
@@ -68,11 +57,9 @@ def one_book(request, book_id):
             have_book = bool(user_books)
         except Exception:
             have_book = False
-        return render(request, 'one_book.html', context={
-            'book': book,
-            'count': count,
-            'have_book': have_book
-        })
+        return render(request, 'one_book.html', context={'book': book,
+                                                         'count': count,
+                                                         'have_book': have_book})
 
 
 '''---------------------------------------------------------------------------------------------------------------------
@@ -160,9 +147,7 @@ def page_not_found_view(request):
     return render(request, '404.html', status=404)
 
 
-'''---------------------------------------------------------------------------------------------------------------------
-Представления персонала
----------------------------------------------------------------------------------------------------------------------'''
+'''   Staff Views   '''
 
 
 def staff_reserve(request):
@@ -192,7 +177,7 @@ def staff_reserve_one_book(request, book_id):
         return render(request, 'staff_reserve_one_book.html', context=context)
 
 
-def staff_borrow(request):
+def staff_borrow_view(request):
     book_instances = BookInstance.objects.all().filter(status=STATUS_BORROW)
     today = datetime.date.today()
     context = {'book_instances': book_instances, 'today': today}
@@ -203,24 +188,14 @@ def staff_borrow_one_book(request, book_id):
     book_instance = BookInstance.objects.get(id=book_id)
 
     if request.method == 'POST':
-        if '_return' in request.POST:
-            book_instance.status = Status.objects.get(id=STATUS_FREE)
-            book_instance.borrower = None
-            book_instance.take_date = None
-            book_instance.return_date = None
-
-        elif '_lost' in request.POST:
-            book_instance.status = Status.objects.get(id=STATUS_LOST)
-            book_instance.take_date = None
-
-        book_instance.save()
+        services.staff_borrow_book(book_instance, request.POST)
         return HttpResponsePermanentRedirect('/staff/borrow/')
     else:
         context = {'book_instance': book_instance}
         return render(request, 'staff_borrow_one_book.html', context=context)
 
 
-def staff_borrow_textbook(request):
+def staff_borrow_textbook_view(request):
     textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_BORROW)
     context = {'textbook_instances': textbook_instances}
     return render(request, 'staff_borrow_textbook.html', context=context)
@@ -237,22 +212,10 @@ def add_book(request):
             publishing_house = add_book_form.cleaned_data.get('publishing_house')
             year_of_publication = add_book_form.cleaned_data.get('year_of_publication')
             count = add_book_form.cleaned_data.get('count')
-            new_book = Book.objects.create(title=title,
-                                           genre=Genre.objects.all().filter(
-                                               id=int(genre))[0],
-                                           image=image,
-                                           publishing_house=PublishingHouse.objects.all().filter(
-                                               id=int(publishing_house))[0],
-                                           year_of_publication=year_of_publication)
-            new_book.save()
-            list_authors = Author.objects.all().filter(id__in=list(map(int, authors)))
-            for author in list_authors:
-                new_book.author.add(author)
 
-            for i in range(count):
-                book_instance = BookInstance.objects.create(book=new_book,
-                                                            status=Status.objects.get(id=STATUS_FREE))
-                return render(request, 'add_book_success.html')
+            services.add_book_with_instances(title, authors, genre, image, publishing_house, year_of_publication, count)
+
+            return render(request, 'add_book_success.html')
     else:
         add_book_form = AddNewBookForm()
         return render(request, 'add_book.html', {'form': add_book_form, 'errors': ''})
@@ -261,7 +224,5 @@ def add_book(request):
 def add_book_ins(request, book_id):
     if request.method == 'POST':
         count = request.POST.get('count')
-        for i in range(count):
-            book_instance = BookInstance.objects.create(book=book_id,
-                                                        status=Status.objects.get(id=STATUS_FREE))
-            return render(request, 'add_book_success.html')
+        services.add_instances_to_book(book_id, count)
+        return render(request, 'add_book_success.html')
