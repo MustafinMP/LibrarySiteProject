@@ -31,6 +31,17 @@ class LoginForm(forms.Form):
                                )
 
 
+class ChangePasswordForm(forms.Form):
+    password = forms.CharField(widget=forms.PasswordInput,
+                               label='Пароль',
+                               help_text='Введите новый пароль'
+                               )
+    confirm_password = forms.CharField(widget=forms.PasswordInput,
+                                       label='Подтверждение пароля',
+                                       help_text='Подтвердите новый пароль'
+                                       )
+
+
 genres = Genre.objects.all()
 authors = Author.objects.all()
 pbhs = PublishingHouse.objects.all()

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import RegisterForm, LoginForm, AddNewBookForm
+from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
@@ -130,6 +130,23 @@ def profile(request, user_id):
         context = services.get_profile_info(user2)
         return render(request, 'profile.html', context=context)
     return render(request, 'not_your_profile.html')
+
+
+def change_password_view(request):
+    user = request.user
+    if user.is_authenticated():
+        if request.method == 'POST':
+            form = ChangePasswordForm(request.POST)
+            if form.is_valid():
+                pwd = form.cleaned_data['password']
+                conf_pwd = form.cleaned_data['confirm_password']
+                if pwd == conf_pwd:
+                    user.set_password(pwd)
+                    user.save()
+                    return render('request', 'change_password_complete.html')
+        return render('request', 'change_password.html')
+    return HttpResponsePermanentRedirect('/')
+
 
 
 def page_not_found_view(request):
