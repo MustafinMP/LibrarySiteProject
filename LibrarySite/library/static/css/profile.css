@@ -1,28 +1,31 @@
 .profile-header {
-  padding-top: 30px;
-  text-align: center;
-  border-top: 1px solid #dfdfdd;
-  color: #2f5d8c;
+  margin-top: 40px;
+  margin-left: 5%;
+  font-family: Arial;
 }
 
-h2 {
-  text-align: center;
-  color: #2f5d8c;
+.my-books-label {
+  margin-top: 20px;
+  margin-left: 5%;
+  font-size: 20px;
+  color: #444444;
 }
 
-.disp-inline {
+.my-book {
+  width: 60%;
+  margin-left: 5%;
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px 0 #aaaaaa;
+}
+
+.image-block {
   display: inline-block;
   vertical-align: top;
-  width: 25%;
-  margin-left: 10%;
+  margin-left: 48px;
 }
 
-.book-image {
-  width: 100%;
-  height: 460px;
-}
-
-.book-image img {
+img {
   width: 280px;
   height: 400px;
   margin-top: 30px;
@@ -30,31 +33,39 @@ h2 {
 }
 
 .book-info {
+  display: inline-block;
+  vertical-align: top;
   width: 50%;
+  margin-left: 48px;
   padding-top: 10px;
   font-size: 20px;
-  color: #2f5d8c;
 }
 
 .book-info a {
-  color: #d55e2d;
+  color: #2f5d8c;
 }
 
 .book-info h3 {
   font-size: 30px;
-  text-align: left;
+  margin-bottom: 0;
   padding-left: 20px;
+  text-align: left;
   border-left: 4px solid #d55e2d;
 }
 
 .book-info p {
-  font-size: 22px;
   text-align: left;
 }
 
-.book-info .return-book {
+.genres {
+  margin-top: 10px;
   font-size: 18px;
-  color: #d55e2d;
+  color: #777777;
+}
+
+.return-book {
+  font-size: 16px;
+  color: #888888;
 }
 
 .no-books {

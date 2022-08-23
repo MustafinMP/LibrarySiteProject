@@ -1,0 +1,24 @@
+{% extends "basic_staff_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/staff/index.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %} Lib117 | Панель персонала {% endblock%}
+
+{% block content %}
+<section class="head-block">
+    <a class="back-to-main" href="{% url 'homepage' %}">
+        <div>&#8592 На главную страницу сайта</div>
+    </a>
+</section>
+
+<section class="links-container">
+    <a href="/"><div>Зарезервированные книги (reserve)</div></a>
+    <a href="/"><div>Выданные книги</div></a>
+    <a href="/"><div>Добавить новую книгу</div></a>
+    <a href="/"><div>Добавить новые экземпляры книги</div></a>
+</section>
+
+{% endblock %}

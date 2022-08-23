@@ -22,7 +22,7 @@ from library import views
 
 urlpatterns = [
                   path('',
-                       views.index),
+                       views.index, name='homepage'),
                   path('admin/',
                        admin.site.urls),
                   path('about/',
@@ -50,6 +50,8 @@ urlpatterns = [
                        {'next_page': settings.LOGOUT_REDIRECT_URL},
                        name='logout'),
 
+                  path('staff/',
+                       views.staff_index),
                   path('staff/reserve/',
                        views.staff_reserve),
                   path('staff/reserve/<book_id>/',

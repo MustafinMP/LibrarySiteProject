@@ -10,35 +10,32 @@
 <h1 class="profile-header">
     {{ user.first_name }} {{ user.last_name }}
 </h1>
-<div class="my-books\">
-    <h2>Мои книги:</h2>
-    {% if book %}
-    <div class="disp-inline">
-        <div class="book-image">
-            <img src="{{ book.img_url }}">
-        </div>
-    </div>
-    <div class="disp-inline book-info">
+<h2 class="my-books-label">Мои книги:</h2>
+{% if book %}
+<section class="my-book">
+    <article class="image-block">
+        <img src="{{ book.img_url }}">
+    </article>
+    <article class="book-info">
         <h3>{{ book.title }}</h3>
+        <p class="genres">{{ book.genre }}</p>
         <p>Авторы: {% for author in book.author.all %}
             <a href="/authors/{{ author.id }}/">{{ author }}</a>
         </p>
         {% endfor %}
-        <p> Жанр: {{ book.genre }}</p>
         <p>Статус: {{ book_ins.status }}</p>
         {% if book_ins.status.id == 4 %}
-        <p class="return-book">Получить книгу можно в библиотеке</p>
-        {% else %}
-        {{ book_ins.status }}
+        <p class="get-book">Получить книгу можно в библиотеке</p>
+        {% elif book_ins.status.id == 2 %}
         <p>Дата получения: {{ book_ins.take_date }}</p>
         <p>Дата возврата: {{ book_ins.return_date }}</p>
         <p class="return-book">Вернуть книгу можно в библиотеке</p>
         {% endif %}
-    </div>
+    </article>
     {% else %}
     <h2 class="no-books">На данный момент у вас нет книг</h2>
     {% endif %}
-</div>
+</section>
 <p class="profile-exit">
     <a href="/logout/">Выйти из профиля</a>
 </p>

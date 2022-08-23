@@ -12,8 +12,8 @@
     <form method="post">
         {% csrf_token %}
         <div class="form-line">
-            <div class="label-tag">{{ form.username.label_tag }}</div><br>
-            {{ form.username }}<br>
+            <div class="label-tag">{{ form.username.label_tag }}</div>
+            {{ form.username }}
             {{ form.username.errors }}
         </div>
         <div class="form-line">
@@ -37,7 +37,7 @@
             {{ form.password.errors }}
         </div>
         <div class="form-line button-input">
-            <input type="submit" value="Сохранить">
+            <input type="submit" value="Зарегистрироваться">
         </div>
     </form>
 </div>
