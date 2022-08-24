@@ -1,4 +1,4 @@
-{% extends "base_generice.html" %}
+{% extends "base_generic.html" %}
 {% load static %}
 
 {% block styles_link %}
@@ -23,4 +23,5 @@
     </a>
     {% endfor %}
 </section>
+{% include "pagination.html" with page=books %}
 {% endblock content %}

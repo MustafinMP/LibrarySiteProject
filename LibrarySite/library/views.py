@@ -33,7 +33,8 @@ def about(request):
 
 
 def books_view(request):
-    books = Book.objects.all()
+    page = request.GET.get('page', 1)
+    books = services.get_books(page=page)
     context = {'books': books, 'media': settings.STATIC_URL}
     return render(request, 'books.html', context=context)
 
