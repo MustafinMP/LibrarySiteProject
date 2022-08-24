@@ -1,24 +1,27 @@
 from django import forms
 from .models import Author, Genre, PublishingHouse
 
+genres = Genre.objects.all()
+authors = Author.objects.all()
+pbhs = PublishingHouse.objects.all()
+
 
 class RegisterForm(forms.Form):
     username = forms.CharField(label='Логин',
-                               help_text='''Введите свой логин'''
-                               )
+                               help_text='''Введите свой логин''' )
+
     name = forms.CharField(label='Имя:',
-                           help_text='Введите Ваше имя'
-                           )
+                           help_text='Введите Ваше имя')
+
     last_name = forms.CharField(label='Фамилия:',
-                                help_text='Введите Вашу фамилию'
-                                )
+                                help_text='Введите Вашу фамилию')
+
     e_mail = forms.EmailField(label='Email:',
-                              help_text='Введите Вашу электронную почту'
-                              )
+                              help_text='Введите Вашу электронную почту')
+
     password = forms.CharField(label='Пароль:',
                                widget=forms.PasswordInput,
-                               help_text='Введите пароль'
-                               )
+                               help_text='Введите пароль')
 
 
 class LoginForm(forms.Form):
@@ -42,9 +45,14 @@ class ChangePasswordForm(forms.Form):
                                        )
 
 
-genres = Genre.objects.all()
-authors = Author.objects.all()
-pbhs = PublishingHouse.objects.all()
+class BooksFilterForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    def get_genre_fields(self):
+        genres = Genre.objects.all()
+        for genre in genres:
+            yield forms.BooleanField(required=False)
 
 
 class AddNewBookForm(forms.Form):

@@ -2,17 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_complete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_confirm.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_done.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_email.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/new_book_page.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/pagination.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/authors.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/authors.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/basic_template.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/base_generic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/books.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/books.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/not_your_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/not_your_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_author.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/one_author.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/one_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_complete.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_confirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_confirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_done.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/registration/password_reset_form.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,13 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Creating the basic of the program&#10;Создание каркаса программы">
-      <created>1643120737406</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1643120737406</updated>
     </task>
     <task id="LOCAL-00002" summary="Creating a registration form and some models">
       <created>1645193794528</created>
@@ -482,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661256924525</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="add change password (demo version)&#10;add reset password (demo version)&#10;&#10;Version 1.2.3">
+      <created>1661260617174</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1661260617174</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -497,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="New header design" />
     <MESSAGE value="New homepage design" />
     <MESSAGE value="Create logout function" />
     <MESSAGE value="Clean in views.py" />
@@ -522,6 +531,7 @@
     <MESSAGE value="replace profile and books queries to services.py&#10;&#10;Version 1.2.1" />
     <MESSAGE value="replace a part of staff functions from views.py to services.py&#10;&#10;Version 1.2.2" />
     <MESSAGE value="add simple staff homepage&#10;&#10;Version 1.2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="add simple staff homepage&#10;&#10;Version 1.2.3" />
+    <MESSAGE value="add change password (demo version)&#10;add reset password (demo version)&#10;&#10;Version 1.2.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="add change password (demo version)&#10;add reset password (demo version)&#10;&#10;Version 1.2.3" />
   </component>
 </project>

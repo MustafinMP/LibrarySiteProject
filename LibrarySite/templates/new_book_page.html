@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/new_book_page.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Книги (обновленная страница) {% endblock title %}
+
+{% block content %}
+
+<section class="inline-section filters-block">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Жанры</h2>
+        {% for genre_field in form.get_genre_fields %}
+        <div class="form-line form-line genre">
+            {{ genre_field }}
+        </div>
+        {% endfor %}
+    </form>
+</section>
+
+<section class="inline-section books-block">
+    <article class="books-line books-line-fresh">
+        {% for book in fresh_books %}
+        <div class="book-block">
+            {{ book }}
+        </div>
+        {% endfor %}
+    </article>
+    <article class="books-line books-line-classic">
+        {% for book in classic_books %}
+        <div class="book-block">
+            {{ book }}
+        </div>
+        {% endfor %}
+    </article>
+</section>
+{% endblock content %}

@@ -1,5 +1,5 @@
 """For app's logic"""
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
 import logging
 
@@ -31,7 +31,7 @@ def get_profile_info(user):
     return context
 
 
-def get_books(authors=None, genres=None, is_free=None):
+def get_books(page=1, authors=None, genres=None, is_free=None):
     filter_kwargs = {}
     if not (authors is None):
         filter_kwargs['author__in'] = authors
@@ -40,9 +40,19 @@ def get_books(authors=None, genres=None, is_free=None):
     if not (authors is None):
         filter_kwargs['bookinstance__status'] = 1
     if filter_kwargs:
-        books = Book.objects.filter(**filter_kwargs)
+        book_list = Book.objects.filter(**filter_kwargs)
     else:
-        books = Book.objects.all()
+        book_list = Book.objects.all()
+
+    # пагинация на страницы
+    paginator = Paginator(book_list, 30)  # 30 books in each page
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
+
     return books
 
 
