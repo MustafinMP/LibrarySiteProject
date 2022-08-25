@@ -12,15 +12,15 @@
 {% include 'book_filter_form.html' with form=form %}
 
 <section class="inline-section books-block">
-    <article class="books-line books-line-classic">
-        {% for book in classic_books_slice %}
+    <article class="books-line books-line-fresh">
+        {% for book in fresh_books %}
         <div class="book-block">
             {{ book }}
         </div>
         {% endfor %}
     </article>
-    <article class="books-line books-line-all">
-        {% for book in all_books_slice %}
+    <article class="books-line books-line-classic">
+        {% for book in classic_books %}
         <div class="book-block">
             {{ book }}
         </div>

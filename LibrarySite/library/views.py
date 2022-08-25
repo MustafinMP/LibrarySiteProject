@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm
+from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, BooksFilterForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
@@ -37,6 +37,30 @@ def books_view(request):
     books = services.get_books(page=page)
     context = {'books': books, 'media': settings.STATIC_URL}
     return render(request, 'books.html', context=context)
+
+
+def book_homepage(request):
+    page = request.GET.get('page', 1)
+    classic_books_slice = services.get_books(genres=[1], count=5)
+    all_books_slice = services.get_books(count=5)
+
+
+def new_books_view(request):
+    if request.method == 'POST':
+        form = BooksFilterForm(request.POST)
+        page = request.GET.get('page', 1)
+        form.clean_filters()
+        filtered_genres = form.cleaned_data['filtered_genres']
+        if filtered_genres:
+            books = services.get_books_with_pagination(page=page, genres=filtered_genres)
+        else:
+            books = services.get_books_with_pagination(page=page)
+    else:
+        form = BooksFilterForm()
+        page = request.GET.get('page', 1)
+        books = services.get_books_with_pagination(page=page)
+    context = {'books': books, 'form': form, 'media': settings.STATIC_URL}
+    return render(request, 'new_book_page.html', context=context)
 
 
 def one_book(request, book_id):

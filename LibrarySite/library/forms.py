@@ -8,7 +8,7 @@ pbhs = PublishingHouse.objects.all()
 
 class RegisterForm(forms.Form):
     username = forms.CharField(label='Логин',
-                               help_text='''Введите свой логин''' )
+                               help_text='''Введите свой логин''')
 
     name = forms.CharField(label='Имя:',
                            help_text='Введите Ваше имя')
@@ -48,11 +48,27 @@ class ChangePasswordForm(forms.Form):
 class BooksFilterForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        genres_list = Genre.objects.all()
+        for i in range(len(genres_list)):
+            field = forms.BooleanField(label=genres_list[i].title)
+            self.fields[f'genre_{i}'] = field
+        print(self.fields)
 
     def get_genre_fields(self):
-        genres = Genre.objects.all()
-        for genre in genres:
-            yield forms.BooleanField(required=False)
+        for field_name in self.fields:
+            if field_name.startswith('genre_'):
+                yield self[field_name]
+
+    def clean_filters(self):
+        i = 0
+        field_name = f'genre_{i}'
+        genres_from_filter = []
+        while self.cleaned_data.get(field_name):
+            if self.cleaned_data[field_name]:
+                genres_from_filter.append(i)
+                i += 1
+                field_name = f'genre_{i}'
+        self.cleaned_data['filtered_genres'] = genres_from_filter
 
 
 class AddNewBookForm(forms.Form):

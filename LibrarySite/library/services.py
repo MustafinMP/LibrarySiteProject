@@ -31,20 +31,25 @@ def get_profile_info(user):
     return context
 
 
-def get_books(page=1, authors=None, genres=None, is_free=None):
+def get_books(authors=None, genres=None, is_free=None, count=None):
     filter_kwargs = {}
     if not (authors is None):
         filter_kwargs['author__in'] = authors
     if not (genres is None):
         filter_kwargs['genre__in'] = genres
-    if not (authors is None):
+    if not (is_free is None):
         filter_kwargs['bookinstance__status'] = 1
     if filter_kwargs:
-        book_list = Book.objects.filter(**filter_kwargs)
+        books = Book.objects.filter(**filter_kwargs).order_by('id')
     else:
-        book_list = Book.objects.all()
+        books = Book.objects.all().order_by('id')
+    if not (count is None):
+        books = books[:count]
+    return books
 
-    # пагинация на страницы
+
+def get_books_with_pagination(page=1, authors=None, genres=None, is_free=None):
+    book_list = get_books(authors=authors, genres=genres, is_free=is_free)
     paginator = Paginator(book_list, 30)  # 30 books in each page
     try:
         books = paginator.page(page)
@@ -52,7 +57,6 @@ def get_books(page=1, authors=None, genres=None, is_free=None):
         books = paginator.page(1)
     except EmptyPage:
         books = paginator.page(paginator.num_pages)
-
     return books
 
 
