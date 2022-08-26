@@ -40,9 +40,10 @@ def books_view(request):
 
 
 def book_homepage(request):
-    page = request.GET.get('page', 1)
-    classic_books_slice = services.get_books(genres=[1], count=5)
+    classic_books_slice = services.get_books(genres=[11], count=5)  # wrong genre id
     all_books_slice = services.get_books(count=5)
+    context = {'classic_books_slice': classic_books_slice, 'all_books_slice': all_books_slice}
+    return render(request, 'book_homepage.html', context=context)
 
 
 def new_books_view(request):

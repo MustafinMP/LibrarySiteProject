@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/book_filter_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/book_homepage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/book_homepage.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/new_book_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/new_book_page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/book_homepage.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/book_homepage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,13 +133,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Correction of small errors in models.py">
-      <created>1645194602534</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1645194602534</updated>
     </task>
     <task id="LOCAL-00005" summary="Corrections in registration files">
       <created>1645196428836</created>
@@ -479,7 +470,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661344129682</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="add genre filter (not integrated to books views)&#10;&#10;Version 1.2.4.1">
+      <created>1661435288028</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1661435288028</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,7 +492,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Clean in views.py" />
     <MESSAGE value="Fix some troubles&#10;&#10;First working version&#10;&#10;Version 1.0" />
     <MESSAGE value="Start clean-up code&#10;&#10;Version 1.0.01" />
     <MESSAGE value="Finish clean-up code&#10;&#10;Version 1.0.02" />
@@ -519,6 +516,7 @@
     <MESSAGE value="add change password (demo version)&#10;add reset password (demo version)&#10;&#10;Version 1.2.3" />
     <MESSAGE value="create new_book_page.html&#10;create pagination element&#10;&#10;Version 1.2.4" />
     <MESSAGE value="integrate pagination to books page&#10;&#10;Version 1.2.4.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrate pagination to books page&#10;&#10;Version 1.2.4.1" />
+    <MESSAGE value="add genre filter (not integrated to books views)&#10;&#10;Version 1.2.4.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="add genre filter (not integrated to books views)&#10;&#10;Version 1.2.4.2" />
   </component>
 </project>
