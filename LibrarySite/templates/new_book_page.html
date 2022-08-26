@@ -11,20 +11,21 @@
 
 {% include 'book_filter_form.html' with form=form %}
 
-<section class="inline-section books-block">
-    <article class="books-line books-line-classic">
-        {% for book in classic_books_slice %}
-        <div class="book-block">
-            {{ book }}
-        </div>
-        {% endfor %}
-    </article>
-    <article class="books-line books-line-all">
+<section class="books-block">
+    <h2 class="books-line-title">Все книги</h2>
+    <article class="books-line">
         {% for book in all_books_slice %}
-        <div class="book-block">
-            {{ book }}
+        <div>
+            <a class="book-card" href="/books/{{ book.id }}/">
+                <img class="book-image" src="{{ book.img_url }}">
+                <div class="book-text">
+                    <p class="book-title">{{ book.title }}</p>
+                    <p> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</p>
+                    <p>Жанр: {{ book.genre }}</p>
+                </div>
+            </a>
         </div>
+
         {% endfor %}
     </article>
-</section>
-{% endblock content %}
+    {% endblock content %}
