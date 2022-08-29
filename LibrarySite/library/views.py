@@ -46,22 +46,22 @@ def book_homepage(request):
     return render(request, 'book_homepage.html', context=context)
 
 
-def new_books_view(request):
-    if request.method == 'POST':
-        form = BooksFilterForm(request.POST)
-        page = request.GET.get('page', 1)
-        form.clean_filters()
-        filtered_genres = form.cleaned_data['filtered_genres']
-        if filtered_genres:
-            books = services.get_books_with_pagination(page=page, genres=filtered_genres)
-        else:
-            books = services.get_books_with_pagination(page=page)
+def catalog(request):
+    page = request.GET.get('page', 1)
+    genre = request.GET.get('genre', None)
+    genres = Genre.objects.all()
+
+    if genre:
+        genre_label = genres.filter(id=genre)[0].title
+        page = services.get_books_with_pagination(page=page, genres=[genre])
     else:
-        form = BooksFilterForm()
-        page = request.GET.get('page', 1)
-        books = services.get_books_with_pagination(page=page)
-    context = {'books': books, 'form': form, 'media': settings.STATIC_URL}
-    return render(request, 'new_book_page.html', context=context)
+        genre_label = 'Все книги'
+        page = services.get_books_with_pagination(page=page)
+    context = {'page': page,
+               'genres': genres,
+               'genre_label': genre_label,
+               'media': settings.STATIC_URL}
+    return render(request, 'catalog.html', context=context)
 
 
 def one_book(request, book_id):

@@ -2,21 +2,27 @@
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/new_book_page.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/catalog.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
 {% block title %} Книги (обновленная страница) {% endblock title %}
 
 {% block content %}
 
-{% include 'book_filter_form.html' with form=form %}
-
-<section class="books-block">
-    <h2 class="books-line-title">Все книги</h2>
-    <article class="books-line">
-        {% for book in all_books_slice %}
+<section class="main-inline genre-menu">
+    <h2>Жанры</h2>
+    <nav class="genre-navigation">
+    {% for genre in genres %}
+    <a class="genre-item" href="?genre={{ genre.id }}">{{ genre.title }}</a>
+    {% endfor %}
+</nav>
+</section>
+<section class="main-inline books-block">
+    <h2 class="books-line-title">{{ genre_label }}</h2>
+    <article class="books-container">
+        {% for book in page %}
         <div>
-            <a class="book-card" href="/books/{{ book.id }}/">
+            <a class="book-card" href="../books/{{ book.id }}/">
                 <img class="book-image" src="{{ book.img_url }}">
                 <div class="book-text">
                     <p class="book-title">{{ book.title }}</p>
@@ -25,7 +31,8 @@
                 </div>
             </a>
         </div>
-
         {% endfor %}
     </article>
+    {% include "pagination.html" with page=page %}
     {% endblock content %}
+</section>
