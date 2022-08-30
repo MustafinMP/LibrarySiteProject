@@ -25,9 +25,8 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('about/', views.about),
 
-                  path('books/', views.books_view),
-                  path('books_homepage/', views.book_homepage),
-                  path('catalog/', views.new_books_view),
+                  path('books/', views.book_homepage),
+                  path('catalog/', views.catalog),
 
                   # path('books_with_genre/', views.books_with_genre),
                   path('books/<int:book_id>/', views.one_book),

@@ -5,7 +5,6 @@
   border-radius: 20px;
   box-shadow: 0 5px 10px 0 #aaaaaa;
   margin-top: 5%;
-  margin-bottom: 5%;
   margin-left: 35%;
   padding-top: 20px;
 }
@@ -49,4 +48,13 @@ form {
   width: 42%;
   border: none;
   margin-top: 13px;
+}
+
+.to-login {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 22px;
+  color: #2f5d8c;
 }

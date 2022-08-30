@@ -28,7 +28,8 @@
         <div class="form-line button-input">
             <input type="submit" value="Войти">
         </div>
-        <a class="form-line no-account" href="/register/">Нет аккаунта? зарегистрироваться >></a>
+        <a class="forgot-password" href="{% url 'password_reset' %}">Забыли пароль?</a>
     </form>
 </div>
+<a class="to-register" href="../register/">Нет аккаунта? Зарегистрироваться</a>
 {% endblock content %}
