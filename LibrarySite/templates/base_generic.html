@@ -11,6 +11,7 @@
 <header class="header">
     <a class="site-label header-inline" href="/">Lib117</a>
     <nav class="header-nav header-inline">
+        {% if user.is_staff %}<a class="header-nav-link" href="/staff">Панель управления персонала</a>{% endif %}
         <a href="/authors" class="header-nav-link">Авторы</a>
         <a href="/books" class="header-nav-link">Книги</a>
         {% if user.is_authenticated %}
@@ -25,22 +26,27 @@
     {% block content %}{% endblock %}
 </main>
 <footer>
-    <section class="footer-nav">
-        <a href="/about">О сайте<</a>
-        <a href="/autors">Авторы</a>
-        <a href="/books">Книги</a>
+    <section class="footer-link-block">
+
+        <article class="footer-nav">
+            <a href="/about">О сайте</a>
+            <a href="/books">Книги</a>
+            {% if user.is_staff %}<a class="staff-link" href="/staff">Панель управления персонала</a>{% endif %}
+        </article>
+
+        <article class="social-networks">
+            <a class="s-network tg-link" href="https://t.me/mbouschool117ufa">
+                <img src="{% static 'images/tg_logo.png' %}">
+                <p>МБОУ "Школа N117"</p>
+            </a>
+            <a class="s-network vk-link" href="https://vk.com/club132521788">
+                <img src="{% static 'images/vk_logo.png' %}">
+                <p>#Мы117</p>
+            </a>
+        </article>
+
     </section>
-    <section class="social-networks">
-        <h4>Мы в соцсетях</h4>
-        <a class="s-network tg-link" href="https://t.me/mbouschool117ufa">
-            <img src="{% static 'images/tg_logo.png' %}">
-            <p>МБОУ "Школа N117"</p>
-        </a>
-        <a class="s-network vk-link" href="https://vk.com/club132521788">
-            <img src="{% static 'images/vk_logo.png' %}">
-            <p>#Мы117</p>
-        </a>
-    </section>
+    <p class="copyright">© М.П. Мустафин, 2022</p>
 </footer>
 </body>
 </html>

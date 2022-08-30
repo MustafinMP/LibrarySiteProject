@@ -43,18 +43,28 @@ body {
 }
 
 footer {
-  display: flex;
   background: #2f5d8c;
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  height: 300px;
+}
+
+.footer-link-block {
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer-nav {
-  flex-grow: 7;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.footer-nav a {
+  margin: 10px;
+  color: white;
 }
 
 .social-networks {
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
@@ -68,5 +78,12 @@ footer {
 .s-network img {
   width: 32px;
   height: 32px;
+}
+
+
+.copyright {
+  text-align: center;
+  padding-bottom: 20px;
+  color: white;
 }
 
