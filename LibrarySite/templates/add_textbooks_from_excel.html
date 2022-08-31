@@ -1,0 +1,16 @@
+{% extends "basic_staff_template.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/add_textbooks_from_excel.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block title %} Импорт книг из Excel {% endblock %}
+
+{% block content %}
+<form enctype="multipart/form-data" method="post" action="">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="отправить">
+</form>
+{% endblock %}

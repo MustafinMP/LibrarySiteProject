@@ -52,6 +52,7 @@ urlpatterns = [
 
                   path('staff/add_book/', views.add_book),
                   path('staff/add_book_ins/', views.add_book),
+                  path('staff/add_textbooks_from_excel/', views.add_textbooks_from_excel),
 
                   path('404testing/', views.page_not_found_view),
 

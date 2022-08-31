@@ -90,3 +90,7 @@ class AddNewBookForm(forms.Form):
                                                   [(pbhs[i].id, pbhs[i]) for i in range(len(pbhs))]
                                               ))
     year_of_publication = forms.IntegerField()
+
+
+class AddTextBookFromExcelForm(forms.Form):
+    file = forms.FileField()

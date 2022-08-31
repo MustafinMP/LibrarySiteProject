@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, BooksFilterForm
+from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, BooksFilterForm, \
+    AddTextBookFromExcelForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
 from . import services
+import openpyxl
 import datetime
 import logging
 
@@ -174,7 +176,6 @@ def change_password_view(request):
     return HttpResponsePermanentRedirect('/')
 
 
-
 def page_not_found_view(request):
     # ,exception
     return render(request, '404.html', status=404)
@@ -263,3 +264,24 @@ def add_book_ins(request, book_id):
         count = request.POST.get('count')
         services.add_instances_to_book(book_id, count)
         return render(request, 'add_book_success.html')
+
+
+def add_textbooks_from_excel(request):
+    if request.method == 'POST':
+        form = AddTextBookFromExcelForm(request.POST, request.FILES)
+        file = request.FILES['file'].file
+        wb = openpyxl.load_workbook(file)
+        worksheet = wb.active
+        for row in worksheet.iter_rows(0, worksheet.max_row):
+            title = row[0].value
+            authors = row[1].value
+            genre = row[2].value
+            pb_house = row[3].value
+            year_of_publication = row[4].value
+            print([title, authors, genre, pb_house, year_of_publication])
+        return render(request, 'add_book_success.html')
+    else:
+        form = AddTextBookFromExcelForm()
+        return render(request, 'add_textbooks_from_excel.html', context={'form': form})
+        # for row in range(0, worksheet.max_row):
+        #     for col in worksheet.iter_cols(0, worksheet.max_column)
