@@ -39,6 +39,19 @@ class PublishingHouse(models.Model):
         return self.name
 
 
+# class StudentGroup(models.Model):
+#     level = models.IntegerField()
+#     letter = models.CharField(max_length=1)
+#
+#     def __str__(self):
+#         return f'{self.level}{self.letter}'
+#
+#
+# class AdditionalUserData(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.PROTECT)
+#     group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT)
+#
+
 '''---------------------------------------------------------------------------------------------------------------------
 Основные модели
 ---------------------------------------------------------------------------------------------------------------------'''
