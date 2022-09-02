@@ -34,20 +34,6 @@ def about(request):
 '''   Book Views   '''
 
 
-def books_view(request):
-    page = request.GET.get('page', 1)
-    books = services.get_books()
-    context = {'books': books, 'media': settings.STATIC_URL}
-    return render(request, 'books.html', context=context)
-
-
-def book_homepage(request):
-    classic_books_slice = services.get_books(genres=[11], count=4)  # wrong genre id
-    all_books_slice = services.get_books(count=5)
-    context = {'classic_books_slice': classic_books_slice, 'all_books_slice': all_books_slice}
-    return render(request, 'book_homepage.html', context=context)
-
-
 def catalog(request):
     page = request.GET.get('page', 1)
     genre = request.GET.get('genre', None)

@@ -13,7 +13,7 @@
     <nav class="header-nav header-inline">
         {% if user.is_staff %}<a class="header-nav-link" href="/staff">Панель управления персонала</a>{% endif %}
         <a href="/authors" class="header-nav-link">Авторы</a>
-        <a href="/books" class="header-nav-link">Книги</a>
+        <a href="/catalog" class="header-nav-link">Книги</a>
         {% if user.is_authenticated %}
         <a href="/profile/{{ user.id }}" class="header-nav-link">Профиль</a>
         {% else %}
