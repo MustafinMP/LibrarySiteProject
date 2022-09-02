@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, BooksFilterForm, \
-    AddTextBookFromExcelForm
+    AddTextBookFromExcelForm, AddNewBookInstanceForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.http import HttpResponsePermanentRedirect
@@ -259,11 +259,18 @@ def add_book(request):
         return render(request, 'add_book.html', {'form': add_book_form, 'errors': ''})
 
 
-def add_book_ins(request, book_id):
+def add_book_ins(request):
     if request.method == 'POST':
-        count = request.POST.get('count')
-        services.add_instances_to_book(book_id, count)
-        return render(request, 'add_book_success.html')
+        add_book_form = AddNewBookInstanceForm(request.POST)
+        if add_book_form.is_valid():
+            count = int(request.POST.get('count'))
+            book_id = int(request.POST.get('book'))
+            book = Book.objects.get(id=book_id)
+            services.add_instances_to_book(book, count)
+            return render(request, 'add_book_success.html')
+    else:
+        add_book_form = AddNewBookInstanceForm()
+        return render(request, 'staff/add_book_ins.html', {'form': add_book_form, 'errors': ''})
 
 
 def add_textbooks_from_excel(request):
@@ -283,5 +290,3 @@ def add_textbooks_from_excel(request):
     else:
         form = AddTextBookFromExcelForm()
         return render(request, 'add_textbooks_from_excel.html', context={'form': form})
-        # for row in range(0, worksheet.max_row):
-        #     for col in worksheet.iter_cols(0, worksheet.max_column)

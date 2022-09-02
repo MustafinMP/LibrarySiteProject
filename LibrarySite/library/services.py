@@ -2,8 +2,8 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
+import openpyxl
 import logging
-import random
 
 # book status
 STATUS_FREE = 1
@@ -113,29 +113,3 @@ def add_instances_to_book(book, count):
                                                     status=Status.objects.get(id=STATUS_FREE))
 
 
-def create_users(user_count, data, group=1):
-    for item in data:
-        name = data['name']
-        last_name = data['last_name']
-        try:
-            email = data['email']
-        except KeyError:
-            email = None
-        username, password = create_user(name, last_name, email, group=group)
-
-
-def create_user(name, last_name, email=None, group=1):
-    username = f'{name.capitalize()}{last_name.capitalize()}'
-    i = 0
-    while True:
-        if User.objects.get_by_natural_key():
-            i += 1
-        else:
-            username += i
-            break
-    password = User.objects.make_random_password()
-    user = User.objects.create_user(username, email=email, password=password)
-    user.last_name = last_name
-    user.first_name = name
-    user.save()
-    return username, password

@@ -1,9 +1,19 @@
 from django import forms
-from .models import Author, Genre, PublishingHouse
+from .models import Author, Genre, PublishingHouse, Book
 
 genres = Genre.objects.all()
 authors = Author.objects.all()
 pbhs = PublishingHouse.objects.all()
+
+
+def get_genres_list():
+    genres = Genre.objects.all()
+    return [(genres[i].id, genres[i].title) for i in range(len(genres))]
+
+
+def get_books_list():
+    books = Book.objects.all()
+    return [(books[i].id, books[i].title) for i in range(len(books))]
 
 
 class RegisterForm(forms.Form):
@@ -80,9 +90,8 @@ class AddNewBookForm(forms.Form):
                                                  [(authors[i].id, authors[i]) for i in range(len(authors))]
                                              ))
     genre = forms.TypedChoiceField(label='Жанр',
-                                   choices=(
-                                       [(genres[i].id, genres[i].title) for i in range(len(genres))]
-                                   ))
+                                   choices=(get_genres_list()))
+
     image = forms.ImageField(label='Обложка книги (можно добавить позже)', required=False)
     count = forms.IntegerField(label='Количество экземпляров книги', initial=1)
     publishing_house = forms.TypedChoiceField(label='Жанр',
@@ -94,3 +103,9 @@ class AddNewBookForm(forms.Form):
 
 class AddTextBookFromExcelForm(forms.Form):
     file = forms.FileField()
+
+
+class AddNewBookInstanceForm(forms.Form):
+    book = forms.TypedChoiceField(label='Книга',
+                                  choices=(get_books_list()))
+    count = forms.IntegerField(label='Количество экземпляров книги', initial=1)
