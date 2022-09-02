@@ -94,7 +94,7 @@ class AddNewBookForm(forms.Form):
 
     image = forms.ImageField(label='Обложка книги (можно добавить позже)', required=False)
     count = forms.IntegerField(label='Количество экземпляров книги', initial=1)
-    publishing_house = forms.TypedChoiceField(label='Жанр',
+    publishing_house = forms.TypedChoiceField(label='Издательство',
                                               choices=(
                                                   [(pbhs[i].id, pbhs[i]) for i in range(len(pbhs))]
                                               ))

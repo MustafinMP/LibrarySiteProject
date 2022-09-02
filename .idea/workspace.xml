@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/add_book_ins.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/add_book.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/add_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/add_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/add_book_ins.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/add_book_ins.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,13 +141,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Create a simple login">
-      <created>1646658951840</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1646658951840</updated>
     </task>
     <task id="LOCAL-00013" summary="Create the login design">
       <created>1646669035361</created>
@@ -487,7 +478,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661964531904</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="add adding book instance function&#10;&#10;Version 1.3.4">
+      <created>1662120521884</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1662120521884</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -502,7 +500,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix table fields in staff_borrow_textbook.html&#10;&#10;Version 1.1.05" />
     <MESSAGE value="add hover effect for books page&#10;&#10;Version 1.1.06" />
     <MESSAGE value="add hover effect for authors page&#10;&#10;Version 1.1.06" />
     <MESSAGE value="add add_book_form&#10;&#10;Version 1.1.07" />
@@ -527,6 +524,7 @@
     <MESSAGE value="update footer&#10;&#10;Version 1.3.1" />
     <MESSAGE value="create user functions (demo)&#10;&#10;Version 1.3.2" />
     <MESSAGE value="add import books from excel (template and view)&#10;&#10;Version 1.3.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="add import books from excel (template and view)&#10;&#10;Version 1.3.3" />
+    <MESSAGE value="add adding book instance function&#10;&#10;Version 1.3.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="add adding book instance function&#10;&#10;Version 1.3.4" />
   </component>
 </project>

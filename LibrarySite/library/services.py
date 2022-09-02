@@ -29,7 +29,6 @@ def get_profile_info(user):
     except Exception:
         context = {'user_data': user,
                    'have_book': False}
-
     return context
 
 
@@ -87,7 +86,6 @@ def staff_borrow_book(book_instance, post_request):
     elif '_lost' in post_request:
         book_instance.status = Status.objects.get(id=STATUS_LOST)
         book_instance.take_date = None
-
     book_instance.save()
 
 
