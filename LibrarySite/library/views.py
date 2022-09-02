@@ -191,7 +191,7 @@ def staff_index(request):
 def staff_reserve(request):
     book_instances = BookInstance.objects.all().filter(status=STATUS_RESERVE)
     context = {'book_instances': book_instances}
-    return render(request, 'staff_reserve.html', context=context)
+    return render(request, 'staff/reserve.html', context=context)
 
 
 def staff_reserve_one_book(request, book_id):
@@ -212,14 +212,14 @@ def staff_reserve_one_book(request, book_id):
         return HttpResponsePermanentRedirect('/staff/reserve/')
     else:
         context = {'book_instance': book_instance}
-        return render(request, 'staff_reserve_one_book.html', context=context)
+        return render(request, 'staff/reserve_one_book.html', context=context)
 
 
 def staff_borrow_view(request):
     book_instances = BookInstance.objects.all().filter(status=STATUS_BORROW)
     today = datetime.date.today()
     context = {'book_instances': book_instances, 'today': today}
-    return render(request, 'staff_borrow.html', context=context)
+    return render(request, 'staff/borrow.html', context=context)
 
 
 def staff_borrow_one_book(request, book_id):
@@ -230,13 +230,13 @@ def staff_borrow_one_book(request, book_id):
         return HttpResponsePermanentRedirect('/staff/borrow/')
     else:
         context = {'book_instance': book_instance}
-        return render(request, 'staff_borrow_one_book.html', context=context)
+        return render(request, 'staff/borrow_one_book.html', context=context)
 
 
 def staff_borrow_textbook_view(request):
     textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_BORROW)
     context = {'textbook_instances': textbook_instances}
-    return render(request, 'staff_borrow_textbook.html', context=context)
+    return render(request, 'staff/borrow_textbook.html', context=context)
 
 
 def add_book(request):
@@ -253,10 +253,10 @@ def add_book(request):
 
             services.add_book_with_instances(title, authors, genre, image, publishing_house, year_of_publication, count)
 
-            return render(request, 'add_book_success.html')
+            return render(request, 'staff/add_book_success.html')
     else:
         add_book_form = AddNewBookForm()
-        return render(request, 'add_book.html', {'form': add_book_form, 'errors': ''})
+        return render(request, 'staff/add_book.html', {'form': add_book_form, 'errors': ''})
 
 
 def add_book_ins(request):
@@ -267,7 +267,7 @@ def add_book_ins(request):
             book_id = int(request.POST.get('book'))
             book = Book.objects.get(id=book_id)
             services.add_instances_to_book(book, count)
-            return render(request, 'add_book_success.html')
+            return render(request, 'staff/add_book_success.html')
     else:
         add_book_form = AddNewBookInstanceForm()
         return render(request, 'staff/add_book_ins.html', {'form': add_book_form, 'errors': ''})
@@ -286,7 +286,7 @@ def add_textbooks_from_excel(request):
             pb_house = row[3].value
             year_of_publication = row[4].value
             print([title, authors, genre, pb_house, year_of_publication])
-        return render(request, 'add_book_success.html')
+        return render(request, 'staff/add_book_success.html')
     else:
         form = AddTextBookFromExcelForm()
-        return render(request, 'add_textbooks_from_excel.html', context={'form': form})
+        return render(request, 'staff/add_textbooks_from_excel.html', context={'form': form})
