@@ -1,4 +1,12 @@
+.content {
+  height: 600px;
+}
+
 h1, h2 {
   text-align: center;
-  color: #d55e2d;
+  color: red;
+}
+
+h1 {
+  padding-top: 250px;
 }
