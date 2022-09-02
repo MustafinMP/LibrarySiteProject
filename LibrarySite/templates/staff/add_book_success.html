@@ -1,8 +1,8 @@
-{% extends "basic_staff_template.html" %}
+{% extends "base_generic.html" %}
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/add_book_success.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/staff/add_book_success.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block title %} {{ book_instance.book.title }} {% endblock %}
