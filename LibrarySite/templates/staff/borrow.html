@@ -14,22 +14,22 @@
 <table>
     <thead>
     <tr>
+        <th>Ученик</th>
         <th>Книга</th>
         <th>id экземпляра</th>
         <th>Дата выдачи</th>
         <th>Дата возврата</th>
-        <th>Ученик</th>
     </tr>
     </thead>
     <tbody>
     {% for book_instance in book_instances %}
     <tr onclick="window.location.href='/staff/borrow/{{ book_instance.id }}/'; return false"
         class="table-row {% if today > book_instance.return_date %}row-danger{% endif %}">
+        <th>{{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}</th>
         <th>{{ book_instance.book.title }}</th>
         <th>{{ book_instance.id }}</th>
         <th>{{ book_instance.take_date }}</th>
         <th>{{ book_instance.return_date }}</th>
-        <th>{{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}</th>
     </tr>
     {% endfor %}
     </tbody>
