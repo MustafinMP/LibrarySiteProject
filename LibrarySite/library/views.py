@@ -215,7 +215,8 @@ def staff_borrow_one_book(request, book_id):
         services.staff_borrow_book(book_instance, request.POST)
         return HttpResponsePermanentRedirect('/staff/borrow/')
     else:
-        context = {'book_instance': book_instance}
+        today = datetime.date.today()
+        context = {'book_instance': book_instance, 'today': today}
         return render(request, 'staff/borrow_one_book.html', context=context)
 
 

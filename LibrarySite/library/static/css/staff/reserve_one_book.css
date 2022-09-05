@@ -13,17 +13,34 @@
 
 .description {
   display: inline-block;
-  margin-top: 70px;
+  margin-top: 20px;
   margin-left: 5%;
   vertical-align: top;
-  color: #2f5d8c;
 }
 
-.description h1 {
-  font-size: 30px;
-  color: #d55e2d;
-}
-
-.description h1 h2 {
+.book-title {
+  font-size: 45px;
   text-align: left;
+}
+
+.authors {
+  font-size: 30px;
+}
+
+.non-important-description {
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+.book-dates {
+  font-size: 26px;
+  margin-top: 16px;
+}
+
+.borrower-name {
+  font-size: 26px;
+}
+
+.danger-date {
+  color: red;
 }

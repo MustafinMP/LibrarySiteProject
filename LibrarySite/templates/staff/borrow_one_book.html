@@ -13,14 +13,19 @@
 </section>
 
 <section class="description">
-    <h1>Книга: {{ book_instance.book.title }}</h1>
-    <h2>Авторы: {% for author in book_instance.book.author.all %}{{ author }}{% endfor %}</h2>
-    <h2>Издательство: {{ book_instance.book.publishing_house }}</h2>
-    <h2>Год издания: {{ book_instance.book.year_of_publication }}</h2>
-    <h2>id экземпляра: {{ book_instance.id }}</h2>
-    <h2>Дата выдачи: {{ book_instance.take_date }}</h2>
-    <h2>Крайний срок возврата: {{ book_instance.return_date }}</h2>
-    <h2>Ученик: {{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}</h2>
+    <p class="book-title">{{ book_instance.book.title }}</p>
+    <div class="authors">Авторы: {% for author in book_instance.book.author.all %}{{ author }}{% endfor %}</div>
+    <div class="non-important-description">Издательство: {{ book_instance.book.publishing_house }}</div>
+    <div class="non-important-description">Год издания: {{ book_instance.book.year_of_publication }}</div>
+    <div class="non-important-description">id экземпляра: {{ book_instance.id }}</div>
+    <div class="book-dates">
+        Дата выдачи: {{ book_instance.take_date }}<br>
+        Крайний срок возврата:
+        <span class="{% if today > book_instance.return_date %}danger-date{% endif %}">{{ book_instance.return_date }}</span>
+    </div>
+    <div class="borrower-name">
+        Ученик: {{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}
+    </div>
 </section>
 
 <form method="post">

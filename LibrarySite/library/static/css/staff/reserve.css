@@ -1,6 +1,6 @@
 .no-books {
   text-align: center;
-  color: #d55e2d;
+  color: red;
 }
 
 .reserve-header {
@@ -9,22 +9,23 @@
 
 .instruction {
   text-align: center;
-  color: #2f5d8c;
+  color: #888888;
 }
 
 table {
   width: 90%;
   margin-left: 5%;
-  border-bottom: 2px solid #a0b3c1;
+  margin-bottom: 28px;
+  border-bottom: 2px solid #f7b417;
 }
 
 thead {
   height: 50px;
-  background: #a0b3c1;
+  background: #f7b417;
 }
 
 .row-danger {
-  color: #d55e2d;
+  color: red;
 }
 
 .table-row {
