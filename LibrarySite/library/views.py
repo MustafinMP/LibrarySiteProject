@@ -1,11 +1,14 @@
-from django.shortcuts import render
-from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, BooksFilterForm, \
-    AddTextBookFromExcelForm, AddNewBookInstanceForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
-from django.http import HttpResponsePermanentRedirect
 from django.conf import settings
-from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
+from django.http import HttpResponsePermanentRedirect
+from django.shortcuts import render, reverse
+
+from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
+    StudentGroup, AdditionalUserData
+from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
+    AddTextBookFromExcelForm, AddNewBookInstanceForm
+
 from . import services
 import openpyxl
 import datetime
@@ -100,15 +103,26 @@ def register(request):
             last_name = request.POST.get('last_name')
             e_mail = request.POST.get('e_mail')
             password = request.POST.get('password')
+            group = request.POST.get('group')
+            try:
+                level = int(group[:-1])
+                letter = group[-1].upper()
+                s_group = StudentGroup.objects.get(level=level, letter=letter)
 
-            # создание пользователя
-            user = User.objects.create_user(username, e_mail, password)
-            user.last_name = last_name
-            user.first_name = name
-            user.save()
-
-            logging.info(f'created user "{username}"')
-            return HttpResponsePermanentRedirect('login/')
+                # создание пользователя
+                user = User.objects.create_user(username, e_mail, password)
+                user.last_name = last_name
+                user.first_name = name
+                user.save()
+                additional_user_data = AdditionalUserData(user=user, group=s_group)
+                additional_user_data.is_graduate = False
+                additional_user_data.save()
+                logging.info(f'created user "{username}"')
+            except Exception as e:
+                print(e)
+                register_form.add_error('group', f'Класс {group} отсутствует в базе')
+                return render(request, 'register.html', {'form': register_form})
+            return HttpResponsePermanentRedirect(reverse('login_page'))
     else:
         register_form = RegisterForm()
         return render(request, 'register.html', {'form': register_form})

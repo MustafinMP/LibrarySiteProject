@@ -33,22 +33,21 @@ class RegisterForm(forms.Form):
                                widget=forms.PasswordInput,
                                help_text='Введите пароль')
 
+    group = forms.CharField(label='Класс')
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Логин',
-                               help_text='Введите свой логин'
-                               )
+                               help_text='Введите свой логин')
     password = forms.CharField(widget=forms.PasswordInput,
                                label='Пароль',
-                               help_text='Введите пароль'
-                               )
+                               help_text='Введите пароль')
 
 
 class ChangePasswordForm(forms.Form):
     password = forms.CharField(widget=forms.PasswordInput,
                                label='Пароль',
-                               help_text='Введите новый пароль'
-                               )
+                               help_text='Введите новый пароль')
     confirm_password = forms.CharField(widget=forms.PasswordInput,
                                        label='Подтверждение пароля',
                                        help_text='Подтвердите новый пароль'
