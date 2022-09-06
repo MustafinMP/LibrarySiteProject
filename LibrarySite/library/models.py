@@ -14,8 +14,7 @@ All application models
 
 class Genre(models.Model):
     title = models.CharField(verbose_name='Жанр книги',
-                             max_length=30
-                             )
+                             max_length=30)
 
     def __str__(self):
         return self.title
@@ -23,8 +22,7 @@ class Genre(models.Model):
 
 class Status(models.Model):
     title = models.CharField(verbose_name='Статус книги',
-                             max_length=20
-                             )
+                             max_length=20)
 
     def __str__(self):
         return self.title
@@ -32,8 +30,7 @@ class Status(models.Model):
 
 class PublishingHouse(models.Model):
     name = models.CharField(verbose_name='Издательство книги',
-                            max_length=60
-                            )
+                            max_length=60)
 
     def __str__(self):
         return self.name
@@ -47,8 +44,8 @@ class StudentGroup(models.Model):
         return f'{self.level}{self.letter}'
 
 
-class AdditionalUserData(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT)
+class UserData(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='user_data', primary_key=True)
     group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT, blank=True, null=True)
     is_graduate = models.BooleanField()
 

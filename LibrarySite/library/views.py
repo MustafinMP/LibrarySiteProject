@@ -5,7 +5,7 @@ from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
-    StudentGroup, AdditionalUserData
+    StudentGroup, UserData
 from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
     AddTextBookFromExcelForm, AddNewBookInstanceForm
 
@@ -114,8 +114,7 @@ def register(request):
                 user.last_name = last_name
                 user.first_name = name
                 user.save()
-                additional_user_data = AdditionalUserData(user=user, group=s_group)
-                additional_user_data.is_graduate = False
+                additional_user_data = UserData.objects.create(user=user, group=s_group, is_graduate=False)
                 additional_user_data.save()
                 logging.info(f'created user "{username}"')
             except Exception as e:
