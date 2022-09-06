@@ -30,7 +30,7 @@
 
 <form method="post">
     {% csrf_token %}
-    <input type="submit" value="Возвращена" class="reserve" name="_return">
-    <input type="submit" value="Утеряна" class="reserve" name="_lost">
+    <input type="submit" value="Возвращена" class="action-button" name="_return">
+    <input type="submit" value="Утеряна" class="action-button action-button-danger" name="_lost">
 </form>
 {% endblock content %}

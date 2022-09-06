@@ -16,14 +16,16 @@
     <p class="book-title">{{ book_instance.book.title }}</p>
     <div class="authors">Авторы: {% for author in book_instance.book.author.all %}{{ author }}{% endfor %}</div>
     <div class="non-important-description">Издательство: {{ book_instance.book.publishing_house }}</div>
-    <div>Год издания: {{ book_instance.book.year_of_publication }}</div>
-    <div>id экземпляра: {{ book_instance.id }}</div>
-    <div>Ученик: {{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}</div>
+    <div class="non-important-description">Год издания: {{ book_instance.book.year_of_publication }}</div>
+    <div class="non-important-description">id экземпляра: {{ book_instance.id }}</div>
+    <div class="borrower-name">
+        Ученик: {{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}
+    </div>
 </section>
 
 <form method="post">
     {% csrf_token %}
-    <input type="submit" value="Выдать" class="reserve" name="_approve">
-    <input type="submit" value="Отказать" class="reserve" name="_reject">
+    <input type="submit" value="Выдать" class="action-button" name="_approve">
+    <input type="submit" value="Отказать" class="action-button action-button-danger" name="_reject">
 </form>
 {% endblock content %}

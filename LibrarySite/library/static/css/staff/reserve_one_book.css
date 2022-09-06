@@ -44,3 +44,38 @@
 .danger-date {
   color: red;
 }
+
+form {
+  text-align: center;
+  margin: 20px 20px;
+}
+
+.action-button {
+  width: 210px;
+  height: 50px;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-size: 26px;
+  border: 2px solid #2f5d8c;
+  border-radius: 25px;
+  background: #f9f9f9;
+  color: #2f5d8c;
+}
+
+.action-button:hover {
+  border-color: #2f5d8c;
+  background: #2f5d8c;
+  color: white;
+}
+
+.action-button-danger {
+  border-color: red;
+  background: #f9f9f9;
+  color: red;
+}
+
+.action-button-danger:hover {
+  border-color: red;
+  background: red;
+  color: white;
+}

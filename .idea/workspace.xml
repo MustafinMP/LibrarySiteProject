@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/reserve.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/reserve.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/reserve_one_book.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/reserve_one_book.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/borrow_one_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/borrow_one_book.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/reserve_one_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/reserve_one_book.html" afterDir="false" />
     </list>
@@ -146,20 +144,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Create simple books page, fix media settings">
-      <created>1647006704141</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1647006704141</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Create a one-book page and books page style">
-      <created>1647099567878</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1647099567878</updated>
     </task>
     <task id="LOCAL-00020" summary="Create the book page style">
       <created>1647180505230</created>
@@ -490,7 +474,21 @@
       <option name="project" value="LOCAL" />
       <updated>1662125778279</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="update design on staff borrow anf reserve pages&#10;&#10;Version 1.3.5.5">
+      <created>1662383342305</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1662383342306</updated>
+    </task>
+    <task id="LOCAL-00068" summary="update design on staff borrow anf reserve pages&#10;&#10;Version 1.3.5.6">
+      <created>1662383383027</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1662383383027</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -505,8 +503,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="new header style&#10;&#10;Version 1.1.09" />
-    <MESSAGE value="update header style&#10;&#10;Version 1.1.10" />
     <MESSAGE value="update description block on homepage&#10;&#10;Version 1.1.10" />
     <MESSAGE value="update new homepage design&#10;&#10;Version 1.1.11" />
     <MESSAGE value="add social networks&#10;&#10;Version 1.1.12" />
@@ -530,6 +526,8 @@
     <MESSAGE value="update not_your_profile.css&#10;&#10;Version 1.3.5.2" />
     <MESSAGE value="refactor staff css files&#10;rename basic_staff_template.html to staff/base_generic.html&#10;&#10;Version 1.3.5.3" />
     <MESSAGE value="rename books paths&#10;&#10;Version 1.3.5.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="rename books paths&#10;&#10;Version 1.3.5.4" />
+    <MESSAGE value="update design on staff borrow anf reserve pages&#10;&#10;Version 1.3.5.5" />
+    <MESSAGE value="update design on staff borrow anf reserve pages&#10;&#10;Version 1.3.5.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="update design on staff borrow anf reserve pages&#10;&#10;Version 1.3.5.6" />
   </component>
 </project>
