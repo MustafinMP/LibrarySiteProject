@@ -1,7 +1,8 @@
 """For app's logic"""
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
-from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse
+from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
+    StudentGroup, IssueTextbooks
 import openpyxl
 import logging
 
@@ -14,6 +15,10 @@ STATUS_RESERVE = 4
 logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)
+
+
+class NotEnoughTextbooksError(Exception):
+    pass
 
 
 # user functions
@@ -111,3 +116,18 @@ def add_instances_to_book(book, count):
                                                     status=Status.objects.get(id=STATUS_FREE))
 
 
+def issue_textbooks(textbook, group, borrower):
+    textbook = Textbook.objects.get(id=textbook)
+    group_user = User.objects.all().filter(user_data__group__id=group)
+    group = StudentGroup.objects.get(id=group)
+    count = len(group_user)
+    textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_FREE)
+    if len(textbook_instances) < count:
+        raise NotEnoughTextbooksError
+    for i in range(count):
+        tb = textbook_instances[i]
+        tb.borrower = group_user[i]
+        tb.status = Status.objects.get(id=STATUS_BORROW)
+        tb.save()
+    issue_tbs = IssueTextbooks.objects.create(textbook=textbook, group=group, count=count, borrower=borrower)
+    issue_tbs.save()

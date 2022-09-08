@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/js/staff/issue_textbooks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/issue_textbooks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/issue_textbooks.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/issue_textbooks.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,13 +146,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00023" summary="Redesign login page">
-      <created>1647181636984</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1647181636984</updated>
     </task>
     <task id="LOCAL-00024" summary="Change one color">
       <created>1647181821449</created>
@@ -491,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662473035638</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="add issue textbooks model, form and html file&#10;&#10;Version 1.4.2">
+      <created>1662641750756</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1662641750757</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -506,7 +505,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="replace profile and books queries to services.py&#10;&#10;Version 1.2.1" />
     <MESSAGE value="replace a part of staff functions from views.py to services.py&#10;&#10;Version 1.2.2" />
     <MESSAGE value="add simple staff homepage&#10;&#10;Version 1.2.3" />
     <MESSAGE value="add change password (demo version)&#10;add reset password (demo version)&#10;&#10;Version 1.2.3" />
@@ -531,6 +529,7 @@
     <MESSAGE value="update button design on staff borrow anf reserve pages&#10;&#10;Version 1.3.5.7" />
     <MESSAGE value="add student groups&#10;&#10;Version 1.4" />
     <MESSAGE value="fix bugs&#10;add group name to profile&#10;&#10;Version 1.4.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bugs&#10;add group name to profile&#10;&#10;Version 1.4.1" />
+    <MESSAGE value="add issue textbooks model, form and html file&#10;&#10;Version 1.4.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="add issue textbooks model, form and html file&#10;&#10;Version 1.4.2" />
   </component>
 </project>

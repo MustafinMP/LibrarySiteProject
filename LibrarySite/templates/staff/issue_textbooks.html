@@ -9,36 +9,31 @@
 
 {% block content %}
 {{ text|json_script:"djangoData" }}
-<p id="app">[[ message ]]</p>
+{{ form.errors }}
 <p class="textbooks-in-library">Свободных учебников: {{ textbooks_count }}</p>
-<!--<div class="form-block">-->
-<!--    <form method="post">-->
-<!--        {% csrf_token %}-->
-<!--        <div class="form-line">-->
-<!--            <div class="label-tag">{{ form.textbook.label_tag }}</div>-->
-<!--            {{ form.textbook }}<br>-->
-<!--            {{ form.textbook.errors }}-->
-<!--        </div>-->
-<!--        <div class="form-line">-->
-<!--            <div class="label-tag">{{ form.group.label_tag }}</div>-->
-<!--            {{ form.group }}<br>-->
-<!--            {{ form.group.errors }}-->
-<!--        </div>-->
-<!--        <div class="form-line">-->
-<!--            <div class="label-tag">{{ form.count.label_tag }}</div>-->
-<!--            {{ form.count }}<br>-->
-<!--            {{ form.count.errors }}-->
-<!--        </div>-->
-<!--        <div class="form-line">-->
-<!--            <div class="label-tag">{{ form.borrower.label_tag }}</div>-->
-<!--            {{ form.borrower }}<br>-->
-<!--            {{ form.borrower.errors }}-->
-<!--        </div>-->
-<!--        <div class="form-line button-input">-->
-<!--            <input type="submit" value="Выдать">-->
-<!--        </div>-->
-<!--    </form>-->
-<!--</div>-->
+<div class="form-block">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-line">
+            <div class="label-tag">{{ form.textbook.label_tag }}</div>
+            {{ form.textbook }}<br>
+            {{ form.textbook.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.group.label_tag }}</div>
+            {{ form.group }}<br>
+            {{ form.group.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.borrower.label_tag }}</div>
+            {{ form.borrower }}<br>
+            {{ form.borrower.errors }}
+        </div>
+        <div class="form-line button-input">
+            <input type="submit" value="Выдать">
+        </div>
+    </form>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="{% static 'js/staff/issue_textbooks.js' %}"></script>
 {% endblock %}

@@ -299,7 +299,13 @@ def issue_textbooks(request):
         if form.is_valid():
             textbook = form.cleaned_data['textbook']
             group = form.cleaned_data['group']
-            count = form.cleaned_data['count']
             borrower = form.cleaned_data['borrower']
+            try:
+                services.issue_textbooks(textbook, group, borrower)
+            except services.NotEnoughTextbooksError:
+                return
+            return HttpResponsePermanentRedirect('/')
+        return render(request, 'staff/issue_textbooks.html', context={'text': 'error', 'form': form})
     else:
-        return render(request, 'staff/issue_textbooks.html', context={'text': 'text'})
+        form = IssueTextbookForm()
+        return render(request, 'staff/issue_textbooks.html', context={'text': 'text', 'form': form})

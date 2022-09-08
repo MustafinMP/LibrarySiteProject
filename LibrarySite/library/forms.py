@@ -6,10 +6,6 @@ authors = Author.objects.all()
 pbhs = PublishingHouse.objects.all()
 
 
-def get_users():
-    users = User.objects.all()
-    return [(users[i].id, users[i].username) for i in range(len(users))]
-
 
 def get_groups():
     groups = StudentGroup.objects.all()
@@ -122,6 +118,4 @@ class IssueTextbookForm(forms.Form):
                                       choices=(get_textbooks_list()))
     group = forms.TypedChoiceField(label='Класс',
                                    choices=(get_groups()))
-    count = forms.IntegerField(label='Количество')
-    borrower = forms.TypedChoiceField(label='Класс',
-                                      choices=(get_groups()))
+    borrower = forms.CharField()
