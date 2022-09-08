@@ -53,6 +53,8 @@ urlpatterns = [
                   path('staff/add_book_ins/', views.add_book_ins),
                   path('staff/add_textbooks_from_excel/', views.add_textbooks_from_excel),
 
+                  path('staff/issue_textbooks/', views.issue_textbooks),
+
                   path('404testing/', views.page_not_found_view),
 
               ] + static(settings.MEDIA_URL,

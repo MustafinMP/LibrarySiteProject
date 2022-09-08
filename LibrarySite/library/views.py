@@ -7,12 +7,13 @@ from django.shortcuts import render, reverse
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
     StudentGroup, UserData
 from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
-    AddTextBookFromExcelForm, AddNewBookInstanceForm
+    AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm
 
 from . import services
 import openpyxl
 import datetime
 import logging
+import json
 
 STATUS_FREE = 1
 STATUS_BORROW = 2
@@ -290,3 +291,15 @@ def add_textbooks_from_excel(request):
     else:
         form = AddTextBookFromExcelForm()
         return render(request, 'staff/add_textbooks_from_excel.html', context={'form': form})
+
+
+def issue_textbooks(request):
+    if request.method == 'POST':
+        form = IssueTextbookForm(request.POST)
+        if form.is_valid():
+            textbook = form.cleaned_data['textbook']
+            group = form.cleaned_data['group']
+            count = form.cleaned_data['count']
+            borrower = form.cleaned_data['borrower']
+    else:
+        return render(request, 'staff/issue_textbooks.html', context={'text': 'text'})

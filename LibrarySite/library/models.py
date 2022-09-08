@@ -12,8 +12,13 @@ All application models
 ---------------------------------------------------------------------------------------------------------------------'''
 
 
-class Genre(models.Model):
+class Subject(models.Model):
     title = models.CharField(verbose_name='Жанр книги',
+                             max_length=30)
+
+
+class Genre(models.Model):
+    title = models.CharField(verbose_name='Предмет',
                              max_length=30)
 
     def __str__(self):
@@ -141,8 +146,10 @@ class BookInstance(models.Model):
 class Textbook(models.Model):
     title = models.CharField(verbose_name='Название учебника',
                              max_length=100)
-    genre = models.ForeignKey(Genre,
-                              on_delete=models.PROTECT)
+    subject = models.ForeignKey(Subject,
+                                on_delete=models.PROTECT,
+                                blank=True,
+                                null=True)
     author = models.ManyToManyField(Author,
                                     verbose_name='Авторы учебника',
                                     related_name='textbook')
@@ -159,10 +166,13 @@ class Textbook(models.Model):
                                               null=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.title}, {self.level} класс, {self.year_of_publication}'
 
     def display_author(self):
         return ', '.join([f'{author.name} {author.last_name}' for author in self.author.all()])
+
+    def display_one_author(self):
+        return str(self.author.all()[0].last_name)
 
     display_author.short_description = 'Авторы'
 
@@ -193,3 +203,13 @@ class TextbookInstance(models.Model):
 
 
 '''------------------------------------------------------------------------------------------------------------------'''
+
+
+class IssueTextbooks(models.Model):
+    """Класс хранит только информацию о факте выдачи учебников без уточнения, какие именно экземпляры выданы,
+    и кто эти экземпляры получил. Объект также хранит только фамилию ученика/учителя, забравшего учебники без
+    сохранения, какой это был аккунт."""
+    textbook = models.ForeignKey(Textbook, on_delete=models.PROTECT)
+    group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT)
+    count = models.IntegerField()
+    borrower = models.CharField(max_length=50)
