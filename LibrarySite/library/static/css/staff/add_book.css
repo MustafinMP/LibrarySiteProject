@@ -3,46 +3,52 @@
   margin-left: 20%;
 }
 
-#id_authors option {
-  font-size: 14px;
-  height: 16px;
-}
-#id_image {
-  position: relative;
-  display: inline-block;
-  appearance: none;
-  align-items: baseline;
-  color: inherit;
-  text-overflow: ellipsis;
-  white-space: pre;
-  text-align: start !important;
-  padding: 0;
-  border: 1px solid black;
-  overflow: visible !important;
+.image-input {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 400px;
+     height: 400px;
+     outline: 2px dashed #5d5d5d;
+     outline-offset: -12px;
+     background-color: #e0f2f7;
+     font-family: 'Segoe UI';
+     color: #1f3c44;
 }
 
-.input-file-btn {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-	outline: none;
-	text-decoration: none;
-	font-size: 14px;
-	vertical-align: middle;
-	color: rgb(255 255 255);
-	text-align: center;
-	border-radius: 4px;
-	background-color: #419152;
-	line-height: 22px;
-	height: 40px;
-	padding: 10px 20px;
-	box-sizing: border-box;
-	border: none;
-	margin: 0;
-	transition: background-color 0.2s;
+.image-input .file-input-label {
+     font-weight: bold;
+}
+
+.image-input .file-input-label:hover {
+     cursor: pointer;
+     text-decoration: underline;
+}
+
+.image-input div {
+     position: relative;
+     z-index: 10;
+}
+
+.image-input input[type=file] {
+     width: 0.1px;
+     height: 0.1px;
+     opacity: 0;
+     position: absolute;
+     z-index: -10;
 }
 
 .button-input input {
   width: 20%;
   height: 40px;
+}
+
+.input-image input[type=file]:focus + .file-input-label {
+     outline: -webkit-focus-ring-color auto 5px;
+}
+
+.input-image .file-input-label.focus {
+     outline: 1px solid #0078d7;
+     outline: -webkit-focus-ring-color auto 5px;
 }

@@ -45,10 +45,10 @@ def catalog(request):
 
     if genre:
         genre_label = genres.filter(id=genre)[0].title
-        page = services.get_books_with_pagination(page=page, genres=[genre])
+        page = services.Get.get_books_with_pagination(page=page, genres=[genre])
     else:
         genre_label = 'Все книги'
-        page = services.get_books_with_pagination(page=page)
+        page = services.Get.get_books_with_pagination(page=page)
     context = {'page': page,
                'genres': genres,
                'genre_label': genre_label,
@@ -155,7 +155,7 @@ def profile(request, user_id):
     user = User.objects.get(id=user_id)
     user2 = request.user
     if user == user2:
-        context = services.get_profile_info(user2)
+        context = services.Get.get_profile_info(user2)
         return render(request, 'profile.html', context=context)
     return render(request, 'not_your_profile.html')
 

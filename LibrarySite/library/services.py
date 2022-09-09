@@ -6,7 +6,7 @@ from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbo
 import openpyxl
 import logging
 
-# book status
+# book statuses
 STATUS_FREE = 1
 STATUS_BORROW = 2
 STATUS_LOST = 3
@@ -21,49 +21,50 @@ class NotEnoughTextbooksError(Exception):
     pass
 
 
-# user functions
+class Get:
+    """Get functions"""
+    @staticmethod
+    def get_books(authors=None, genres=None, is_free=None, count=None):
+        filter_kwargs = {}
+        if not (authors is None):
+            filter_kwargs['author__in'] = authors
+        if not (genres is None):
+            filter_kwargs['genre__in'] = genres
+        if not (is_free is None):
+            filter_kwargs['bookinstance__status'] = 1
+        if filter_kwargs:
+            books = Book.objects.filter(**filter_kwargs).order_by('id')
+        else:
+            books = Book.objects.all().order_by('id')
+        if not (count is None):
+            books = books[:count]
+        return books
 
-def get_profile_info(user):
-    try:
-        book_ins = BookInstance.objects.get(borrower=user)
-        book = book_ins.book
-        context = {'user_data': user,
-                   'have_book': True,
-                   'book': book,
-                   'book_ins': book_ins}
-    except Exception:
-        context = {'user_data': user,
-                   'have_book': False}
-    return context
+    @staticmethod
+    def get_profile_info(user):
+        try:
+            book_ins = BookInstance.objects.get(borrower=user)
+            book = book_ins.book
+            context = {'user_data': user,
+                       'have_book': True,
+                       'book': book,
+                       'book_ins': book_ins}
+        except Exception:
+            context = {'user_data': user,
+                       'have_book': False}
+        return context
 
-
-def get_books(authors=None, genres=None, is_free=None, count=None):
-    filter_kwargs = {}
-    if not (authors is None):
-        filter_kwargs['author__in'] = authors
-    if not (genres is None):
-        filter_kwargs['genre__in'] = genres
-    if not (is_free is None):
-        filter_kwargs['bookinstance__status'] = 1
-    if filter_kwargs:
-        books = Book.objects.filter(**filter_kwargs).order_by('id')
-    else:
-        books = Book.objects.all().order_by('id')
-    if not (count is None):
-        books = books[:count]
-    return books
-
-
-def get_books_with_pagination(page=1, authors=None, genres=None, is_free=None):
-    book_list = get_books(authors=authors, genres=genres, is_free=is_free)
-    paginator = Paginator(book_list, 30)  # 30 books in each page
-    try:
-        books = paginator.page(page)
-    except PageNotAnInteger:
-        books = paginator.page(1)
-    except EmptyPage:
-        books = paginator.page(paginator.num_pages)
-    return books
+    @staticmethod
+    def get_books_with_pagination(page=1, authors=None, genres=None, is_free=None):
+        book_list = Get.get_books(authors=authors, genres=genres, is_free=is_free)
+        paginator = Paginator(book_list, 30)  # 30 books in each page
+        try:
+            books = paginator.page(page)
+        except PageNotAnInteger:
+            books = paginator.page(1)
+        except EmptyPage:
+            books = paginator.page(paginator.num_pages)
+        return books
 
 
 def add_book_to_user(book_id, user):
