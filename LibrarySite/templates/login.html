@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block styles_link %}
+<link href="{% static 'css/form.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
@@ -9,7 +10,7 @@
 {% block content %}
 
 <div class="form-block">
-        <div class="enter-label">Вход</div>
+        <div class="form-label">Вход</div>
     <form method="post">
         {% csrf_token %}
         <div class="form-line">

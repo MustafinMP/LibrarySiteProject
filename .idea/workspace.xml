@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="" />
+    <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/form.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/register.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/add_book.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/add_book.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/add_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/add_book.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/issue_textbooks.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/issue_textbooks.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,13 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00025" summary="New header design">
-      <created>1647186684939</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1647186684939</updated>
     </task>
     <task id="LOCAL-00026" summary="New homepage design">
       <created>1647763289273</created>
@@ -482,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662646627642</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="add link to issue textbooks view&#10;&#10;Version 1.5.1">
+      <created>1662647032093</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1662647032093</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -497,7 +507,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add simple staff homepage&#10;&#10;Version 1.2.3" />
     <MESSAGE value="add change password (demo version)&#10;add reset password (demo version)&#10;&#10;Version 1.2.3" />
     <MESSAGE value="create new_book_page.html&#10;create pagination element&#10;&#10;Version 1.2.4" />
     <MESSAGE value="integrate pagination to books page&#10;&#10;Version 1.2.4.1" />
@@ -522,6 +531,7 @@
     <MESSAGE value="fix bugs&#10;add group name to profile&#10;&#10;Version 1.4.1" />
     <MESSAGE value="add issue textbooks model, form and html file&#10;&#10;Version 1.4.2" />
     <MESSAGE value="integrate view to issue textbook function&#10;&#10;Version 1.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="integrate view to issue textbook function&#10;&#10;Version 1.5" />
+    <MESSAGE value="add link to issue textbooks view&#10;&#10;Version 1.5.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="add link to issue textbooks view&#10;&#10;Version 1.5.1" />
   </component>
 </project>

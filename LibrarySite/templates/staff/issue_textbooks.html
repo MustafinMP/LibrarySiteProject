@@ -10,7 +10,6 @@
 {% block content %}
 {{ text|json_script:"djangoData" }}
 {{ form.errors }}
-<p class="textbooks-in-library">Свободных учебников: {{ textbooks_count }}</p>
 <div class="form-block">
     <form method="post">
         {% csrf_token %}
