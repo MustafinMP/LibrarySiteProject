@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/404.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/404.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/404.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,13 +142,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Clean in views.py">
-      <created>1648478102976</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1648478102976</updated>
     </task>
     <task id="LOCAL-00029" summary="Fix some troubles&#10;&#10;First working version&#10;&#10;Version 1.0">
       <created>1648549415230</created>
@@ -485,7 +479,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662729059186</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="replace staff views to class Staff&#10;&#10;Version 1.5.4">
+      <created>1662730463916</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1662730463916</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -500,7 +501,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="integrate pagination to books page&#10;&#10;Version 1.2.4.1" />
     <MESSAGE value="add genre filter (not integrated to books views)&#10;&#10;Version 1.2.4.2" />
     <MESSAGE value="add book homepage&#10;&#10;Version 1.2.5" />
     <MESSAGE value="update book item design&#10;&#10;Version 1.2.6" />
@@ -525,6 +525,7 @@
     <MESSAGE value="add link to issue textbooks view&#10;&#10;Version 1.5.1" />
     <MESSAGE value="replace forms design to one css file (form.css)&#10;&#10;Version 1.5.2" />
     <MESSAGE value="replace 'get from db' functions to class Get&#10;&#10;Version 1.5.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="replace 'get from db' functions to class Get&#10;&#10;Version 1.5.3" />
+    <MESSAGE value="replace staff views to class Staff&#10;&#10;Version 1.5.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="replace staff views to class Staff&#10;&#10;Version 1.5.4" />
   </component>
 </project>
