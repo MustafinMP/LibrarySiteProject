@@ -41,21 +41,21 @@ urlpatterns = [
                        name='logout'),
                   path('change_password', views.change_password_view),
 
-                  path('staff/', views.staff_index),
-                  path('staff/reserve/', views.staff_reserve),
-                  path('staff/reserve/<book_id>/', views.staff_reserve_one_book),
+                  path('staff/', views.Staff.index),
+                  path('staff/reserve/', views.Staff.reserve),
+                  path('staff/reserve/<book_id>/', views.Staff.reserve_one_book),
 
-                  path('staff/borrow/', views.staff_borrow_view),
-                  path('staff/borrow/<book_id>/', views.staff_borrow_one_book),
-                  path('staff/borrow-textbook/', views.staff_borrow_textbook_view),
+                  path('staff/borrow/', views.Staff.borrow_view),
+                  path('staff/borrow/<book_id>/', views.Staff.borrow_one_book),
+                  path('staff/borrow-textbook/', views.Staff.borrow_textbook_view),
 
-                  path('staff/add_book/', views.add_book),
-                  path('staff/add_book_ins/', views.add_book_ins),
-                  path('staff/add_textbooks_from_excel/', views.add_textbooks_from_excel),
+                  path('staff/add_book/', views.Staff.add_book),
+                  path('staff/add_book_ins/', views.Staff.add_book_ins),
+                  path('staff/add_textbooks_from_excel/', views.Staff.add_textbooks_from_excel),
 
-                  path('staff/issue_textbooks/', views.issue_textbooks),
+                  path('staff/issue_textbooks/', views.Staff.issue_textbooks),
 
-                  path('404testing/', views.page_not_found_view),
+                  path('exception404/', views.exception404),
 
               ] + static(settings.MEDIA_URL,
                          document_root=settings.MEDIA_ROOT)
