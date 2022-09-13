@@ -8,18 +8,42 @@
 {% block title %} Lib117 | Панель персонала {% endblock%}
 
 {% block content %}
-<section class="head-block">
-    <a class="back-to-main" href="{% url 'homepage' %}">
-        <div>&#8592 На главную страницу сайта</div>
-    </a>
-</section>
+<article class="main-block">
+    <section class="info-block">
+        <a class="back-to-main" href="{% url 'homepage' %}">
+            <div>&#8592 На главную страницу сайта</div>
+        </a>
+    </section>
 
-<section class="links-container">
-    <a href="/staff/issue_textbooks"><div>Выдать Учебники</div></a>
-    <a href="/staff/borrow/"><div>Выданные книги</div></a>
-    <a href="/staff/reserve/"><div>Ожидают выдачи</div></a>
-    <a href="/staff/add_book"><div>Добавить новую книгу</div></a>
-    <a href="/staff/add_book_ins"><div>Добавить новые экземпляры книги</div></a>
-</section>
+    <section class="links-container">
+        <article class="container-column">
+            <h3 class="container-column-label">Добавить</h3>
+            <div class="container-column-inner">
+                <a href="/staff/add_book">
+                    <div>Добавить новую книгу</div>
+                </a>
+                <a href="/staff/add_book_ins">
+                    <div>Добавить новые экземпляры книги</div>
+                </a>
+            </div>
+        </article>
+        <article class="container-column">
+            <h3 class="container-column-label">Выдать</h3>
+            <div class="container-column-inner">
+                <a href="/staff/issue_textbooks">
+                    <div>Выдать Учебники</div>
+                </a>
+                <a href="/staff/borrow/">
+                    <div>Выданные книги</div>
+                </a>
+                <a href="/staff/reserve/">
+                    <div>Ожидают выдачи</div>
+                </a>
+            </div>
+        </article>
+
+    </section>
+</article>
+
 
 {% endblock %}

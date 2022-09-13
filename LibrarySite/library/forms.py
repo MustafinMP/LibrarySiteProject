@@ -6,7 +6,6 @@ authors = Author.objects.all()
 pbhs = PublishingHouse.objects.all()
 
 
-
 def get_groups():
     groups = StudentGroup.objects.all()
     return [(groups[i].id, str(groups[i])) for i in range(len(groups))]
@@ -31,14 +30,10 @@ def get_textbooks_list():
 
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(label='Логин',
-                               help_text='''Введите свой логин''')
-    name = forms.CharField(label='Имя:',
-                           help_text='Введите Ваше имя')
-    last_name = forms.CharField(label='Фамилия:',
-                                help_text='Введите Вашу фамилию')
-    e_mail = forms.EmailField(label='Email:',
-                              help_text='Введите Вашу электронную почту')
+    username = forms.CharField(label='Логин', help_text='''Введите свой логин''')
+    name = forms.CharField(label='Имя:', help_text='Введите Ваше имя')
+    last_name = forms.CharField(label='Фамилия:', help_text='Введите Вашу фамилию')
+    e_mail = forms.EmailField(label='Email:', help_text='Введите Вашу электронную почту')
     password = forms.CharField(label='Пароль:',
                                widget=forms.PasswordInput,
                                help_text='Введите пароль')
@@ -46,8 +41,7 @@ class RegisterForm(forms.Form):
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(label='Логин',
-                               help_text='Введите свой логин')
+    username = forms.CharField(label='Логин', help_text='Введите свой логин')
     password = forms.CharField(widget=forms.PasswordInput,
                                label='Пароль',
                                help_text='Введите пароль')
@@ -59,8 +53,7 @@ class ChangePasswordForm(forms.Form):
                                help_text='Введите новый пароль')
     confirm_password = forms.CharField(widget=forms.PasswordInput,
                                        label='Подтверждение пароля',
-                                       help_text='Подтвердите новый пароль'
-                                       )
+                                       help_text='Подтвердите новый пароль')
 
 
 class BooksFilterForm(forms.Form):
@@ -90,13 +83,11 @@ class BooksFilterForm(forms.Form):
 
 
 class AddNewBookForm(forms.Form):
-    title = forms.CharField(label='Название книги',
-                            help_text='Введите название книги')
+    title = forms.CharField(label='Название книги', help_text='Введите название книги')
     authors = forms.TypedMultipleChoiceField(label='Автор(ы)',
                                              choices=([(authors[i].id, authors[i]) for i in range(len(authors))]))
-    genre = forms.TypedChoiceField(label='Жанр',
-                                   choices=(get_genres_list()))
-    image = forms.ImageField(label='Обложка книги (можно добавить позже)', required=False)
+    genre = forms.TypedChoiceField(label='Жанр', choices=(get_genres_list()))
+    image = forms.ImageField(label='Обложка книги (можно добавить позже)', required=False, )
     count = forms.IntegerField(label='Количество экземпляров книги', initial=1)
     publishing_house = forms.TypedChoiceField(label='Издательство',
                                               choices=([(pbhs[i].id, pbhs[i]) for i in range(len(pbhs))]))
@@ -108,14 +99,11 @@ class AddTextBookFromExcelForm(forms.Form):
 
 
 class AddNewBookInstanceForm(forms.Form):
-    book = forms.TypedChoiceField(label='Книга',
-                                  choices=(get_books_list()))
+    book = forms.TypedChoiceField(label='Книга', choices=(get_books_list()))
     count = forms.IntegerField(label='Количество экземпляров книги', initial=1)
 
 
 class IssueTextbookForm(forms.Form):
-    textbook = forms.TypedChoiceField(label='Учебник',
-                                      choices=(get_textbooks_list()))
-    group = forms.TypedChoiceField(label='Класс',
-                                   choices=(get_groups()))
+    textbook = forms.TypedChoiceField(label='Учебник', choices=(get_textbooks_list()))
+    group = forms.TypedChoiceField(label='Класс', choices=(get_groups()))
     borrower = forms.CharField()

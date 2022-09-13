@@ -1,9 +1,13 @@
+:root {
+  --blue-color: #2f5d8c;
+}
+
 .header {
   display: block;
   width: 100%;
   height: 80px;
   margin: 0;
-  background: #2f5d8c;
+  background: var(--blue-color);
   display: inline-flex;
   justify-content: space-between;
 }
@@ -43,7 +47,7 @@ body {
 }
 
 footer {
-  background: #2f5d8c;
+  background: var(--blue-color);
   margin: 0;
   height: 300px;
 }

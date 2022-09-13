@@ -181,9 +181,6 @@ def exception404(request):
     return render(request, '404.html', status=404)
 
 
-'''   Staff Views   '''
-
-
 class Staff:
     """Views for staff"""
 
@@ -296,7 +293,7 @@ class Staff:
         return HttpResponsePermanentRedirect('/')
 
     @staticmethod
-    def add_textbooks_from_excel(request):
+    def add_textbooks_from_excel(request):  #TODO: отложить до уточнения форматов файлов
         if request.user.is_staff:
             if request.method == 'POST':
                 form = AddTextBookFromExcelForm(request.POST, request.FILES)
@@ -309,6 +306,7 @@ class Staff:
                     genre = row[2].value
                     pb_house = row[3].value
                     year_of_publication = row[4].value
+                    services.add_books_from_excel()
                     print([title, authors, genre, pb_house, year_of_publication])
                 return render(request, 'staff/add_book_success.html')
             form = AddTextBookFromExcelForm()
