@@ -35,11 +35,11 @@
     <p class="return-label return-label-danger">Книг нет в наличии</p>
     {% endif %}
     {% else %}
-    <p class="return-label return-label-danger">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
+    <p class="return-label return-label-warning">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
     <a class="return-label return-label-to-profile" href="/profile/{{ user.id }}/">Перейти в профиль >></a>
     {% endif %}
     {% else %}
-    <p class="return-label return-label-danger">Вы не зарегистрированы</p>
+    <p class="return-label return-label-danger">Вы не вошли в аккаунт</p>
     {% endif %}
 </section>
 {% endblock content %}

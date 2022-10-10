@@ -185,149 +185,148 @@ class Staff:
     """Views for staff"""
 
     @staticmethod
+    def staff_only(func):
+        def wrapper(*args):
+            if args[0].user.is_staff:
+                return func(*args)
+            return HttpResponsePermanentRedirect('/')
+
+        return wrapper
+
+    @staticmethod
     def have_permissions(user):
         pass
 
     @staticmethod
+    @staff_only
     def index(request):
-        if request.user.is_staff:
-            return render(request, 'staff/index.html')
-        return HttpResponsePermanentRedirect('/')
+        return render(request, 'staff/index.html')
 
     @staticmethod
+    @staff_only
     def reserve(request):
-        if request.user.is_staff:
-            book_instances = BookInstance.objects.all().filter(status=STATUS_RESERVE)
-            context = {'book_instances': book_instances}
-            return render(request, 'staff/reserve.html', context=context)
-        return HttpResponsePermanentRedirect('/')
+        book_instances = BookInstance.objects.all().filter(status=STATUS_RESERVE)
+        context = {'book_instances': book_instances}
+        return render(request, 'staff/reserve.html', context=context)
 
     @staticmethod
+    @staff_only
     def reserve_one_book(request, book_id):
-        if request.user.is_staff:
-            book_instance = BookInstance.objects.get(id=book_id)
+        book_instance = BookInstance.objects.get(id=book_id)
 
-            if request.method == 'POST':
-                if '_approve' in request.POST:
-                    book_instance.status = Status.objects.get(id=STATUS_BORROW)
-                    today = datetime.date.today()
-                    book_instance.take_date = today + datetime.timedelta(days=1)
-                    book_instance.return_date = today + datetime.timedelta(days=8)
+        if request.method == 'POST':
+            if '_approve' in request.POST:
+                book_instance.status = Status.objects.get(id=STATUS_BORROW)
+                today = datetime.date.today()
+                book_instance.take_date = today + datetime.timedelta(days=1)
+                book_instance.return_date = today + datetime.timedelta(days=8)
 
-                elif '_reject' in request.POST:
-                    book_instance.status = Status.objects.get(id=STATUS_FREE)
-                    book_instance.borrower = None
+            elif '_reject' in request.POST:
+                book_instance.status = Status.objects.get(id=STATUS_FREE)
+                book_instance.borrower = None
 
-                book_instance.save()
-                return HttpResponsePermanentRedirect('/staff/reserve/')
-            context = {'book_instance': book_instance}
-            return render(request, 'staff/reserve_one_book.html', context=context)
-        return HttpResponsePermanentRedirect('/')
+            book_instance.save()
+            return HttpResponsePermanentRedirect('/staff/reserve/')
+        context = {'book_instance': book_instance}
+        return render(request, 'staff/reserve_one_book.html', context=context)
 
     @staticmethod
+    @staff_only
     def borrow_view(request):
-        if request.user.is_staff:
-            book_instances = BookInstance.objects.all().filter(status=STATUS_BORROW)
-            today = datetime.date.today()
-            context = {'book_instances': book_instances, 'today': today}
-            return render(request, 'staff/borrow.html', context=context)
-        return HttpResponsePermanentRedirect('/')
+        book_instances = BookInstance.objects.all().filter(status=STATUS_BORROW)
+        today = datetime.date.today()
+        context = {'book_instances': book_instances, 'today': today}
+        return render(request, 'staff/borrow.html', context=context)
 
     @staticmethod
+    @staff_only
     def borrow_one_book(request, book_id):
-        if request.user.is_staff:
-            book_instance = BookInstance.objects.get(id=book_id)
+        book_instance = BookInstance.objects.get(id=book_id)
 
-            if request.method == 'POST':
-                services.staff_borrow_book(book_instance, request.POST)
-                return HttpResponsePermanentRedirect('/staff/borrow/')
-            today = datetime.date.today()
-            context = {'book_instance': book_instance, 'today': today}
-            return render(request, 'staff/borrow_one_book.html', context=context)
-        return HttpResponsePermanentRedirect('/')
+        if request.method == 'POST':
+            services.staff_borrow_book(book_instance, request.POST)
+            return HttpResponsePermanentRedirect('/staff/borrow/')
+        today = datetime.date.today()
+        context = {'book_instance': book_instance, 'today': today}
+        return render(request, 'staff/borrow_one_book.html', context=context)
 
     @staticmethod
+    @staff_only
     def borrow_textbook_view(request):
-        if request.user.is_staff:
-            textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_BORROW)
-            context = {'textbook_instances': textbook_instances}
-            return render(request, 'staff/borrow_textbook.html', context=context)
-        return HttpResponsePermanentRedirect('/')
+        textbook_instances = TextbookInstance.objects.all().filter(status=STATUS_BORROW)
+        context = {'textbook_instances': textbook_instances}
+        return render(request, 'staff/borrow_textbook.html', context=context)
 
     @staticmethod
+    @staff_only
     def add_book(request):
-        if request.user.is_staff:
-            if request.method == 'POST':
-                add_book_form = AddNewBookForm(request.POST)
-                if add_book_form.is_valid():
-                    title = add_book_form.cleaned_data.get('title')
-                    authors = add_book_form.cleaned_data.get('authors')
-                    genre = add_book_form.cleaned_data.get('genre')
-                    image = add_book_form.cleaned_data.get('image')
-                    publishing_house = add_book_form.cleaned_data.get('publishing_house')
-                    year_of_publication = add_book_form.cleaned_data.get('year_of_publication')
-                    count = add_book_form.cleaned_data.get('count')
+        if request.method == 'POST':
+            add_book_form = AddNewBookForm(request.POST)
+            if add_book_form.is_valid():
+                title = add_book_form.cleaned_data.get('title')
+                authors = add_book_form.cleaned_data.get('authors')
+                genre = add_book_form.cleaned_data.get('genre')
+                image = add_book_form.cleaned_data.get('image')
+                publishing_house = add_book_form.cleaned_data.get('publishing_house')
+                year_of_publication = add_book_form.cleaned_data.get('year_of_publication')
+                count = add_book_form.cleaned_data.get('count')
 
-                    services.add_book_with_instances(title, authors, genre, image, publishing_house,
-                                                     year_of_publication,
-                                                     count)
-                    return render(request, 'staff/add_book_success.html')
-            add_book_form = AddNewBookForm()
-            return render(request, 'staff/add_book.html', {'form': add_book_form, 'errors': ''})
-        return HttpResponsePermanentRedirect('/')
-
-    @staticmethod
-    def add_book_ins(request):
-        if request.user.is_staff:
-            if request.method == 'POST':
-                add_book_form = AddNewBookInstanceForm(request.POST)
-                if add_book_form.is_valid():
-                    count = int(request.POST.get('count'))
-                    book_id = int(request.POST.get('book'))
-                    book = Book.objects.get(id=book_id)
-                    services.add_instances_to_book(book, count)
-                    return render(request, 'staff/add_book_success.html')
-            else:
-                add_book_form = AddNewBookInstanceForm()
-                return render(request, 'staff/add_book_ins.html', {'form': add_book_form, 'errors': ''})
-        return HttpResponsePermanentRedirect('/')
-
-    @staticmethod
-    def add_textbooks_from_excel(request):  #TODO: отложить до уточнения форматов файлов
-        if request.user.is_staff:
-            if request.method == 'POST':
-                form = AddTextBookFromExcelForm(request.POST, request.FILES)
-                file = request.FILES['file'].file
-                wb = openpyxl.load_workbook(file)
-                worksheet = wb.active
-                for row in worksheet.iter_rows(0, worksheet.max_row):
-                    title = row[0].value
-                    authors = row[1].value
-                    genre = row[2].value
-                    pb_house = row[3].value
-                    year_of_publication = row[4].value
-                    services.add_books_from_excel()
-                    print([title, authors, genre, pb_house, year_of_publication])
+                services.add_book_with_instances(title, authors, genre, image, publishing_house,
+                                                 year_of_publication,
+                                                 count)
                 return render(request, 'staff/add_book_success.html')
-            form = AddTextBookFromExcelForm()
-            return render(request, 'staff/add_textbooks_from_excel.html', context={'form': form})
-        return HttpResponsePermanentRedirect('/')
+        add_book_form = AddNewBookForm()
+        return render(request, 'staff/add_book.html', {'form': add_book_form, 'errors': ''})
 
     @staticmethod
+    @staff_only
+    def add_book_ins(request):
+        if request.method == 'POST':
+            add_book_form = AddNewBookInstanceForm(request.POST)
+            if add_book_form.is_valid():
+                count = int(request.POST.get('count'))
+                book_id = int(request.POST.get('book'))
+                book = Book.objects.get(id=book_id)
+                services.add_instances_to_book(book, count)
+                return render(request, 'staff/add_book_success.html')
+        else:
+            add_book_form = AddNewBookInstanceForm()
+            return render(request, 'staff/add_book_ins.html', {'form': add_book_form, 'errors': ''})
+
+    @staticmethod
+    @staff_only
+    def add_textbooks_from_excel(request):  # TODO: отложить до уточнения форматов файлов
+        if request.method == 'POST':
+            form = AddTextBookFromExcelForm(request.POST, request.FILES)
+            file = request.FILES['file'].file
+            wb = openpyxl.load_workbook(file)
+            worksheet = wb.active
+            for row in worksheet.iter_rows(0, worksheet.max_row):
+                title = row[0].value
+                authors = row[1].value
+                genre = row[2].value
+                pb_house = row[3].value
+                year_of_publication = row[4].value
+                services.add_books_from_excel()
+                print([title, authors, genre, pb_house, year_of_publication])
+            return render(request, 'staff/add_book_success.html')
+        form = AddTextBookFromExcelForm()
+        return render(request, 'staff/add_textbooks_from_excel.html', context={'form': form})
+
+    @staticmethod
+    @staff_only
     def issue_textbooks(request):
-        if request.user.is_staff:
-            if request.method == 'POST':
-                form = IssueTextbookForm(request.POST)
-                if form.is_valid():
-                    textbook = form.cleaned_data['textbook']
-                    group = form.cleaned_data['group']
-                    borrower = form.cleaned_data['borrower']
-                    try:
-                        services.issue_textbooks(textbook, group, borrower)
-                    except services.NotEnoughTextbooksError:
-                        return
-                    return HttpResponsePermanentRedirect('/')
-                return render(request, 'staff/issue_textbooks.html', context={'text': 'error', 'form': form})
-            form = IssueTextbookForm()
-            return render(request, 'staff/issue_textbooks.html', context={'text': 'text', 'form': form})
-        return HttpResponsePermanentRedirect('/')
+        if request.method == 'POST':
+            form = IssueTextbookForm(request.POST)
+            if form.is_valid():
+                textbook = form.cleaned_data['textbook']
+                group = form.cleaned_data['group']
+                borrower = form.cleaned_data['borrower']
+                try:
+                    services.issue_textbooks(textbook, group, borrower)
+                except services.NotEnoughTextbooksError:
+                    return
+                return HttpResponsePermanentRedirect('/')
+            return render(request, 'staff/issue_textbooks.html', context={'text': 'error', 'form': form})
+        form = IssueTextbookForm()
+        return render(request, 'staff/issue_textbooks.html', context={'text': 'text', 'form': form})

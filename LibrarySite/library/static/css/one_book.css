@@ -87,8 +87,12 @@ form {
   margin-top: 8px;
 }
 
-.return-label-danger {
+.return-label-warning {
   color: #269196;
+}
+
+.return-label-danger {
+  color: red;
 }
 
 .count {

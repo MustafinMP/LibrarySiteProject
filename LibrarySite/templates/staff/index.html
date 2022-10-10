@@ -9,16 +9,18 @@
 
 {% block content %}
 <article class="main-block">
-    <section class="info-block">
-        <a class="back-to-main" href="{% url 'homepage' %}">
+    <header class="staff-title-header">
+        <a class="to-main" href="{% url 'homepage' %}">
             <div>&#8592 На главную страницу сайта</div>
         </a>
-    </section>
+        <h2 class="staff-title">Панель управления</h2>
 
-    <section class="links-container">
-        <article class="container-column">
-            <h3 class="container-column-label">Добавить</h3>
-            <div class="container-column-inner">
+    </header>
+
+    <nav class="navigation">
+        <article class="container">
+            <h3 class="container-label">Добавление книг</h3>
+            <div class="container-inner">
                 <a href="/staff/add_book">
                     <div>Добавить новую книгу</div>
                 </a>
@@ -27,9 +29,9 @@
                 </a>
             </div>
         </article>
-        <article class="container-column">
-            <h3 class="container-column-label">Выдать</h3>
-            <div class="container-column-inner">
+        <article class="container">
+            <h3 class="container-label">Выдача учебников</h3>
+            <div class="container-inner">
                 <a href="/staff/issue_textbooks">
                     <div>Выдать Учебники</div>
                 </a>
@@ -42,7 +44,7 @@
             </div>
         </article>
 
-    </section>
+    </nav>
 </article>
 
 

@@ -9,17 +9,18 @@
 
 {% block content %}
 
-<section class="main-inline genre-menu">
+<article class="main-inline genre-menu">
     <h2>Жанры</h2>
     <nav class="genre-navigation">
-    {% for genre in genres %}
-    <a class="genre-item" href="?genre={{ genre.id }}">{{ genre.title }}</a>
-    {% endfor %}
-</nav>
-</section>
-<section class="main-inline books-block">
+        <a class="genre-item" href="../catalog">Все жанры</a>
+        {% for genre in genres %}
+        <a class="genre-item" href="?genre={{ genre.id }}">{{ genre.title }}</a>
+        {% endfor %}
+    </nav>
+</article>
+<article class="main-inline books-block">
     <h2 class="books-line-title">{{ genre_label }}</h2>
-    <article class="books-container">
+    <section class="books-container">
         {% for book in page %}
         <div>
             <a class="book-card" href="../books/{{ book.id }}/">
@@ -32,7 +33,9 @@
             </a>
         </div>
         {% endfor %}
+    </section>
+    <article class="pagination">
+        {% include "pagination.html" with page=page %}
     </article>
-    {% include "pagination.html" with page=page %}
     {% endblock content %}
-</section>
+</article>
