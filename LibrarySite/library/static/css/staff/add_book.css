@@ -1,0 +1,54 @@
+.form-block {
+  width: 60%;
+  margin-left: 20%;
+}
+
+.image-input {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     width: 400px;
+     height: 400px;
+     outline: 2px dashed #5d5d5d;
+     outline-offset: -12px;
+     background-color: #e0f2f7;
+     font-family: 'Segoe UI';
+     color: #1f3c44;
+}
+
+.image-input .file-input-label {
+     font-weight: bold;
+}
+
+.image-input .file-input-label:hover {
+     cursor: pointer;
+     text-decoration: underline;
+}
+
+.image-input div {
+     position: relative;
+     z-index: 10;
+}
+
+.image-input input[type=file] {
+     width: 0.1px;
+     height: 0.1px;
+     opacity: 0;
+     position: absolute;
+     z-index: -10;
+}
+
+.button-input input {
+  width: 20%;
+  height: 40px;
+}
+
+.input-image input[type=file]:focus + .file-input-label {
+     outline: -webkit-focus-ring-color auto 5px;
+}
+
+.input-image .file-input-label.focus {
+     outline: 1px solid #0078d7;
+     outline: -webkit-focus-ring-color auto 5px;
+}

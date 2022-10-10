@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Lib117{% endblock %}</title>
+    <link href="{% static 'css/basic_style.css' %}" rel="stylesheet" type="text/css">
+    {% block styles_link %}{% endblock %}
+</head>
+<body>
+<header class="header">
+    <a class="site-label header-inline" href="/">Lib117</a>
+    <nav class="header-nav header-inline">
+        {% if user.is_staff %}<a class="header-nav-link" href="/staff">Панель управления персонала</a>{% endif %}
+        <a href="/authors" class="header-nav-link">Авторы</a>
+        <a href="/catalog" class="header-nav-link">Книги</a>
+        {% if user.is_authenticated %}
+        <a href="/profile/{{ user.id }}" class="header-nav-link">Профиль</a>
+        {% else %}
+        <a href="/login" class="header-nav-link">Войти</a>
+        <a href="/register" class="header-nav-link">Зарегистрироваться</a>
+        {% endif %}
+    </nav>
+</header>
+<main>
+    {% block content %}{% endblock %}
+</main>
+<footer>
+    <section class="footer-link-block">
+
+        <article class="footer-nav">
+            <a href="/about">О сайте</a>
+            <a href="/books">Книги</a>
+            {% if user.is_staff %}<a class="staff-link" href="/staff">Панель управления персонала</a>{% endif %}
+        </article>
+
+        <article class="social-networks">
+            <a class="s-network tg-link" href="https://t.me/mbouschool117ufa">
+                <img src="{% static 'images/tg_logo.png' %}">
+                <p>МБОУ "Школа N117"</p>
+            </a>
+            <a class="s-network vk-link" href="https://vk.com/club132521788">
+                <img src="{% static 'images/vk_logo.png' %}">
+                <p>#Мы117</p>
+            </a>
+        </article>
+
+    </section>
+    <p class="copyright">© М.П. Мустафин, 2022</p>
+</footer>
+</body>
+</html>

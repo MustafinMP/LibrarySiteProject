@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/staff/add_book.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %}  Добавить книгу  {% endblock title %}
+
+{% block content %}
+
+<div class="form-block">
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-line">
+            <div class="label-tag">{{ form.book.label_tag }}</div>
+            {{ form.book }}<br>
+            {{ form.book.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.count.label_tag }}</div>
+            {{ form.count }}<br>
+            {{ form.count.errors }}
+        </div>
+        <div class="form-line button-input">
+            <input type="submit" value="Сохранить">
+        </div>
+    </form>
+</div>
+
+
+{% endblock content %}

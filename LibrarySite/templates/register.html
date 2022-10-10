@@ -1,19 +1,20 @@
-{% extends "basic_template.html" %}
+{% extends "base_generic.html" %}
 {% load static %}
 {% block title %} Регистрация {% endblock title %}
 
 {% block styles_link %}
+<link href="{% static 'css/form.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/register.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
 {% block content %}
 <div class="form-block">
-    <div class="register-label">Регистрация</div>
+    <div class="form-label">Регистрация</div>
     <form method="post">
         {% csrf_token %}
         <div class="form-line">
-            <div class="label-tag">{{ form.username.label_tag }}</div><br>
-            {{ form.username }}<br>
+            <div class="label-tag">{{ form.username.label_tag }}</div>
+            {{ form.username }}
             {{ form.username.errors }}
         </div>
         <div class="form-line">
@@ -36,9 +37,15 @@
             {{ form.password }}
             {{ form.password.errors }}
         </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.group.label_tag }}</div>
+            {{ form.group }}
+            {{ form.group.errors }}
+        </div>
         <div class="form-line button-input">
-            <input type="submit" value="Сохранить">
+            <input type="submit" value="Зарегистрироваться">
         </div>
     </form>
 </div>
+<a class="to-login" href="../login/">Есть аккаунт? Войти</a>
 {% endblock content %}

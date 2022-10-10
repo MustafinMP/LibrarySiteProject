@@ -1,7 +1,8 @@
-{% extends "basic_template.html" %}
+{% extends "base_generic.html" %}
 {% load static %}
 
 {% block styles_link %}
+<link href="{% static 'css/form.css' %}" rel="stylesheet" type="text/css">
 <link href="{% static 'css/login.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
@@ -9,23 +10,27 @@
 {% block content %}
 
 <div class="form-block">
-        <div class="enter-label">Вход</div>
+        <div class="form-label">Вход</div>
     <form method="post">
         {% csrf_token %}
         <div class="form-line">
-            <div class="label-tag">{{ form.username.label_tag }}</div><br>
-            {{ form.username }}<br>
+            <div class="label-tag">{{ form.username.label_tag }}</div>
+            {{ form.username }}
             {{ form.username.errors }}
         </div>
         <div class="form-line">
-            <div class="label-tag">{{ form.password.label_tag }}</div><br>
-            {{ form.password }}<br>
+            <div class="label-tag">{{ form.password.label_tag }}</div>
+            {{ form.password }}
             {{ form.password.errors }}
         </div>
+        {% if errors %}
+        <p class="errors">{{ errors }}</p>
+        {% endif %}
         <div class="form-line button-input">
             <input type="submit" value="Войти">
         </div>
-        <a class="form-line no-account" href="/register/">Нет аккаунта? зарегистрироваться >></a>
+        <a class="forgot-password" href="{% url 'password_reset' %}">Забыли пароль?</a>
     </form>
 </div>
+<a class="to-register" href="../register/">Нет аккаунта? Зарегистрироваться</a>
 {% endblock content %}

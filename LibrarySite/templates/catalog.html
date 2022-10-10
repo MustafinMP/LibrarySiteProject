@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/catalog.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Книги (обновленная страница) {% endblock title %}
+
+{% block content %}
+
+<section class="main-inline genre-menu">
+    <h2>Жанры</h2>
+    <nav class="genre-navigation">
+    {% for genre in genres %}
+    <a class="genre-item" href="?genre={{ genre.id }}">{{ genre.title }}</a>
+    {% endfor %}
+</nav>
+</section>
+<section class="main-inline books-block">
+    <h2 class="books-line-title">{{ genre_label }}</h2>
+    <article class="books-container">
+        {% for book in page %}
+        <div>
+            <a class="book-card" href="../books/{{ book.id }}/">
+                <img class="book-image" src="{{ book.img_url }}">
+                <div class="book-text">
+                    <p class="book-title">{{ book.title }}</p>
+                    <p> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</p>
+                    <p>Жанр: {{ book.genre }}</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </article>
+    {% include "pagination.html" with page=page %}
+    {% endblock content %}
+</section>

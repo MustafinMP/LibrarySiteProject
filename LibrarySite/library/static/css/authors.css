@@ -3,17 +3,35 @@
   text-align: center;
 }
 
+.authors h1 {
+  width: 20%;
+  margin-left: 40%;
+  display: block;
+  border-bottom: 2px solid #d55e2d;
+  text-align: center;
+  font-size: 40px;
+  color: #2f5d8c;
+}
+
 .one-author {
   display: block;
   width: 90%;
-  height: 200px;
+  height: 180px;
+  margin-top: 20px;
   margin-left: 5%;
-  border-radius: 30px;
+  border-radius: 30px;;
+  border: 3px solid #dfdfdd;
+  box-shadow: 5px 5px 5px 0px #999999;
   text-decoration: none;
   color: #2f5d8c;
-  background: #dfdfdd;
+}
+
+.one-author:hover {
+  width: 89.5%;
+  margin-left: 5.25%;
+  box-shadow: 3px 3px 3px 0px #999999;
 }
 
 .text-block h2 {
-  padding-top: 60px;
+  padding-top: 40px;
 }

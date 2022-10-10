@@ -1,5 +1,4 @@
 from django.db import models
-from django.urls import reverse
 from django.contrib.auth.models import User
 
 '''
@@ -8,51 +7,64 @@ All application models
 Все модели приложения
 '''
 
+'''---------------------------------------------------------------------------------------------------------------------
+Вспомогательные модели
+---------------------------------------------------------------------------------------------------------------------'''
 
-# ----------------- Вспомогательные модели -----------------
+
+class Subject(models.Model):
+    title = models.CharField(verbose_name='Жанр книги',
+                             max_length=30)
+
+
 class Genre(models.Model):
-    title = models.CharField(
-        max_length=30,
-        verbose_name='Жанр книги'
-    )
+    title = models.CharField(verbose_name='Предмет',
+                             max_length=30)
 
     def __str__(self):
         return self.title
 
 
 class Status(models.Model):
-    title = models.CharField(
-        max_length=20,
-        verbose_name='Статус книги'
-    )
+    title = models.CharField(verbose_name='Статус книги',
+                             max_length=20)
 
     def __str__(self):
         return self.title
 
 
 class PublishingHouse(models.Model):
-    name = models.CharField(
-        max_length=60,
-        verbose_name='Издательство книги'
-    )
+    name = models.CharField(verbose_name='Издательство книги',
+                            max_length=60)
 
     def __str__(self):
         return self.name
 
 
-# -------------------------------------------------------------
+class StudentGroup(models.Model):
+    level = models.IntegerField(default=1)
+    letter = models.CharField(max_length=1)
+
+    def __str__(self):
+        return f'{self.level}{self.letter}'
 
 
-# ---------------------- Основные модели ----------------------
+class UserData(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='user_data', primary_key=True)
+    group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT, blank=True, null=True)
+    is_graduate = models.BooleanField()
+
+
+'''---------------------------------------------------------------------------------------------------------------------
+Основные модели
+---------------------------------------------------------------------------------------------------------------------'''
+
+
 class Author(models.Model):
-    name = models.CharField(
-        max_length=30,
-        verbose_name='Имя'
-    )
-    last_name = models.CharField(
-        max_length=100,
-        verbose_name='Фамилия'
-    )
+    name = models.CharField(verbose_name='Имя',
+                            max_length=30)
+    last_name = models.CharField(verbose_name='Фамилия',
+                                 max_length=100)
     book = None
 
     def __str__(self):
@@ -64,31 +76,29 @@ class Author(models.Model):
     display_book.short_description = 'Книги'
 
 
-# --------------------- Книги и их экземпляры --------------------------
+'''---------------------------------------------------------------------------------------------------------------------
+Книги и их экземпляры
+---------------------------------------------------------------------------------------------------------------------'''
+
+
 class Book(models.Model):
-    title = models.CharField(
-        max_length=100,
-        verbose_name='Название книги'
-    )
-    genre = models.ForeignKey(
-        Genre,
-        on_delete=models.PROTECT
-    )
-    author = models.ManyToManyField(Author, related_name='book')
-    image = models.ImageField(
-        verbose_name='Изображение обложки книги',
-        upload_to='bookimg/'
-    )
-    publishing_house = models.ForeignKey(
-        PublishingHouse,
-        on_delete=models.PROTECT,
-        blank=True,
-        null=True
-    )
-    year_of_publication = models.IntegerField(
-        blank=True,
-        null=True
-    )
+    title = models.CharField(verbose_name='Название книги',
+                             max_length=100)
+    genre = models.ForeignKey(Genre,
+                              on_delete=models.PROTECT)
+    author = models.ManyToManyField(Author,
+                                    verbose_name='Авторы книги',
+                                    related_name='book')
+    image = models.ImageField(verbose_name='Изображение обложки книги',
+                              upload_to='bookimg/')
+    publishing_house = models.ForeignKey(PublishingHouse,
+                                         verbose_name='Издательство',
+                                         on_delete=models.PROTECT,
+                                         blank=True,
+                                         null=True)
+    year_of_publication = models.IntegerField(verbose_name='Год публикации',
+                                              blank=True,
+                                              null=True)
 
     def __str__(self):
         return self.title
@@ -105,73 +115,64 @@ class Book(models.Model):
 
 
 class BookInstance(models.Model):
-    book = models.ForeignKey(
-        Book,
-        on_delete=models.PROTECT
-    )
-    status = models.ForeignKey(
-        Status,
-        on_delete=models.PROTECT
-    )
-    take_date = models.DateField(
-        verbose_name='Дата выдачи',
-        blank=True,
-        null=True
-    )
-    return_date = models.DateField(
-        verbose_name='Дата возврата',
-        blank=True,
-        null=True
-    )
-    borrower = models.OneToOneField(
-        User,
-        on_delete=models.PROTECT,
-        blank=True,
-        null=True
-    )
+    """Класс экземпляра книги"""
+    book = models.ForeignKey(Book,
+                             verbose_name='Книга',
+                             on_delete=models.PROTECT)
+    status = models.ForeignKey(Status,
+                               verbose_name='Статус экземпляра',
+                               on_delete=models.PROTECT)
+    take_date = models.DateField(verbose_name='Дата выдачи',
+                                 blank=True,
+                                 null=True)
+    return_date = models.DateField(verbose_name='Дата возврата',
+                                   blank=True,
+                                   null=True)
+    borrower = models.OneToOneField(User,
+                                    verbose_name='Держатель экземпляра',
+                                    on_delete=models.PROTECT,
+                                    blank=True,
+                                    null=True)
 
     def __str__(self):
         return f'{self.id}, {self.book}'
 
 
-# ---------------------------------------------------------------------------------
+'''---------------------------------------------------------------------------------------------------------------------
+Учебники и их экземпляры
+---------------------------------------------------------------------------------------------------------------------'''
 
 
-# ------------------------- Учебники и их экземпляры -----------------------------------
 class Textbook(models.Model):
-    title = models.CharField(
-        max_length=100,
-        verbose_name='Название учебника'
-    )
-    genre = models.ForeignKey(
-        Genre,
-        on_delete=models.PROTECT
-    )
-    author = models.ManyToManyField(
-        Author,
-        related_name='textbook')
-    image = models.ImageField(
-        verbose_name='Изображение обложки учебника',
-        upload_to='textbookimg/'
-    )
-    level = models.IntegerField(
-    )
-    publishing_house = models.ForeignKey(
-        PublishingHouse,
-        on_delete=models.PROTECT,
-        blank=True,
-        null=True
-    )
-    year_of_publication = models.IntegerField(
-        blank=True,
-        null=True
-    )
+    title = models.CharField(verbose_name='Название учебника',
+                             max_length=100)
+    subject = models.ForeignKey(Subject,
+                                on_delete=models.PROTECT,
+                                blank=True,
+                                null=True)
+    author = models.ManyToManyField(Author,
+                                    verbose_name='Авторы учебника',
+                                    related_name='textbook')
+    image = models.ImageField(verbose_name='Изображение обложки учебника',
+                              upload_to='textbookimg/')
+    level = models.IntegerField()
+    publishing_house = models.ForeignKey(PublishingHouse,
+                                         verbose_name='Издательство',
+                                         on_delete=models.PROTECT,
+                                         blank=True,
+                                         null=True)
+    year_of_publication = models.IntegerField(verbose_name='Год публикации',
+                                              blank=True,
+                                              null=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.title}, {self.level} класс, {self.year_of_publication}'
 
     def display_author(self):
         return ', '.join([f'{author.name} {author.last_name}' for author in self.author.all()])
+
+    def display_one_author(self):
+        return str(self.author.all()[0].last_name)
 
     display_author.short_description = 'Авторы'
 
@@ -182,24 +183,33 @@ class Textbook(models.Model):
 
 
 class TextbookInstance(models.Model):
-    textbook = models.ForeignKey(
-        Textbook,
-        on_delete=models.PROTECT,
-        related_name='textbook',
-        blank=True,
-        null=True
-    )
-    status = models.ForeignKey(
-        Status,
-        on_delete=models.PROTECT
-    )
-    borrower = models.ForeignKey(
-        User,
-        on_delete=models.PROTECT,
-        blank=True,
-        null=True
-    )
+    textbook = models.ForeignKey(Textbook,
+                                 verbose_name='Учебник',
+                                 on_delete=models.PROTECT,
+                                 related_name='textbook',
+                                 blank=True,
+                                 null=True)
+    status = models.ForeignKey(Status,
+                               verbose_name='Статус учебника',
+                               on_delete=models.PROTECT)
+    borrower = models.ForeignKey(User,
+                                 verbose_name='Держатель учебника',
+                                 on_delete=models.PROTECT,
+                                 blank=True,
+                                 null=True)
 
     def __str__(self):
         return f'{self.id}, {self.textbook}'
-# ------------------------------------------------------------------------------
+
+
+'''------------------------------------------------------------------------------------------------------------------'''
+
+
+class IssueTextbooks(models.Model):
+    """Класс хранит только информацию о факте выдачи учебников без уточнения, какие именно экземпляры выданы,
+    и кто эти экземпляры получил. Объект также хранит только фамилию ученика/учителя, забравшего учебники без
+    сохранения, какой это был аккунт."""
+    textbook = models.ForeignKey(Textbook, on_delete=models.PROTECT)
+    group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT)
+    count = models.IntegerField()
+    borrower = models.CharField(max_length=50)

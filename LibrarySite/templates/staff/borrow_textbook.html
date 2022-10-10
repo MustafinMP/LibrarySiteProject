@@ -1,0 +1,38 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/staff/reserve.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Выданные книги {% endblock title %}
+
+{% block content %}
+<h1 class="reserve-header">Список выданных книг</h1>
+<h3 class="instruction">Для управления книгой нажмите на соответсвующий ряд</h3>
+{% if textbook_instances %}
+<table>
+    <thead>
+    <tr>
+        <th>Учебник</th>
+        <th>Издательство</th>
+        <th>id экземпляра</th>
+        <th>Ученик</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for textbook_instance in textbook_instances %}
+    <tr onclick="window.location.href='/staff/borrow-textbook/{{ book_instance.id }}/'; return false"
+        class="table-row">
+        <th>{{ textbook_instance.textbook.title }}</th>
+        <th>{{ textbook_instance.textbook.publishing_house }}</th>
+        <th>{{ textbook_instance.id }}</th>
+        <th>{{ textbook_instance.borrower.first_name }} {{ textbook_instance.borrower.last_name }}</th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<h2 class="no-books">Выданные учебники отсутствуют</h2>
+{% endif %}
+{% endblock content %}

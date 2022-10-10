@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/staff/reserve_one_book.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} {{ book_instance.book.title }} {% endblock title %}
+
+{% block content %}
+<section class="image-block">
+    <img src="{{ book_instance.book.img_url }}">
+</section>
+
+<section class="description">
+    <p class="book-title">{{ book_instance.book.title }}</p>
+    <div class="authors">Авторы: {% for author in book_instance.book.author.all %}{{ author }}{% endfor %}</div>
+    <div class="non-important-description">Издательство: {{ book_instance.book.publishing_house }}</div>
+    <div class="non-important-description">Год издания: {{ book_instance.book.year_of_publication }}</div>
+    <div class="non-important-description">id экземпляра: {{ book_instance.id }}</div>
+    <div class="book-dates">
+        Дата выдачи: {{ book_instance.take_date }}<br>
+        Крайний срок возврата:
+        <span class="{% if today > book_instance.return_date %}danger-date{% endif %}">{{ book_instance.return_date }}</span>
+    </div>
+    <div class="borrower-name">
+        Ученик: {{ book_instance.borrower.first_name }} {{ book_instance.borrower.last_name }}
+    </div>
+</section>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Возвращена" class="action-button" name="_return">
+    <input type="submit" value="Утеряна" class="action-button action-button-danger" name="_lost">
+</form>
+{% endblock content %}

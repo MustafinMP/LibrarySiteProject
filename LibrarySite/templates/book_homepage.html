@@ -1,0 +1,50 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/book_homepage.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} Книги (обновленная страница) {% endblock title %}
+
+{% block content %}
+
+<section class="inline-section books-block">
+    <div>
+        <h2 class="books-line-title">Классика</h2>
+        <article class="books-line books-line-classic">
+            {% for book in classic_books_slice %}
+            <div>
+                <a class="book-card" href="/books/{{ book.id }}/">
+                    <img class="book-image" src="{{ book.img_url }}">
+                    <div class="book-text">
+                        <p class="book-title">{{ book.title }}</p>
+                        <p> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</p>
+                    </div>
+                </a>
+            </div>
+
+            {% endfor %}
+        </article>
+    </div>
+    <hr>
+    <div>
+        <h2 class="books-line-title">Все книги</h2>
+        <article class="books-line books-line-all">
+            {% for book in all_books_slice %}
+            <div>
+                <a class="book-card" href="/books/{{ book.id }}/">
+                    <img class="book-image" src="{{ book.img_url }}">
+                    <div class="book-text">
+                        <p class="book-title">{{ book.title }}</p>
+                        <p> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</p>
+                        <p>Жанр: {{ book.genre }}</p>
+                    </div>
+                </a>
+            </div>
+
+            {% endfor %}
+        </article>
+    </div>
+</section>
+{% endblock content %}

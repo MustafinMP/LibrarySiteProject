@@ -1,0 +1,12 @@
+<section class="inline-section filters-block">
+    <form method="post">
+        {% csrf_token %}
+        <h2>Жанры</h2>
+        {% for genre_field in form.get_genre_fields %}
+        <div class="form-line form-line genre">
+            {{ genre_field }}
+            {{ genre_field.label_tag }}
+        </div>
+        {% endfor %}
+    </form>
+</section>

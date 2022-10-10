@@ -1,4 +1,4 @@
-{% extends "basic_template.html" %}
+{% extends "base_generic.html" %}
 {% load static %}
 
 {% block styles_link %}
@@ -7,12 +7,13 @@
 
 {% block title %} Страница не найдена {% endblock title %}
 {% block content %}
-<div class="not-found-block">
-    <div class="first">404</div>
-    <div class="second">NOT FOUND</div>
-    <div class="third">Страница не найдена</div>
+<article class="error-block">
+    <p class="error-number">404</p>
+    <p class="error-title">NOT FOUND</p>
+    <p class="error-description">Страница не найдена</p>
     <a href="/" class="to-home">
-        <div>Вернуться на главную</div>
+        <p>Вернуться на главную</p>
     </a>
-</div>
+</article>
+
 {% endblock content %}

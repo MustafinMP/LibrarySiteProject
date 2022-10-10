@@ -21,18 +21,43 @@ from django.conf.urls.static import static
 from library import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.index),
-    path('about/', views.about),
-    path('books/', views.books_view),
-    path('books/<int:book_id>/', views.one_book),
-    path('authors/', views.authors_view),
-    path('authors/<int:author_id>/', views.one_author),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('register/', views.register),
-    path('profile/<int:user_id>/', views.profile),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html')),
-    path('404testing/', views.page_not_found_view),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('', views.index, name='homepage'),
+                  path('admin/', admin.site.urls),
+                  path('about/', views.about),
+
+                  path('catalog/', views.catalog),
+
+                  path('books/<int:book_id>/', views.one_book),
+
+                  path('authors/', views.authors_view),
+                  path('authors/<int:author_id>/', views.one_author),
+
+                  path('profile/<int:user_id>/', views.profile),
+                  path('accounts/', include('django.contrib.auth.urls')),
+                  path('register/', views.register),
+                  path('login/', views.login_view, name='login_page'),
+                  path('logout/', auth_views.LogoutView.as_view(),
+                       {'next_page': settings.LOGOUT_REDIRECT_URL},
+                       name='logout'),
+                  path('change_password', views.change_password_view),
+
+                  path('staff/', views.Staff.index),
+                  path('staff/reserve/', views.Staff.reserve),
+                  path('staff/reserve/<book_id>/', views.Staff.reserve_one_book),
+
+                  path('staff/borrow/', views.Staff.borrow_view),
+                  path('staff/borrow/<book_id>/', views.Staff.borrow_one_book),
+                  path('staff/borrow-textbook/', views.Staff.borrow_textbook_view),
+
+                  path('staff/add_book/', views.Staff.add_book),
+                  path('staff/add_book_ins/', views.Staff.add_book_ins),
+                  path('staff/add_textbooks_from_excel/', views.Staff.add_textbooks_from_excel),
+
+                  path('staff/issue_textbooks/', views.Staff.issue_textbooks),
+
+                  path('exception404/', views.exception404),
+
+              ] + static(settings.MEDIA_URL,
+                         document_root=settings.MEDIA_ROOT)
 
 # handler404 = "library.views.page_not_found_view"

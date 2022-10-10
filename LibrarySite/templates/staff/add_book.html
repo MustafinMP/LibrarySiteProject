@@ -1,0 +1,60 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/form.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/staff/add_book.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %}  Добавить книгу  {% endblock title %}
+
+{% block content %}
+
+<div class="form-block">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-line">
+            <div class="label-tag">{{ form.title.label_tag }}</div>
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.authors.label_tag }}</div>
+            {{ form.authors }}
+            {{ form.authors.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.genre.label_tag }}</div>
+            {{ form.genre }}
+            {{ form.genre.errors }}
+        </div>
+        <div class="image-input">
+            <div class="label-tag">{{ form.image.label_tag }}</div>
+            {{ form.image }}
+               <label for="id_image" class="file-input-label">Выберите файл</label>
+               <span>или перетащите его сюда</span>
+            <!--            <span class="input-file-btn">Выберите файл</span>-->
+            {{ form.image.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.count.label_tag }}</div>
+            {{ form.count }}
+            {{ form.count.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.publishing_house.label_tag }}</div>
+            {{ form.publishing_house }}
+            {{ form.publishing_house.errors }}
+        </div>
+        <div class="form-line">
+            <div class="label-tag">{{ form.year_of_publication.label_tag }}</div>
+            {{ form.year_of_publication }}
+            {{ form.year_of_publication.errors }}
+        </div>
+        <div class="form-line button-input">
+            <input type="submit" value="Сохранить">
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

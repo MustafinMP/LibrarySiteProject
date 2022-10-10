@@ -1,48 +1,8 @@
-.form-block {
+.to-login {
   display: block;
-  width: 30%;
-  height: 555px;
-  background: #dfdfdd;
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px 0px #777777;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 35%;
-  padding-top: 20px;
-}
-
-.register-label {
-  font-size: 35px;
+  margin-top: 16px;
+  margin-bottom: 16px;
   text-align: center;
-  color: #d55e2d;
-}
-
-form {
-  margin-top: 25px;
-}
-
-.form-line {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.form-line .label-tag {
-  font-size: 25px;
+  font-size: 22px;
   color: #2f5d8c;
-}
-
-.form-line input {
-  width: 70%;
-  height: 35px;
-  border-radius: 12px;
-  background: #f9f9f9;
-}
-
-.button-input input {
-  background: #a0b3c1;
-  font-size: 17px;
-  color: #111111;
-  width: 30%;
-  margin-top: 13px;
 }
