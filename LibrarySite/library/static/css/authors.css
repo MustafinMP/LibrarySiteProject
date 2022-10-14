@@ -1,37 +1,23 @@
 .authors {
   margin-top: 40px;
-  text-align: center;
 }
 
-.authors h1 {
-  width: 20%;
-  margin-left: 40%;
-  display: block;
-  border-bottom: 2px solid #d55e2d;
-  text-align: center;
-  font-size: 40px;
-  color: #2f5d8c;
+.authors h2 {
+  margin: 20px;
+  margin-left: 80px;
 }
 
 .one-author {
   display: block;
-  width: 90%;
-  height: 180px;
-  margin-top: 20px;
-  margin-left: 5%;
-  border-radius: 30px;;
-  border: 3px solid #dfdfdd;
-  box-shadow: 5px 5px 5px 0px #999999;
+  margin: 20px;
   text-decoration: none;
-  color: #2f5d8c;
+  color: black;
 }
 
 .one-author:hover {
-  width: 89.5%;
-  margin-left: 5.25%;
-  box-shadow: 3px 3px 3px 0px #999999;
+  box-shadow:  0px 8px 16px 0 rgba(0, 0, 0, 0.25);
 }
 
-.text-block h2 {
-  padding-top: 40px;
+.text-block {
+  margin-left: 80px;
 }

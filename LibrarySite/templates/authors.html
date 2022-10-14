@@ -8,20 +8,20 @@
 {% block title %} Все авторы {% endblock title %}
 
 {% block content %}
-<section class="authors">
-    <h1>Авторы</h1>
+<article class="authors">
+    <h2>Авторы</h2>
     {% for author in authors %}
     {% if author.book.count > 0 %}
     <a class="one-author" href="/authors/{{ author.id }}/">
-        <article class="text-block">
-            <h2>{{ author.name }} {{ author.last_name }}</h2>
-            <h3>
+        <div class="text-block">
+            <h3>{{ author.name }} {{ author.last_name }}</h3>
+            <p>
                 Книги: {% for book in author.book.all %}<q>{{ book.title }}</q>{% endfor %}
                 {% if book.count > 3 %} и другие {% endif %}
-            </h3>
-        </article>
+            </p>
+        </div>
     </a>
     {% endif %}
     {% endfor %}
-</section>
+</article>
 {% endblock content %}
