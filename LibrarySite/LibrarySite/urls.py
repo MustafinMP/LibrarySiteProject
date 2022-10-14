@@ -54,6 +54,7 @@ urlpatterns = [
                   path('staff/add_textbooks_from_excel/', views.Staff.add_textbooks_from_excel),
 
                   path('staff/issue_textbooks/', views.Staff.issue_textbooks),
+                  path('staff/issue_textbooks_list/', views.Staff.issue_textbooks_list),
 
                   path('exception404/', views.exception404),
 

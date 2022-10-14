@@ -8,10 +8,10 @@
 {% block title %} {{ book.title }} {% endblock title %}
 
 {% block content %}
-<section class="book-block">
-    <article class="book-inline image-block">
+<article class="book-block">
+    <section class="book-inline image-block">
         <img src="{{ book.img_url }}">
-    </article>
+    </section>
     <article class="book-inline text-block">
         <p class="book-title">{{ book.title }}</p>
         <section class="about-book">
@@ -35,11 +35,11 @@
     <p class="return-label return-label-danger">Книг нет в наличии</p>
     {% endif %}
     {% else %}
-    <p class="return-label return-label-danger">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
+    <p class="return-label return-label-warning">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
     <a class="return-label return-label-to-profile" href="/profile/{{ user.id }}/">Перейти в профиль >></a>
     {% endif %}
     {% else %}
-    <p class="return-label return-label-danger">Вы не зарегистрированы</p>
+    <p class="return-label return-label-danger">Вы не вошли в аккаунт</p>
     {% endif %}
-</section>
+</article>
 {% endblock content %}

@@ -9,15 +9,16 @@
 
 {% block content %}
 <h1>{{ author.name }} {{ author.last_name }}</h1>
-{% for book in books %}
-    <a class="one-book" href="/books/{{ book.id }}/">
-        <div class="image-block">
-            <img src="{{ book.img_url }}">
-        </div>
-        <article class="text-block">
-            <h2>{{ book.title }}</h2>
-            <h3>Жанр: {{ book.genre }}</h3>
-        </article>
-    </a>
+<div class="books-container">
+    {% for book in books %}
+        <a class="book-card" href="../../books/{{ book.id }}/">
+            <img class="book-image" src="{{ book.img_url }}">
+            <div class="book-text">
+                <p class="book-title">{{ book.title }}</p>
+                <p> Авторы: {% for author in book.author.all %}{{ author }} {% endfor %}</p>
+                <p>Жанр: {{ book.genre }}</p>
+            </div>
+        </a>
     {% endfor %}
+</div>
 {% endblock content %}

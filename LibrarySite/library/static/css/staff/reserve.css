@@ -16,12 +16,12 @@ table {
   width: 90%;
   margin-left: 5%;
   margin-bottom: 28px;
-  border-bottom: 2px solid #f7b417;
+  border-bottom: 2px solid #30b4bb;
 }
 
 thead {
   height: 50px;
-  background: #f7b417;
+  background: #30b4bb;
 }
 
 .row-danger {

@@ -1,61 +1,76 @@
 .main-block {
-  display: flex;
   width: 100%;
   height: 100%;
   background: #f0f0f0;
 }
 
-.info-block {
+.staff-title-header {
   display: flex;
-  width: 25%;
+  width: 100%;
   margin: 20px;
+  justify-content: flex-start;
+  align-items: center;
 }
 
-.back-to-main {
+.to-main {
   display: flex;
   width: 400px;
   height: 100px;
+  margin-right: 24px;
   flex-basis: auto;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
   text-decoration: none;
   font-size: 24px;
-  background: white;
   color: black;
 }
 
-.back-to-main:hover {
-  color: #2f5d8c;
+.to-main:hover {
+  background: white;
 }
 
-.links-container {
+.staff-title {
   display: flex;
-  width: 75%;
+  height: 100px;
+  margin: 0;
+  margin-left: 12%;
+  flex-basis: auto;
+  align-items: center;
+  justify-content: flex-start;
+  text-decoration: none;
+  font-size: 28px;
+}
+
+.navigation {
+  display: flex;
+  width: 100%;
   margin: 0;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: flex-start;
 }
 
-.container-column {
+.container {
   display: flex;
   flex-direction: column;
-  width: 42%;
-  margin: 20px;
-  border-radius: 12px;
+  width: 100%;
+  margin: 12px;
   background: white;
 }
 
-.container-column-label {
+.container-label {
   width: 100%;
-  margin: 12px auto 4px 20px;
+  margin: 12px auto 4px 56px;
   padding: 12px 0 12px 0;
   font-size: 22px;
   border-radius: 10px 10px 0 0;
 }
 
-.container-column a {
+.container-inner {
+  margin-left: 56px;
+}
+
+.container a {
   display: flex;
   width: 100%;
   height: 48px;
@@ -67,10 +82,10 @@
   align-items: center;
 }
 
-.container-column a div {
+.container a div {
   margin-left: 16px;
 }
 
-.container-column a:hover {
+.container a:hover {
   background: #e5e5e5;
 }
