@@ -5,7 +5,7 @@ from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
-    StudentGroup, UserData
+    StudentGroup, UserData, IssueTextbooks
 from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
     AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm
 
@@ -295,7 +295,7 @@ class Staff:
 
     @staticmethod
     @staff_only
-    def add_textbooks_from_excel(request):  # TODO: отложить до уточнения форматов файлов
+    def add_textbooks_from_excel(request):  # отложено до лучших времен
         if request.method == 'POST':
             form = AddTextBookFromExcelForm(request.POST, request.FILES)
             file = request.FILES['file'].file
@@ -307,7 +307,7 @@ class Staff:
                 genre = row[2].value
                 pb_house = row[3].value
                 year_of_publication = row[4].value
-                services.add_books_from_excel()
+                # services.add_books_from_excel()
                 print([title, authors, genre, pb_house, year_of_publication])
             return render(request, 'staff/add_book_success.html')
         form = AddTextBookFromExcelForm()
@@ -330,3 +330,9 @@ class Staff:
             return render(request, 'staff/issue_textbooks.html', context={'text': 'error', 'form': form})
         form = IssueTextbookForm()
         return render(request, 'staff/issue_textbooks.html', context={'text': 'text', 'form': form})
+
+    @staticmethod
+    @staff_only
+    def issue_textbooks_list(request):
+        textbooks = IssueTextbooks.objects.all()
+        return render(request, 'staff/issued_textbook_list.html', context={'textbooks': textbooks})

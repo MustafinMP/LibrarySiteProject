@@ -2,13 +2,13 @@
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/staff/index.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/staff/reserve.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block title %} Lib117 | Панель персонала {% endblock %}
 
 {% block content %}
-{% if textbook_instances %}
+{% if textbooks %}
 <table>
     <thead>
     <tr>
@@ -19,13 +19,13 @@
     </tr>
     </thead>
     <tbody>
-    {% for textbook_instance in textbook_instances %}
+    {% for textbook in textbooks %}
     <tr onclick="window.location.href='/staff/borrow-textbook/{{ book_instance.id }}/'; return false"
         class="table-row">
-        <th>{{ textbook_instance.textbook.title }}</th>
-        <th>{{ textbook_instance.textbook.publishing_house }}</th>
-        <th>{{ textbook_instance.id }}</th>
-        <th>{{ textbook_instance.borrower.first_name }} {{ textbook_instance.borrower.last_name }}</th>
+        <th>{{ textbook.textbook.title }}</th>
+        <th>{{ textbook.student_group }}</th>
+        <th>{{ textbook.count }}</th>
+        <th>{{ textbook.borrower }}</th>
     </tr>
     {% endfor %}
     </tbody>

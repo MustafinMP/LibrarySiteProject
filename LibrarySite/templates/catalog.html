@@ -22,7 +22,6 @@
     <h2 class="books-line-title">{{ genre_label }}</h2>
     <section class="books-container">
         {% for book in page %}
-        <div>
             <a class="book-card" href="../books/{{ book.id }}/">
                 <img class="book-image" src="{{ book.img_url }}">
                 <div class="book-text">
@@ -31,7 +30,6 @@
                     <p>Жанр: {{ book.genre }}</p>
                 </div>
             </a>
-        </div>
         {% endfor %}
     </section>
     <article class="pagination">

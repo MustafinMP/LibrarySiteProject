@@ -8,6 +8,7 @@ h1 {
   display: flex;
   width: 90%;
   margin-left: 5%;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 

@@ -8,10 +8,10 @@
 {% block title %} {{ book.title }} {% endblock title %}
 
 {% block content %}
-<section class="book-block">
-    <article class="book-inline image-block">
+<article class="book-block">
+    <section class="book-inline image-block">
         <img src="{{ book.img_url }}">
-    </article>
+    </section>
     <article class="book-inline text-block">
         <p class="book-title">{{ book.title }}</p>
         <section class="about-book">
@@ -41,5 +41,5 @@
     {% else %}
     <p class="return-label return-label-danger">Вы не вошли в аккаунт</p>
     {% endif %}
-</section>
+</article>
 {% endblock content %}
