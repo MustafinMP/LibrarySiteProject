@@ -56,19 +56,15 @@ def catalog(request):
 
 
 def book_item(request, book_id):
-    if request.method == 'POST':
-        context = services.add_book_to_user(book_id, request.user)
-        return render(request, 'book_item.html', context=context)
-    else:
-        book = Book.objects.get(id=book_id)
-        count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
-        user2 = request.user
-        try:
-            user_books = BookInstance.objects.get(borrower=user2)
-            have_book = bool(user_books)
-        except Exception:
-            have_book = False
-        return render(request, 'book_item.html', context={'book': book,
+    book = Book.objects.get(id=book_id)
+    count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
+    user2 = request.user
+    try:
+        user_books = BookInstance.objects.get(borrower=user2)
+        have_book = bool(user_books)
+    except Exception:
+        have_book = False
+    return render(request, 'book_item.html', context={'book': book,
                                                           'count': count,
                                                           'have_book': have_book})
 
@@ -152,10 +148,12 @@ def login_view(request):
 
 
 def profile(request, user_id):
+    req_user = request.user
+    if not request.user.is_authenticated:
+        return HttpResponsePermanentRedirect('/login')
     user = User.objects.get(id=user_id)
-    user2 = request.user
-    if user == user2:
-        context = services.Get.get_profile_info(user2)
+    if user == req_user:
+        context = services.Get.get_profile_info(req_user)
         return render(request, 'profile.html', context=context)
     return render(request, 'not_user_profile.html')
 

@@ -23,10 +23,7 @@
             <a href="/authors/{{ author.id }}/">{{ author }}</a>
         </p>
         {% endfor %}
-        <p>Статус: {{ book_ins.status }}</p>
-        {% if book_ins.status.id == 4 %}
-        <p class="get-book">Получить книгу можно в библиотеке</p>
-        {% elif book_ins.status.id == 2 %}
+        {% if book_ins.status.id == 2 %}
         <p>Дата получения: {{ book_ins.take_date }}</p>
         <p>Дата возврата: {{ book_ins.return_date }}</p>
         <p class="return-book">Вернуть книгу можно в библиотеке</p>

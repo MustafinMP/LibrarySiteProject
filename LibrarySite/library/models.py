@@ -128,7 +128,7 @@ class BookInstance(models.Model):
     return_date = models.DateField(verbose_name='Дата возврата',
                                    blank=True,
                                    null=True)
-    borrower = models.OneToOneField(User,
+    borrower = models.ForeignKey(User,
                                     verbose_name='Держатель экземпляра',
                                     on_delete=models.PROTECT,
                                     blank=True,

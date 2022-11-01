@@ -12,34 +12,25 @@
     <section class="book-inline image-block">
         <img src="{{ book.img_url }}">
     </section>
-    <article class="book-inline text-block">
+    <section class="book-inline text-block">
         <p class="book-title">{{ book.title }}</p>
-        <section class="about-book">
+        <div class="about-book">
             <div class="authors">
                 Авторы: {% for author in book.author.all %}
                 <a href="/authors/{{ author.id }}/">{{ author }}</a>
                 {% endfor %}
             </div>
             <div class="genre">Жанр: {{ book.genre }}</div>
+            {% if count > 0 %}
             <div class="count">Количество свободных книг: {{ count }}</div>
-        </section>
-    </article>
-    {% if user.is_authenticated %}
-    {% if not have_book %}
-    {% if count > 0 %}
-    <form method="post">
-        {% csrf_token %}
-        <input type="submit" value="Зарезервировать" class="reserve">
-    </form>
-    {% else %}
-    <p class="return-label return-label-danger">Книг нет в наличии</p>
-    {% endif %}
-    {% else %}
-    <p class="return-label return-label-warning">Чтобы взять эту книгу, верните в библиотеку предыдущую</p>
-    <a class="return-label return-label-to-profile" href="/profile/{{ user.id }}/">Перейти в профиль >></a>
-    {% endif %}
-    {% else %}
-    <p class="return-label return-label-danger">Вы не вошли в аккаунт</p>
+            {% else %}
+            <div class="count label-danger">Книг нет в наличии</div>
+            {% endif %}
+        </div>
+    </section>
+    {% if not user.is_authenticated %}
+    <p class="return-label label-danger">Взять книгу могут только зарегистрированные пользователи</p>
+    <a class="return-label label-to-profile" href="/profile/{{ user.id }}/">Войти в аккаунт >></a>
     {% endif %}
 </article>
 {% endblock content %}

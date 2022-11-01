@@ -43,7 +43,7 @@ class Get:
     @staticmethod
     def get_profile_info(user):
         try:
-            book_ins = BookInstance.objects.get(borrower=user)
+            book_ins = BookInstance.objects.all().filter(borrower=user)[0]
             book = book_ins.book
             context = {'user_data': user,
                        'have_book': True,

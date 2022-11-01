@@ -3,21 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/base_generic.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/not_your_profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/not_user_profile.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/one_author.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/author_person.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/one_book.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/book_item.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/reserve.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/book_item.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/book_item.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/base_generic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/not_your_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/not_user_profile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_author.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/author_person.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/book_item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/borrow.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/issued_textbook_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/issued_textbook_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/reserve.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/reserve.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/book_item.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/book_item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,13 +148,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00035" summary="add staff_borrow_textbook.html&#10;&#10;Version 1.1.04">
-      <created>1649932428027</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1649932428027</updated>
     </task>
     <task id="LOCAL-00036" summary="fix table fields in staff_borrow_textbook.html&#10;&#10;Version 1.1.05">
       <created>1649932646411</created>
@@ -500,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665755720833</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="update some styles&#10;&#10;Version 1.5.6.3">
+      <created>1667305278130</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1667305278130</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,7 +519,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="create user functions (demo)&#10;&#10;Version 1.3.2" />
     <MESSAGE value="add import books from excel (template and view)&#10;&#10;Version 1.3.3" />
     <MESSAGE value="add adding book instance function&#10;&#10;Version 1.3.4" />
     <MESSAGE value="add style to adding books functions&#10;&#10;Version 1.3.5" />
@@ -552,6 +543,7 @@
     <MESSAGE value="move user.is_staff checking from all staff views to decorator&#10;update some styles&#10;&#10;Version 1.5.6" />
     <MESSAGE value="update some styles&#10;&#10;Version 1.5.6.1" />
     <MESSAGE value="update some styles&#10;&#10;Version 1.5.6.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update some styles&#10;&#10;Version 1.5.6.2" />
+    <MESSAGE value="update some styles&#10;&#10;Version 1.5.6.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="update some styles&#10;&#10;Version 1.5.6.3" />
   </component>
 </project>
