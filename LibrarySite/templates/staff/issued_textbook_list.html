@@ -2,12 +2,14 @@
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/staff/reserve.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/staff/table.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block title %} Lib117 | Панель персонала {% endblock %}
 
 {% block content %}
+<h1 class="table-header">Список выданных учебников</h1>
+<h3 class="instruction">Чтобы отметить возврат учебников, кликните мышкой на соответствующую запись</h3>
 {% if textbooks %}
 <table>
     <thead>

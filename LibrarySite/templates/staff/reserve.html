@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/staff/reserve.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/staff/table.css' %}" rel="stylesheet" type="text/css">
 {% endblock styles_link %}
 
 {% block title %} Зарезервированные книги {% endblock title %}
 
 {% block content %}
-<h1 class="reserve-header">Список зарезервированных книг</h1>
-<h3 class="instruction">Для управления книгой нажмите на соответсвующий ряд</h3>
+<h1 class="table-header">Список зарезервированных книг</h1>
+<h3 class="instruction">Для управления книгой кликните мышкой на соответсвующий ряд</h3>
 {% if book_instances %}
 <table>
     <thead>

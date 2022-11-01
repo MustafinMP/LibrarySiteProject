@@ -13,7 +13,6 @@ from . import services
 import openpyxl
 import datetime
 import logging
-import json
 
 STATUS_FREE = 1
 STATUS_BORROW = 2
@@ -21,7 +20,7 @@ STATUS_LOST = 3
 STATUS_RESERVE = 4
 # подключение файла для логирования
 logging.basicConfig(filename='site_logging.log',
-                    format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
+                    format="%(asctime)s : %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)
 
 
@@ -56,10 +55,10 @@ def catalog(request):
     return render(request, 'catalog.html', context=context)
 
 
-def one_book(request, book_id):
+def book_item(request, book_id):
     if request.method == 'POST':
         context = services.add_book_to_user(book_id, request.user)
-        return render(request, 'one_book.html', context=context)
+        return render(request, 'book_item.html', context=context)
     else:
         book = Book.objects.get(id=book_id)
         count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
@@ -69,9 +68,9 @@ def one_book(request, book_id):
             have_book = bool(user_books)
         except Exception:
             have_book = False
-        return render(request, 'one_book.html', context={'book': book,
-                                                         'count': count,
-                                                         'have_book': have_book})
+        return render(request, 'book_item.html', context={'book': book,
+                                                          'count': count,
+                                                          'have_book': have_book})
 
 
 '''   Author Views   '''
@@ -83,11 +82,11 @@ def authors_view(request):
     return render(request, 'authors.html', context=context)
 
 
-def one_author(request, author_id):
+def author_person(request, author_id):
     author = Author.objects.get(id=author_id)
     books = author.book.all()
     context = {'author': author, 'books': books}
-    return render(request, 'one_author.html', context=context)
+    return render(request, 'author_person.html', context=context)
 
 
 '''   User Views   '''
@@ -106,6 +105,7 @@ def register(request):
             password = request.POST.get('password')
             group = request.POST.get('group')
             try:
+                # попытка взять данные школьного класса
                 level = int(group[:-1])
                 letter = group[-1].upper()
                 s_group = StudentGroup.objects.get(level=level, letter=letter)
@@ -157,7 +157,7 @@ def profile(request, user_id):
     if user == user2:
         context = services.Get.get_profile_info(user2)
         return render(request, 'profile.html', context=context)
-    return render(request, 'not_your_profile.html')
+    return render(request, 'not_user_profile.html')
 
 
 def change_password_view(request):

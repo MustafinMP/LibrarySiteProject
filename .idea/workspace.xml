@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/issued_textbook_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/LibrarySite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/basic_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/base_generic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/not_your_profile.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/not_user_profile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/one_author.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/author_person.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/one_book.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/book_item.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/reserve.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/staff/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/base_generic.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/base_generic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/not_your_profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/not_user_profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_author.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/author_person.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/one_book.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/book_item.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/borrow.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/borrow.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/issued_textbook_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/issued_textbook_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/templates/staff/reserve.html" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/templates/staff/reserve.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +63,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/LibrarySite/templates/staff" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
@@ -58,6 +71,7 @@
       <recent name="C:\Users\musta_f2qu5rf\PycharmProjects\LibrarySite\LibrarySite\templates\staff" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\musta_f2qu5rf\PycharmProjects\LibrarySite\LibrarySite\library\static\css" />
       <recent name="C:\Users\musta_f2qu5rf\PycharmProjects\LibrarySite\LibrarySite\library\static\css\staff" />
       <recent name="C:\Users\musta_f2qu5rf\PycharmProjects\LibrarySite\LibrarySite\templates\staff" />
     </key>
@@ -142,34 +156,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639225397236</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Finish clean-up code&#10;&#10;Version 1.0.02">
-      <created>1648639557816</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1648639557816</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Add 'reserved books' view for staff&#10;&#10;Version 1.1.01">
-      <created>1648650556057</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1648650556057</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Add 'approve-reject' view for staff&#10;&#10;Version 1.1.02">
-      <created>1648738515688</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1648738515688</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Add 'return book - lose book' view for staff&#10;&#10;Version 1.1.02">
-      <created>1648907666031</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1648907666032</updated>
     </task>
     <task id="LOCAL-00035" summary="add staff_borrow_textbook.html&#10;&#10;Version 1.1.04">
       <created>1649932428027</created>
@@ -486,7 +472,35 @@
       <option name="project" value="LOCAL" />
       <updated>1663068231870</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="update add issued books list &#10;&#10;Version 1.5.5">
+      <created>1665403628156</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1665403628158</updated>
+    </task>
+    <task id="LOCAL-00081" summary="move user.is_staff checking from all staff views to decorator&#10;update some styles&#10;&#10;Version 1.5.6">
+      <created>1665411487702</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1665411487702</updated>
+    </task>
+    <task id="LOCAL-00082" summary="update some styles&#10;&#10;Version 1.5.6.1">
+      <created>1665753164024</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1665753164025</updated>
+    </task>
+    <task id="LOCAL-00083" summary="update some styles&#10;&#10;Version 1.5.6.2">
+      <created>1665755720833</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1665755720833</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,17 +508,25 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update book item design&#10;&#10;Version 1.2.6" />
-    <MESSAGE value="update catalog&#10;&#10;Version 1.3" />
-    <MESSAGE value="update login and register pages&#10;&#10;Version 1.3.1" />
-    <MESSAGE value="update footer&#10;&#10;Version 1.3.1" />
     <MESSAGE value="create user functions (demo)&#10;&#10;Version 1.3.2" />
     <MESSAGE value="add import books from excel (template and view)&#10;&#10;Version 1.3.3" />
     <MESSAGE value="add adding book instance function&#10;&#10;Version 1.3.4" />
@@ -526,6 +548,10 @@
     <MESSAGE value="replace staff views to class Staff&#10;&#10;Version 1.5.4" />
     <MESSAGE value="update error 404 design&#10;&#10;Version 1.5.4.1" />
     <MESSAGE value="update staff index page&#10;&#10;Version 1.5.4.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="update staff index page&#10;&#10;Version 1.5.4.2" />
+    <MESSAGE value="update add issued books list &#10;&#10;Version 1.5.5" />
+    <MESSAGE value="move user.is_staff checking from all staff views to decorator&#10;update some styles&#10;&#10;Version 1.5.6" />
+    <MESSAGE value="update some styles&#10;&#10;Version 1.5.6.1" />
+    <MESSAGE value="update some styles&#10;&#10;Version 1.5.6.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="update some styles&#10;&#10;Version 1.5.6.2" />
   </component>
 </project>

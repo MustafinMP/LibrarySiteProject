@@ -27,10 +27,10 @@ urlpatterns = [
 
                   path('catalog/', views.catalog),
 
-                  path('books/<int:book_id>/', views.one_book),
+                  path('books/<int:book_id>/', views.book_item),
 
                   path('authors/', views.authors_view),
-                  path('authors/<int:author_id>/', views.one_author),
+                  path('authors/<int:author_id>/', views.author_person),
 
                   path('profile/<int:user_id>/', views.profile),
                   path('accounts/', include('django.contrib.auth.urls')),
