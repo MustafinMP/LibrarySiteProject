@@ -7,17 +7,14 @@ from django.shortcuts import render, reverse
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
     StudentGroup, UserData, IssueTextbooks
 from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
-    AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm
+    AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm, IssueABookForm
 
 from . import services
+from .services import STATUS_FREE, STATUS_BORROW, STATUS_LOST
 import openpyxl
 import datetime
 import logging
 
-STATUS_FREE = 1
-STATUS_BORROW = 2
-STATUS_LOST = 3
-STATUS_RESERVE = 4
 # подключение файла для логирования
 logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s : %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
@@ -65,8 +62,8 @@ def book_item(request, book_id):
     except Exception:
         have_book = False
     return render(request, 'book_item.html', context={'book': book,
-                                                          'count': count,
-                                                          'have_book': have_book})
+                                                      'count': count,
+                                                      'have_book': have_book})
 
 
 '''   Author Views   '''
@@ -184,16 +181,12 @@ class Staff:
 
     @staticmethod
     def staff_only(func):
-        def wrapper(*args):
+        def wrapper(*args, **kwargs):
             if args[0].user.is_staff:
-                return func(*args)
+                return func(*args, **kwargs)
             return HttpResponsePermanentRedirect('/')
 
         return wrapper
-
-    @staticmethod
-    def have_permissions(user):
-        pass
 
     @staticmethod
     @staff_only
@@ -202,31 +195,38 @@ class Staff:
 
     @staticmethod
     @staff_only
-    def reserve(request):
-        book_instances = BookInstance.objects.all().filter(status=STATUS_RESERVE)
-        context = {'book_instances': book_instances}
-        return render(request, 'staff/reserve.html', context=context)
+    def issue_books(request):
+        page = request.GET.get('page', 1)
+        genre = request.GET.get('genre', None)
+        genres = Genre.objects.all()
+        if genre:
+            genre_label = genres.filter(id=genre)[0].title
+            page = services.Get.get_books_with_pagination(page=page, genres=[genre])
+        else:
+            genre_label = 'Все книги'
+            page = services.Get.get_books_with_pagination(page=page)
+        context = {'page': page,
+                   'genres': genres,
+                   'genre_label': genre_label,
+                   'media': settings.STATIC_URL,
+                   'mode': 'staff'}
+        return render(request, 'catalog.html', context=context)
 
     @staticmethod
     @staff_only
-    def reserve_one_book(request, book_id):
-        book_instance = BookInstance.objects.get(id=book_id)
-
+    def issue_a_book(request, book_id):
+        book = Book.objects.get(id=book_id)
+        count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
         if request.method == 'POST':
-            if '_approve' in request.POST:
-                book_instance.status = Status.objects.get(id=STATUS_BORROW)
-                today = datetime.date.today()
-                book_instance.take_date = today + datetime.timedelta(days=1)
-                book_instance.return_date = today + datetime.timedelta(days=8)
-
-            elif '_reject' in request.POST:
-                book_instance.status = Status.objects.get(id=STATUS_FREE)
-                book_instance.borrower = None
-
-            book_instance.save()
-            return HttpResponsePermanentRedirect('/staff/reserve/')
-        context = {'book_instance': book_instance}
-        return render(request, 'staff/reserve_one_book.html', context=context)
+            issue_a_book_form = IssueABookForm(request.POST)
+            if issue_a_book_form.is_valid():
+                user_id = issue_a_book_form.cleaned_data.get('borrower')
+                services.issue_a_book(book_id, user_id)
+                return HttpResponsePermanentRedirect(reverse('borrow_page'))
+        else:
+            issue_a_book_form = IssueABookForm()
+            context = {'book': book, 'count': count, 'form': issue_a_book_form}
+            return render(request, 'staff/issue_a_book.html', context=context)
 
     @staticmethod
     @staff_only

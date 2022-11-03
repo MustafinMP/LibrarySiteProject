@@ -53,8 +53,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 86%;
   margin: 12px;
+  margin-left: 7%;
   background: white;
 }
 

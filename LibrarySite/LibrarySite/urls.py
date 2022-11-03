@@ -27,7 +27,7 @@ urlpatterns = [
 
                   path('catalog/', views.catalog),
 
-                  path('books/<int:book_id>/', views.book_item),
+                  path('catalog/<int:book_id>/', views.book_item),
 
                   path('authors/', views.authors_view),
                   path('authors/<int:author_id>/', views.author_person),
@@ -42,16 +42,17 @@ urlpatterns = [
                   path('change_password', views.change_password_view),
 
                   path('staff/', views.Staff.index),
-                  path('staff/reserve/', views.Staff.reserve),
-                  path('staff/reserve/<book_id>/', views.Staff.reserve_one_book),
 
-                  path('staff/borrow/', views.Staff.borrow_view),
+                  path('staff/borrow/', views.Staff.borrow_view, name='borrow_page'),
                   path('staff/borrow/<book_id>/', views.Staff.borrow_one_book),
                   path('staff/borrow-textbook/', views.Staff.borrow_textbook_view),
 
                   path('staff/add_book/', views.Staff.add_book),
                   path('staff/add_book_ins/', views.Staff.add_book_ins),
                   path('staff/add_textbooks_from_excel/', views.Staff.add_textbooks_from_excel),
+
+                  path('staff/issue_books', views.Staff.issue_books),
+                  path('staff/issue_a_book/<book_id>/', views.Staff.issue_a_book),
 
                   path('staff/issue_textbooks/', views.Staff.issue_textbooks),
                   path('staff/issue_textbooks_list/', views.Staff.issue_textbooks_list),

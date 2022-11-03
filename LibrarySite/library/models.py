@@ -13,12 +13,12 @@ All application models
 
 
 class Subject(models.Model):
-    title = models.CharField(verbose_name='Жанр книги',
+    title = models.CharField(verbose_name='Предмет',
                              max_length=30)
 
 
 class Genre(models.Model):
-    title = models.CharField(verbose_name='Предмет',
+    title = models.CharField(verbose_name='Жанр книги',
                              max_length=30)
 
     def __str__(self):
@@ -50,7 +50,7 @@ class StudentGroup(models.Model):
 
 
 class UserData(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='user_data', primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='userdata', primary_key=True)
     group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT, blank=True, null=True)
     is_graduate = models.BooleanField()
 

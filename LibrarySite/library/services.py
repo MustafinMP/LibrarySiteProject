@@ -5,12 +5,12 @@ from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbo
     StudentGroup, IssueTextbooks
 import openpyxl
 import logging
+import datetime
 
 # book statuses
 STATUS_FREE = 1
 STATUS_BORROW = 2
 STATUS_LOST = 3
-STATUS_RESERVE = 4
 
 logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
@@ -23,6 +23,7 @@ class NotEnoughTextbooksError(Exception):
 
 class Get:
     """Get functions"""
+
     @staticmethod
     def get_books(authors=None, genres=None, is_free=None, count=None):
         filter_kwargs = {}
@@ -67,20 +68,17 @@ class Get:
         return books
 
 
-def add_book_to_user(book_id, user):
-    book_instance = BookInstance.objects.all().filter(status=STATUS_FREE, book=book_id)[0]
-    book_instance.borrower = user
-    book_instance.status = Status.objects.get(id=STATUS_RESERVE)
-    book_instance.save()
-    logging.info(f'user {user} reserved book {Book.objects.get(id=book_id).title}')
-    book = Book.objects.get(id=book_id)
-    count = book.bookinstance_set.all().filter(status=1).count()
-    return {'book': book,
-            'count': count,
-            'have_book': True}
-
-
 # staff functions
+def issue_a_book(book_id, user_id):
+    book_instance = BookInstance.objects.filter(book=book_id,
+                                             status=Status.objects.get(id=STATUS_FREE))[0]
+    book_instance.borrower = User.objects.get(id=user_id)
+    book_instance.status = Status.objects.get(id=STATUS_BORROW)
+    today = datetime.date.today()
+    book_instance.take_date = today + datetime.timedelta(days=1)
+    book_instance.return_date = today + datetime.timedelta(days=8)
+    book_instance.save()
+
 
 def staff_borrow_book(book_instance, post_request):
     if '_return' in post_request:
