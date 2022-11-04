@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+from django.utils import timezone
 
 '''
 All application models
@@ -129,10 +131,10 @@ class BookInstance(models.Model):
                                    blank=True,
                                    null=True)
     borrower = models.ForeignKey(User,
-                                    verbose_name='Держатель экземпляра',
-                                    on_delete=models.PROTECT,
-                                    blank=True,
-                                    null=True)
+                                 verbose_name='Держатель экземпляра',
+                                 on_delete=models.PROTECT,
+                                 blank=True,
+                                 null=True)
 
     def __str__(self):
         return f'{self.id}, {self.book}'
@@ -210,6 +212,7 @@ class IssueTextbooks(models.Model):
     и кто эти экземпляры получил. Объект также хранит только фамилию ученика/учителя, забравшего учебники без
     сохранения, какой это был аккунт."""
     textbook = models.ForeignKey(Textbook, on_delete=models.PROTECT)
+    date = models.DateField(default=timezone.now)
     group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT)
     count = models.IntegerField()
     borrower = models.CharField(max_length=50)

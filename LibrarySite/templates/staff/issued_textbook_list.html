@@ -14,6 +14,7 @@
 <table>
     <thead>
     <tr>
+        <th>Дата</th>
         <th>Учебник</th>
         <th>Класс</th>
         <th>Количество</th>
@@ -23,6 +24,7 @@
     <tbody>
     {% for textbook in textbooks %}
     <tr class="table-row">
+        <th>{{ textbook.date }}</th>
         <th>{{ textbook.textbook.title }}</th>
         <th>{{ textbook.group }}</th>
         <th>{{ textbook.count }}</th>
