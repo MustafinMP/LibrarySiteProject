@@ -22,10 +22,9 @@
     </thead>
     <tbody>
     {% for textbook in textbooks %}
-    <tr onclick="window.location.href='/staff/borrow-textbook/{{ book_instance.id }}/'; return false"
-        class="table-row">
+    <tr class="table-row">
         <th>{{ textbook.textbook.title }}</th>
-        <th>{{ textbook.student_group }}</th>
+        <th>{{ textbook.group }}</th>
         <th>{{ textbook.count }}</th>
         <th>{{ textbook.borrower }}</th>
     </tr>
