@@ -41,10 +41,10 @@ def catalog(request):
 
     if genre:
         genre_label = genres.filter(id=genre)[0].title
-        page = services.Get.get_books_with_pagination(page=page, genres=[genre])
+        page = services.get_books_with_pagination(page=page, genres=[genre])
     else:
         genre_label = 'Все книги'
-        page = services.Get.get_books_with_pagination(page=page)
+        page = services.get_books_with_pagination(page=page)
     context = {'page': page,
                'genres': genres,
                'genre_label': genre_label,
@@ -150,7 +150,7 @@ def profile(request, user_id):
         return HttpResponsePermanentRedirect('/login')
     user = User.objects.get(id=user_id)
     if user == req_user:
-        context = services.Get.get_profile_info(req_user)
+        context = services.get_user_profile(req_user)
         return render(request, 'profile.html', context=context)
     return render(request, 'not_user_profile.html')
 
@@ -201,10 +201,10 @@ class Staff:
         genres = Genre.objects.all()
         if genre:
             genre_label = genres.filter(id=genre)[0].title
-            page = services.Get.get_books_with_pagination(page=page, genres=[genre])
+            page = services.get_books_with_pagination(page=page, genres=[genre])
         else:
             genre_label = 'Все книги'
-            page = services.Get.get_books_with_pagination(page=page)
+            page = services.get_books_with_pagination(page=page)
         context = {'page': page,
                    'genres': genres,
                    'genre_label': genre_label,

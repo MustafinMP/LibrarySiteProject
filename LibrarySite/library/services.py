@@ -21,57 +21,53 @@ class NotEnoughTextbooksError(Exception):
     pass
 
 
-class Get:
-    """Get functions"""
+def get_books(authors=None, genres=None, is_free=None, count=None):
+    filter_kwargs = {}
+    if not (authors is None):
+        filter_kwargs['author__in'] = authors
+    if not (genres is None):
+        filter_kwargs['genre__in'] = genres
+    if not (is_free is None):
+        filter_kwargs['bookinstance__status'] = 1
+    if filter_kwargs:
+        books = Book.objects.filter(**filter_kwargs).order_by('id')
+    else:
+        books = Book.objects.all().order_by('id')
+    if not (count is None):
+        books = books[:count]
+    return books
 
-    @staticmethod
-    def get_books(authors=None, genres=None, is_free=None, count=None):
-        filter_kwargs = {}
-        if not (authors is None):
-            filter_kwargs['author__in'] = authors
-        if not (genres is None):
-            filter_kwargs['genre__in'] = genres
-        if not (is_free is None):
-            filter_kwargs['bookinstance__status'] = 1
-        if filter_kwargs:
-            books = Book.objects.filter(**filter_kwargs).order_by('id')
-        else:
-            books = Book.objects.all().order_by('id')
-        if not (count is None):
-            books = books[:count]
-        return books
 
-    @staticmethod
-    def get_profile_info(user):
-        try:
-            book_ins = BookInstance.objects.all().filter(borrower=user)[0]
-            book = book_ins.book
-            context = {'user_data': user,
-                       'have_book': True,
-                       'book': book,
-                       'book_ins': book_ins}
-        except Exception:
-            context = {'user_data': user,
-                       'have_book': False}
-        return context
+def get_user_profile(user):
+    try:
+        book_ins = BookInstance.objects.all().filter(borrower=user)[0]
+        book = book_ins.book
+        context = {'user_data': user,
+                   'have_book': True,
+                   'book': book,
+                   'book_ins': book_ins}
+    except Exception:
+        context = {'user_data': user,
+                   'have_book': False}
+    return context
 
-    @staticmethod
-    def get_books_with_pagination(page=1, authors=None, genres=None, is_free=None):
-        book_list = Get.get_books(authors=authors, genres=genres, is_free=is_free)
-        paginator = Paginator(book_list, 30)  # 30 books in each page
-        try:
-            books = paginator.page(page)
-        except PageNotAnInteger:
-            books = paginator.page(1)
-        except EmptyPage:
-            books = paginator.page(paginator.num_pages)
-        return books
+
+def get_books_with_pagination(page=1, authors=None, genres=None, is_free=None):
+    book_list = get_books(authors=authors, genres=genres, is_free=is_free)
+    paginator = Paginator(book_list, 30)  # 30 books in each page
+    try:
+        books = paginator.page(page)
+    except PageNotAnInteger:
+        books = paginator.page(1)
+    except EmptyPage:
+        books = paginator.page(paginator.num_pages)
+    return books
 
 
 # staff functions
 def issue_a_book(book_id, user_id):
     book_instance = BookInstance.objects.filter(book=book_id,
-                                             status=Status.objects.get(id=STATUS_FREE))[0]
+                                                status=Status.objects.get(id=STATUS_FREE))[0]
     book_instance.borrower = User.objects.get(id=user_id)
     book_instance.status = Status.objects.get(id=STATUS_BORROW)
     today = datetime.date.today()
