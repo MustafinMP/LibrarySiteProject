@@ -30,7 +30,7 @@ urlpatterns = [
                   path('catalog/<int:book_id>/', views.book_item),
 
                   path('authors/', views.authors_view),
-                  path('authors/<int:author_id>/', views.author_person),
+                  path('authors/<int:author_id>/', views.author_person_view),
 
                   path('profile/<int:user_id>/', views.profile),
                   path('accounts/', include('django.contrib.auth.urls')),
@@ -41,21 +41,21 @@ urlpatterns = [
                        name='logout'),
                   path('change_password', views.change_password_view),
 
-                  path('staff/', views.Staff.index),
+                  path('staff/', views.StaffViews.index),
 
-                  path('staff/borrow/', views.Staff.borrow_view, name='borrow_page'),
-                  path('staff/borrow/<book_id>/', views.Staff.borrow_one_book),
-                  path('staff/borrow-textbook/', views.Staff.borrow_textbook_view),
+                  path('staff/borrow/', views.StaffViews.borrow_view, name='borrow_page'),
+                  path('staff/borrow/<book_id>/', views.StaffViews.borrow_one_book_view),
+                  path('staff/borrow-textbook/', views.StaffViews.borrow_textbook_view),
 
-                  path('staff/add_book/', views.Staff.add_book),
-                  path('staff/add_book_ins/', views.Staff.add_book_ins),
-                  path('staff/add_textbooks_from_excel/', views.Staff.add_textbooks_from_excel),
+                  path('staff/add_book/', views.StaffViews.add_book_view),
+                  path('staff/add_book_ins/', views.StaffViews.add_book_instance_view),
+                  path('staff/add_textbooks_from_excel/', views.StaffViews.add_textbooks_from_excel_view),
 
-                  path('staff/issue_books', views.Staff.issue_books),
-                  path('staff/issue_a_book/<book_id>/', views.Staff.issue_a_book),
+                  path('staff/issue_books', views.StaffViews.issue_books_view),
+                  path('staff/issue_a_book/<book_id>/', views.StaffViews.issue_a_book_view),
 
-                  path('staff/issue_textbooks/', views.Staff.issue_textbooks),
-                  path('staff/issue_textbooks_list/', views.Staff.issue_textbooks_list),
+                  path('staff/issue_textbooks/', views.StaffViews.issue_textbooks_view),
+                  path('staff/issue_textbooks_list/', views.StaffViews.issue_textbooks_list_view),
 
                   path('exception404/', views.exception404),
 

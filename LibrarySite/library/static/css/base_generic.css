@@ -75,6 +75,7 @@ footer {
 }
 
 .s-network {
+  max-height: 50px;
   display: inline-flex;
   color: white;
   align-items: center;

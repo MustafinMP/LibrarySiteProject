@@ -2,7 +2,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
-    StudentGroup, IssueTextbooks
+    StudentGroup, IssueTextbooks, UserData
 import openpyxl
 import logging
 import datetime
@@ -38,14 +38,14 @@ def get_books(authors=None, genres=None, is_free=None, count=None):
     return books
 
 
-def get_user_profile(user):
+def get_user_profile(user: User):
     try:
-        book_ins = BookInstance.objects.all().filter(borrower=user)[0]
-        book = book_ins.book
+        books = BookInstance.objects.all().filter(borrower=user)
+        today = datetime.date.today()
         context = {'user_data': user,
                    'have_book': True,
-                   'book': book,
-                   'book_ins': book_ins}
+                   'books': books,
+                   'today': today}
     except Exception:
         context = {'user_data': user,
                    'have_book': False}
@@ -62,6 +62,17 @@ def get_books_with_pagination(page=1, authors=None, genres=None, is_free=None):
     except EmptyPage:
         books = paginator.page(paginator.num_pages)
     return books
+
+
+def create_user(username: str, e_mail: str, password: str, first_name: str, last_name: str, group: tuple[int, str]):
+    s_group = StudentGroup.objects.get(level=group[0], letter=group[1])
+    user = User.objects.create_user(username, e_mail, password)
+    user.last_name = last_name
+    user.first_name = first_name
+    user.save()
+    additional_user_data = UserData.objects.create(user=user, group=s_group, is_graduate=False)
+    additional_user_data.save()
+    logging.info(f'created user "{username}"')
 
 
 # staff functions
@@ -97,7 +108,6 @@ def add_book_with_instances(title, authors, genre, image, publishing_house, year
                                    year_of_publication=year_of_publication)
     new_book.save()
 
-    # add authors
     list_authors = Author.objects.all().filter(id__in=list(map(int, authors)))
     for author in list_authors:
         new_book.author.add(author)

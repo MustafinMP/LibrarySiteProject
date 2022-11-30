@@ -11,28 +11,30 @@
     {{ user.first_name }} {{ user.last_name }} | {{ user.user_data.group }}
 </h1>
 <h2 class="my-books-label">Мои книги:</h2>
-{% if book %}
+{% if books %}
+{% for book in books %}
 <section class="my-book">
     <article class="image-block">
-        <img src="{{ book.img_url }}">
+        <img src="{{ book.book.img_url }}">
     </article>
     <article class="book-info">
-        <h3>{{ book.title }}</h3>
-        <p class="genres">{{ book.genre }}</p>
-        <p>Авторы: {% for author in book.author.all %}
+        <h3>{{ book.book.title }}</h3>
+        <p class="genres">{{ book.book.genre }}</p>
+        <p>Авторы: {% for author in book.book.author.all %}
             <a href="/authors/{{ author.id }}/">{{ author }}</a>
         </p>
         {% endfor %}
-        {% if book_ins.status.id == 2 %}
-        <p>Дата получения: {{ book_ins.take_date }}</p>
-        <p>Дата возврата: {{ book_ins.return_date }}</p>
+        {% if book.status.id == 2 %}
+        <p>Дата получения: {{ book.take_date }}</p>
+        <p>Дата возврата: <span class="{% if today > book.take_date %}alert-danger{% endif %}">{{ book.return_date }}</span></p>
         <p class="return-book">Вернуть книгу можно в библиотеке</p>
         {% endif %}
     </article>
-    {% else %}
-    <h2 class="no-books">На данный момент у вас нет книг</h2>
-    {% endif %}
 </section>
+{% endfor %}
+{% else %}
+<h2 class="no-books">На данный момент у вас нет книг</h2>
+{% endif %}
 <p class="profile-exit">
     <a href="/logout/">Выйти из профиля</a>
 </p>
