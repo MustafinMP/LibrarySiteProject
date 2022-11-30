@@ -115,7 +115,7 @@ def add_book_with_instances(title, authors, genre, image, publishing_house, year
     add_instances_to_book(new_book, count)
 
 
-def add_instances_to_book(book, count):
+def add_instances_to_book(book: Book, count: int):
     for _ in range(count):
         book_instance = BookInstance.objects.create(book=book,
                                                     status=Status.objects.get(id=STATUS_FREE))
