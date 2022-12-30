@@ -49,7 +49,7 @@ body {
 footer {
   background: var(--blue-color);
   margin: 0;
-  height: 240px;
+  height: 320px;
 }
 
 .footer-link-block {
@@ -89,6 +89,7 @@ footer {
 
 .copyright {
   text-align: center;
+  margin-top: 40px;
   padding-bottom: 20px;
   color: white;
 }

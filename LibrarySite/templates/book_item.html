@@ -30,7 +30,7 @@
     </section>
     {% if not user.is_authenticated %}
     <p class="return-label label-danger">Взять книгу могут только зарегистрированные пользователи</p>
-    <a class="return-label label-to-profile" href="/profile/{{ user.id }}/">Войти в аккаунт >></a>
+    <a class="return-label label-to-profile" href="/login/">Войти в аккаунт >></a>
     {% endif %}
 </article>
 {% endblock %}
