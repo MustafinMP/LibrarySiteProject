@@ -39,25 +39,9 @@ urlpatterns = [
                   path('logout/', auth_views.LogoutView.as_view(),
                        {'next_page': settings.LOGOUT_REDIRECT_URL},
                        name='logout'),
-                  path('change_password', views.change_password_view),
+                  path('change_password/', views.change_password_view),
 
-                  path('staff/', views.StaffViews.index),
-
-                  path('staff/borrow/', views.StaffViews.borrow_view, name='borrow_page'),
-                  path('staff/borrow/<book_id>/', views.StaffViews.borrow_one_book_view),
-                  path('staff/borrow-textbook/', views.StaffViews.borrow_textbook_view),
-
-                  path('staff/add_book/', views.StaffViews.add_book_view),
-                  path('staff/add_book_ins/', views.StaffViews.add_book_instance_view),
-                  path('staff/add_textbooks_from_excel/', views.StaffViews.add_textbooks_from_excel_view),
-
-                  path('staff/issue_books', views.StaffViews.issue_books_view),
-                  path('staff/issue_a_book/<book_id>/', views.StaffViews.issue_a_book_view),
-
-                  path('staff/issue_textbooks/', views.StaffViews.issue_textbooks_view),
-                  path('staff/issue_textbooks_list/', views.StaffViews.issue_textbooks_list_view),
-
-                  path('exception404/', views.exception404),
+                  path('staff/', include('staff_app.urls'))
 
               ] + static(settings.MEDIA_URL,
                          document_root=settings.MEDIA_ROOT) \

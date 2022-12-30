@@ -4,8 +4,6 @@ from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
-from .models import Book, Author, BookInstance, Status, TextbookInstance, Textbook, Genre, PublishingHouse, \
-    StudentGroup, UserData, IssueTextbooks
 from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
     AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm, IssueABookForm
 
