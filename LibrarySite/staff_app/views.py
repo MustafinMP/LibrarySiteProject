@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
-from library.forms import AddNewBookForm, AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm, \
+from .forms import AddNewBookForm, AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm, \
     IssueABookForm
 from library.services import *
 
