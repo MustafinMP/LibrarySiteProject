@@ -7,7 +7,7 @@ from library.services import *
 
 
 def staff_only(func):
-    '''Проверка доступа'''
+    """Проверка доступа"""
 
     def wrapper(*args, **kwargs):
         if args[0].user.is_staff:
@@ -19,7 +19,7 @@ def staff_only(func):
 
 @staff_only
 def index(request):
-    return render(request, 'staff/index.html')
+    return render(request, 'staff/index.html', context=get_info())
 
 
 @staff_only

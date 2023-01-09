@@ -136,3 +136,14 @@ def issue_textbooks(textbook, group, borrower):
         tb.save()
     issue_tbs = IssueTextbooks.objects.create(textbook=textbook, group=group, count=count, borrower=borrower)
     issue_tbs.save()
+
+
+def get_info():
+    books = BookInstance.objects.all()
+    free_books_count = books.filter(status=STATUS_FREE).count()
+    issue_books_count = books.filter(status=STATUS_BORROW).count()
+    textbooks = TextbookInstance.objects.all()
+    free_textbooks_count = textbooks.filter(status=STATUS_FREE).count()
+    issue_textbooks_count = textbooks.filter(status=STATUS_BORROW).count()
+    return {'free_books_count': free_books_count, 'issue_books_count': issue_books_count,
+            'free_textbooks_count': free_textbooks_count, 'issue_textbooks_count': issue_textbooks_count}

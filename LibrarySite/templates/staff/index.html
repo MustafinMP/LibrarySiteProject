@@ -2,53 +2,90 @@
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/staff/index.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/staff/index.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block title %} Lib117 | Панель персонала {% endblock %}
 
 {% block content %}
-<article class="main-block">
-    <header class="staff-title-header">
-        <a class="to-main" href="{% url 'homepage' %}">
-            <div>&#8592 На главную страницу сайта</div>
-        </a>
-        <h2 class="staff-title">Панель управления</h2>
+    <article class="main-block">
+        <header class="staff-title-header">
+            <a class="to-main" href="{% url 'homepage' %}">
+                <div>&#8592 На главную страницу сайта</div>
+            </a>
+            <h2 class="staff-title">Панель управления</h2>
 
-    </header>
+        </header>
 
-    <nav class="navigation">
-        <article class="container">
-            <h3 class="container-label">Добавление книг</h3>
-            <div class="container-inner">
-                <a href="/staff/add_book">
-                    <div>Добавить новую книгу</div>
-                </a>
-                <a href="/staff/add_book_ins">
-                    <div>Добавить новые экземпляры книги</div>
-                </a>
-            </div>
-        </article>
-        <article class="container">
-            <h3 class="container-label">Выдача учебников</h3>
-            <div class="container-inner">
-                <a href="/staff/issue_textbooks">
-                    <div>Выдать учебники</div>
-                </a>
-                <a href="/staff/issue_books">
-                    <div>Выдать книги</div>
-                </a>
-                <a href="/staff/borrow/">
-                    <div>Выданные книги</div>
-                </a>
-                <a href="/staff/issue_textbooks_list/">
-                    <div>Выданные учебники</div>
-                </a>
-            </div>
-        </article>
+        <nav class="navigation">
+            <article class="container">
+                <h3 class="container-label">Книги</h3>
+                <div class="info-books">
+                    <p><span>{{ free_books_count }}</span> в наличии</p>
+                    <p><span>{{ issue_books_count }}</span> выдано</p>
+                </div>
+                <hr>
+                <div class="container-inner">
+                    <a href="/staff/issue_books">
+                        <div>Выдать книги</div>
+                    </a>
+                    <a href="/staff/borrow/">
+                        <div>Выданные книги</div>
+                    </a>
+                    <a href="/staff/add_book">
+                        <div>Добавить новую книгу</div>
+                    </a>
+                    <a href="/staff/add_book_ins">
+                        <div>Добавить новые экземпляры книги</div>
+                    </a>
+                </div>
+            </article>
+            <article class="container">
+                <h3 class="container-label">Учебники</h3>
+                <div class="info-books">
+                    <p><span>{{ free_textbooks_count }}</span> в наличии</p>
+                    <p><span>{{ issue_textbooks_count }}</span> выдано</p>
+                </div>
+                <div class="container-inner">
+                    <a href="/staff/issue_textbooks">
+                        <div>Выдать учебники</div>
+                    </a>
+                    <a href="/staff/issue_textbooks_list/">
+                        <div>Выданные учебники</div>
+                    </a>
+                </div>
+            </article>
+            {#        <article class="container">#}
+            {#            <h3 class="container-label">Добавление книг</h3>#}
+            {#            <div class="container-inner">#}
+            {#                <a href="/staff/add_book">#}
+            {#                    <div>Добавить новую книгу</div>#}
+            {#                </a>#}
+            {#                <a href="/staff/add_book_ins">#}
+            {#                    <div>Добавить новые экземпляры книги</div>#}
+            {#                </a>#}
+            {#            </div>#}
+            {#        </article>#}
+            {#        <article class="container">#}
+            {#            <h3 class="container-label">Выдача учебников</h3>#}
+            {#            <div class="container-inner">#}
+            {#                <a href="/staff/issue_textbooks">#}
+            {#                    <div>Выдать учебники</div>#}
+            {#                </a>#}
+            {#                <a href="/staff/issue_books">#}
+            {#                    <div>Выдать книги</div>#}
+            {#                </a>#}
+            {#                <a href="/staff/borrow/">#}
+            {#                    <div>Выданные книги</div>#}
+            {#                </a>#}
+            {#                <a href="/staff/issue_textbooks_list/">#}
+            {#                    <div>Выданные учебники</div>#}
+            {#                </a>#}
+            {#            </div>#}
+            {#        </article>#}
 
-    </nav>
-</article>
+        </nav>
+    </article>
 
 
 {% endblock %}
