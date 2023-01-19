@@ -1,17 +1,12 @@
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.models import User
+import logging
+
 from django.conf import settings
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
-from .forms import RegisterForm, LoginForm, AddNewBookForm, ChangePasswordForm, \
-    AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm, IssueABookForm
-
-
+from .forms import RegisterForm, LoginForm, ChangePasswordForm
 from .services import *
-import openpyxl
-import datetime
-import logging
 
 # подключение файла для логирования
 logging.basicConfig(filename='site_logging.log',

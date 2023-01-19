@@ -99,10 +99,6 @@ class AddNewBookForm(forms.Form):
     year_of_publication = forms.IntegerField()
 
 
-class AddTextBookFromExcelForm(forms.Form):
-    file = forms.FileField()
-
-
 class AddNewBookInstanceForm(forms.Form):
     book = forms.TypedChoiceField(label='Книга', choices=(get_books()))
     count = forms.IntegerField(label='Количество экземпляров книги', initial=1)

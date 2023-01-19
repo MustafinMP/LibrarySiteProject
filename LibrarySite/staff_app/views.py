@@ -1,9 +1,11 @@
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
-from .forms import AddNewBookForm, AddTextBookFromExcelForm, AddNewBookInstanceForm, IssueTextbookForm, \
+
+from library.services import get_books_with_pagination
+from .forms import AddNewBookForm, AddNewBookInstanceForm, IssueTextbookForm, \
     IssueABookForm
-from library.services import *
+from .services import *
 
 
 def staff_only(func):
@@ -118,26 +120,6 @@ def add_book_instance_view(request):
     else:
         add_book_form = AddNewBookInstanceForm()
         return render(request, 'staff/add_book_ins.html', {'form': add_book_form, 'errors': ''})
-
-
-@staff_only
-def add_textbooks_from_excel_view(request):  # отложено до лучших времен
-    if request.method == 'POST':
-        form = AddTextBookFromExcelForm(request.POST, request.FILES)
-        file = request.FILES['file'].file
-        wb = openpyxl.load_workbook(file)
-        worksheet = wb.active
-        for row in worksheet.iter_rows(0, worksheet.max_row):
-            title = row[0].value
-            authors = row[1].value
-            genre = row[2].value
-            pb_house = row[3].value
-            year_of_publication = row[4].value
-            # services.add_books_from_excel()
-            print([title, authors, genre, pb_house, year_of_publication])
-        return render(request, 'staff/add_book_success.html')
-    form = AddTextBookFromExcelForm()
-    return render(request, 'staff/add_textbooks_from_excel.html', context={'form': form})
 
 
 @staff_only

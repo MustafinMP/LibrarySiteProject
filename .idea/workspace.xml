@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="821b5f71-5103-4eeb-94cb-3472a7cc532d" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LibrarySite/staff_app/services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/library/static/css/form.css" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/static/css/form.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LibrarySite/staff_app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/staff_app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/services.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LibrarySite/library/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/library/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LibrarySite/staff_app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/LibrarySite/staff_app/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -46,13 +48,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/musta_f2qu5rf/PycharmProjects/LibrarySite",
-    "settings.editor.selected.configurable": "com.jetbrains.django.DjangoModulesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/musta_f2qu5rf/PycharmProjects/LibrarySite&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.django.DjangoModulesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\musta_f2qu5rf\PycharmProjects\LibrarySite\LibrarySite\templates\staff" />
@@ -153,14 +155,11 @@
       <workItem from="1670243576694" duration="445000" />
       <workItem from="1672406889457" duration="5574000" />
       <workItem from="1672748811916" duration="197000" />
-      <workItem from="1673266157951" duration="6982000" />
-    </task>
-    <task id="LOCAL-00047" summary="replace profile and books queries to services.py&#10;&#10;Version 1.2.1">
-      <created>1660575665525</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1660575665525</updated>
+      <workItem from="1673266157951" duration="7186000" />
+      <workItem from="1673437351463" duration="32000" />
+      <workItem from="1673527840373" duration="373000" />
+      <workItem from="1673528377010" duration="958000" />
+      <workItem from="1674130289332" duration="906000" />
     </task>
     <task id="LOCAL-00048" summary="replace a part of staff functions from views.py to services.py&#10;&#10;Version 1.2.2">
       <created>1660653490730</created>
@@ -498,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673271268597</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="clean code&#10;&#10;Version 1.7.2">
+      <created>1673282527504</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1673282527504</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +534,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add student groups&#10;&#10;Version 1.4" />
     <MESSAGE value="fix bugs&#10;add group name to profile&#10;&#10;Version 1.4.1" />
     <MESSAGE value="add issue textbooks model, form and html file&#10;&#10;Version 1.4.2" />
     <MESSAGE value="integrate view to issue textbook function&#10;&#10;Version 1.5" />
@@ -553,6 +558,7 @@
     <MESSAGE value="fix bug with urls&#10;&#10;Version 1.6.2.2" />
     <MESSAGE value="replace staff views and urls to new app for that&#10;&#10;Version 1.7" />
     <MESSAGE value="update UI on staff homepage&#10;&#10;Version 1.7.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update UI on staff homepage&#10;&#10;Version 1.7.1" />
+    <MESSAGE value="clean code&#10;&#10;Version 1.7.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean code&#10;&#10;Version 1.7.2" />
   </component>
 </project>
