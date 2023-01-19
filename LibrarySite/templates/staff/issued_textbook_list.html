@@ -2,16 +2,19 @@
 {% load static %}
 
 {% block styles_link %}
-<link href="{% static 'css/staff/reserve.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/staff/table.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block title %} Lib117 | Панель персонала {% endblock %}
 
 {% block content %}
+<h1 class="table-header">Список выданных учебников</h1>
+<h3 class="instruction">Чтобы отметить возврат учебников, кликните мышкой на соответствующую запись</h3>
 {% if textbooks %}
 <table>
     <thead>
     <tr>
+        <th>Дата</th>
         <th>Учебник</th>
         <th>Класс</th>
         <th>Количество</th>
@@ -20,10 +23,10 @@
     </thead>
     <tbody>
     {% for textbook in textbooks %}
-    <tr onclick="window.location.href='/staff/borrow-textbook/{{ book_instance.id }}/'; return false"
-        class="table-row">
+    <tr class="table-row">
+        <th>{{ textbook.date }}</th>
         <th>{{ textbook.textbook.title }}</th>
-        <th>{{ textbook.student_group }}</th>
+        <th>{{ textbook.group }}</th>
         <th>{{ textbook.count }}</th>
         <th>{{ textbook.borrower }}</th>
     </tr>

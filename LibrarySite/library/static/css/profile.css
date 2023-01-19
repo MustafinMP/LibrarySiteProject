@@ -12,17 +12,17 @@
 }
 
 .my-book {
-  width: 60%;
+  width: 70%;
   margin-left: 5%;
-  border: 2px solid #dddddd;
-  border-radius: 5px;
-  box-shadow: 0 5px 5px 0 #aaaaaa;
+  margin-bottom: 24px;
+  box-shadow: 0 5px 10px 0 #aaaaaa;
 }
 
 .image-block {
   display: inline-block;
   vertical-align: top;
   margin-left: 48px;
+  pointer-events: none;
 }
 
 img {
@@ -80,4 +80,8 @@ img {
 .profile-exit {
   text-align: center;
   font-size: 22px;
+}
+
+.alert-danger {
+  color: red;
 }

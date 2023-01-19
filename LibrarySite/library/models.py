@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
+from django.utils import timezone
 
 '''
 All application models
@@ -13,12 +15,12 @@ All application models
 
 
 class Subject(models.Model):
-    title = models.CharField(verbose_name='Жанр книги',
+    title = models.CharField(verbose_name='Предмет',
                              max_length=30)
 
 
 class Genre(models.Model):
-    title = models.CharField(verbose_name='Предмет',
+    title = models.CharField(verbose_name='Жанр книги',
                              max_length=30)
 
     def __str__(self):
@@ -50,7 +52,7 @@ class StudentGroup(models.Model):
 
 
 class UserData(models.Model):
-    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='user_data', primary_key=True)
+    user = models.OneToOneField(User, on_delete=models.PROTECT, related_name='userdata', primary_key=True)
     group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT, blank=True, null=True)
     is_graduate = models.BooleanField()
 
@@ -128,11 +130,11 @@ class BookInstance(models.Model):
     return_date = models.DateField(verbose_name='Дата возврата',
                                    blank=True,
                                    null=True)
-    borrower = models.OneToOneField(User,
-                                    verbose_name='Держатель экземпляра',
-                                    on_delete=models.PROTECT,
-                                    blank=True,
-                                    null=True)
+    borrower = models.ForeignKey(User,
+                                 verbose_name='Держатель экземпляра',
+                                 on_delete=models.PROTECT,
+                                 blank=True,
+                                 null=True)
 
     def __str__(self):
         return f'{self.id}, {self.book}'
@@ -210,6 +212,7 @@ class IssueTextbooks(models.Model):
     и кто эти экземпляры получил. Объект также хранит только фамилию ученика/учителя, забравшего учебники без
     сохранения, какой это был аккунт."""
     textbook = models.ForeignKey(Textbook, on_delete=models.PROTECT)
+    date = models.DateField(default=timezone.now)
     group = models.ForeignKey(StudentGroup, on_delete=models.PROTECT)
     count = models.IntegerField()
     borrower = models.CharField(max_length=50)

@@ -12,17 +12,18 @@
 <article class="main-inline genre-menu">
     <h2>Жанры</h2>
     <nav class="genre-navigation">
-        <a class="genre-item" href="../catalog">Все жанры</a>
+        <a class="genre-item" href="{% if mode == 'staff' %}issue_books{% else %}../catalog{% endif %}">Все жанры</a>
         {% for genre in genres %}
         <a class="genre-item" href="?genre={{ genre.id }}">{{ genre.title }}</a>
         {% endfor %}
     </nav>
 </article>
 <article class="main-inline books-block">
+    {% if mode == 'staff' %}<h2 class="books-line-title">Выдать книгу</h2>{% endif %}
     <h2 class="books-line-title">{{ genre_label }}</h2>
     <section class="books-container">
         {% for book in page %}
-            <a class="book-card" href="../books/{{ book.id }}/">
+            <a class="book-card" href="{% if mode == 'staff' %}issue_a_book{% else %}../catalog{% endif %}/{{ book.id }}/">
                 <img class="book-image" src="{{ book.img_url }}">
                 <div class="book-text">
                     <p class="book-title">{{ book.title }}</p>

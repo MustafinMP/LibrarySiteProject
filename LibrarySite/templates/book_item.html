@@ -1,0 +1,36 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block styles_link %}
+<link href="{% static 'css/book_item.css' %}" rel="stylesheet" type="text/css">
+{% endblock styles_link %}
+
+{% block title %} {{ book.title }} {% endblock title %}
+
+{% block content %}
+<article class="book-block">
+    <section class="book-inline image-block">
+        <img src="{{ book.img_url }}">
+    </section>
+    <section class="book-inline text-block">
+        <p class="book-title">{{ book.title }}</p>
+        <div class="about-book">
+            <div class="authors">
+                Авторы: {% for author in book.author.all %}
+                <a href="/authors/{{ author.id }}/">{{ author }}</a>
+                {% endfor %}
+            </div>
+            <div class="genre">Жанр: {{ book.genre }}</div>
+            {% if count > 0 %}
+            <div class="count">Количество свободных книг: {{ count }}</div>
+            {% else %}
+            <div class="count label-danger">Книг нет в наличии</div>
+            {% endif %}
+        </div>
+    </section>
+    {% if not user.is_authenticated %}
+    <p class="return-label label-danger">Взять книгу могут только зарегистрированные пользователи</p>
+    <a class="return-label label-to-profile" href="/login/">Войти в аккаунт >></a>
+    {% endif %}
+</article>
+{% endblock %}

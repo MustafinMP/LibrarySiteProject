@@ -85,11 +85,7 @@ form {
   color: #2f5d8c;
 }
 
-.return-label-warning {
-  color: #269196;
-}
-
-.return-label-danger {
+.label-danger {
   color: red;
 }
 
