@@ -7,6 +7,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Book, BookInstance, StudentGroup, UserData
 
+# book statuses
+STATUS_FREE = 1
+STATUS_BORROW = 2
+STATUS_LOST = 3
+
 logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
                     level=logging.INFO)

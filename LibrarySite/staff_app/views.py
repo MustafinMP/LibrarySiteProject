@@ -2,7 +2,7 @@ from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
-from library.services import get_books_with_pagination
+from library.services import STATUS_FREE, STATUS_LOST, STATUS_BORROW, get_books_with_pagination
 from .forms import AddNewBookForm, AddNewBookInstanceForm, IssueTextbookForm, \
     IssueABookForm
 from .services import *

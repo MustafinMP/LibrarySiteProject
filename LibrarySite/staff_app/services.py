@@ -1,11 +1,7 @@
 import datetime
 
 from library.models import *
-
-# book statuses
-STATUS_FREE = 1
-STATUS_BORROW = 2
-STATUS_LOST = 3
+from library.services import STATUS_BORROW, STATUS_FREE, STATUS_LOST
 
 
 class NotEnoughTextbooksError(Exception):

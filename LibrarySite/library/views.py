@@ -6,6 +6,7 @@ from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
 from .forms import RegisterForm, LoginForm, ChangePasswordForm
+from .models import Genre, Author
 from .services import *
 
 # подключение файла для логирования
