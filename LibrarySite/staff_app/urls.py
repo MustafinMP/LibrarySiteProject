@@ -12,7 +12,6 @@ urlpatterns = [
 
     path('add_book/', views.add_book_view),
     path('add_book_ins/', views.add_book_instance_view),
-    path('add_textbooks_from_excel/', views.add_textbooks_from_excel_view),
 
     path('issue_books', views.issue_books_view),
     path('issue_a_book/<book_id>/', views.issue_a_book_view),
