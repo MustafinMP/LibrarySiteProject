@@ -1,4 +1,4 @@
-import datetime
+import datetime as dt
 
 from library.models import *
 from library.services import STATUS_BORROW, STATUS_FREE, STATUS_LOST
@@ -13,9 +13,9 @@ def issue_a_book(book_id, user_id):
                                                 status=Status.objects.get(id=STATUS_FREE))[0]
     book_instance.borrower = User.objects.get(id=user_id)
     book_instance.status = Status.objects.get(id=STATUS_BORROW)
-    today = datetime.date.today()
-    book_instance.take_date = today + datetime.timedelta(days=1)
-    book_instance.return_date = today + datetime.timedelta(days=8)
+    today = dt.date.today()
+    book_instance.take_date = today + dt.timedelta(days=1)
+    book_instance.return_date = today + dt.timedelta(days=8)
     book_instance.save()
 
 

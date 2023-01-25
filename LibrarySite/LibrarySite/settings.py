@@ -28,6 +28,7 @@ with open(BASE_DIR + '\LibrarySite\secret_key.txt', 'r') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['www.MustafinMP.pythonanywhere.com',
                  'MustafinMP.pythonanywhere.com']
 

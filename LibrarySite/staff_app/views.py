@@ -1,8 +1,10 @@
+import datetime as dt
+
 from django.conf import settings
 from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render, reverse
 
-from library.services import STATUS_FREE, STATUS_LOST, STATUS_BORROW, get_books_with_pagination
+from library.services import get_books_with_pagination
 from .forms import AddNewBookForm, AddNewBookInstanceForm, IssueTextbookForm, \
     IssueABookForm
 from .services import *
@@ -62,7 +64,7 @@ def issue_a_book_view(request, book_id):
 @staff_only
 def borrow_view(request):
     book_instances = BookInstance.objects.all().filter(status=STATUS_BORROW)
-    today = datetime.date.today()
+    today = dt.date.today()
     context = {'book_instances': book_instances, 'today': today}
     return render(request, 'staff/borrow.html', context=context)
 
@@ -74,7 +76,7 @@ def borrow_one_book_view(request, book_id):
     if request.method == 'POST':
         staff_borrow_book(book_instance, request.POST)
         return HttpResponsePermanentRedirect('/staff/borrow/')
-    today = datetime.date.today()
+    today = dt.date.today()
     context = {'book_instance': book_instance, 'today': today}
     return render(request, 'staff/borrow_one_book.html', context=context)
 
