@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import Author, Book, BookInstance, Genre, Status, Textbook, TextbookInstance, PublishingHouse, IssueTextbooks
+
+from .models import Author, Book, BookInstance, Genre, Status, Textbook, TextbookInstance, PublishingHouse, \
+    IssueTextbooks, StudentGroup
 
 
 @admin.register(Author)
@@ -45,3 +47,8 @@ class TextbookInstanceAdmin(admin.ModelAdmin):
 @admin.register(IssueTextbooks)
 class IssueTextbooksAdmin(admin.ModelAdmin):
     list_display = ('textbook', 'group', 'count', 'borrower')
+
+
+@admin.register(StudentGroup)
+class StudentGroupAdmin(admin.ModelAdmin):
+    pass

@@ -18,4 +18,6 @@ urlpatterns = [
 
     path('issue_textbooks/', views.issue_textbooks_view),
     path('issue_textbooks_list/', views.issue_textbooks_list_view),
+    path('reserve/', views.reserve),
+    path('reserve/<book_id>/', views.reserve_one_book)
 ]

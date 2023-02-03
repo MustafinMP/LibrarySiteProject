@@ -5,12 +5,13 @@ import logging
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .models import Book, BookInstance, StudentGroup, UserData
+from .models import Book, BookInstance, StudentGroup, UserData, Status
 
 # book statuses
 STATUS_FREE = 1
 STATUS_BORROW = 2
 STATUS_LOST = 3
+STATUS_RESERVE = 4
 
 logging.basicConfig(filename='site_logging.log',
                     format="%(asctime)s | %(levelname)s - %(funcName)s: %(lineno)d - %(message)s",
@@ -69,3 +70,16 @@ def create_user(username: str, e_mail: str, password: str, first_name: str, last
     additional_user_data = UserData.objects.create(user=user, group=s_group, is_graduate=False)
     additional_user_data.save()
     logging.info(f'created user "{username}"')
+
+
+def add_book_to_user(book_id, user):
+    book_instance = BookInstance.objects.all().filter(status=STATUS_FREE, book=book_id)[0]
+    book_instance.borrower = user
+    book_instance.status = Status.objects.get(id=STATUS_RESERVE)
+    book_instance.save()
+    logging.info(f'user {user} reserved book {Book.objects.get(id=book_id).title}')
+    book = Book.objects.get(id=book_id)
+    count = book.bookinstance_set.all().filter(status=1).count()
+    return {'book': book,
+            'count': count,
+            'have_book': True}

@@ -47,7 +47,11 @@ def catalog(request):
 
 
 def book_item(request, book_id):
-    book = Book.objects.get(id=book_id)
+    if request.method == 'POST':
+        context = add_book_to_user(book_id, request.user)
+        return render(request, 'book_item.html', context=context)
+    else:
+        book = Book.objects.get(id=book_id)
     count = book.bookinstance_set.all().filter(status=STATUS_FREE).count()
     user_from_request = request.user
     try:
