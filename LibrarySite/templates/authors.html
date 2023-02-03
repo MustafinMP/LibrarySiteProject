@@ -15,10 +15,6 @@
     <a class="one-author" href="/authors/{{ author.id }}/">
         <div class="text-block">
             <h3>{{ author.name }} {{ author.last_name }}</h3>
-            <p>
-                Книги: {% for book in author.book.all %}<q>{{ book.title }}</q>{% endfor %}
-                {% if book.count > 3 %} и другие {% endif %}
-            </p>
         </div>
     </a>
     {% endif %}

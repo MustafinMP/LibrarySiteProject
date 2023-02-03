@@ -146,3 +146,33 @@ def issue_textbooks_view(request):
 def issue_textbooks_list_view(request):
     textbooks = IssueTextbooks.objects.all()
     return render(request, 'staff/issued_textbook_list.html', context={'textbooks': textbooks})
+
+@staff_only
+def reserve(request):
+        if request.user.is_staff:
+            book_instances = BookInstance.objects.all().filter(status=STATUS_RESERVE)
+            context = {'book_instances': book_instances}
+            return render(request, 'staff/reserve.html', context=context)
+        return HttpResponsePermanentRedirect('/')
+
+@staff_only
+def reserve_one_book(request, book_id):
+        if request.user.is_staff:
+            book_instance = BookInstance.objects.get(id=book_id)
+
+            if request.method == 'POST':
+                if '_approve' in request.POST:
+                    book_instance.status = Status.objects.get(id=STATUS_BORROW)
+                    today = dt.date.today()
+                    book_instance.take_date = today + dt.timedelta(days=1)
+                    book_instance.return_date = today + dt.timedelta(days=8)
+
+                elif '_reject' in request.POST:
+                    book_instance.status = Status.objects.get(id=STATUS_FREE)
+                    book_instance.borrower = None
+
+                book_instance.save()
+                return HttpResponsePermanentRedirect('/staff/reserve/')
+            context = {'book_instance': book_instance}
+            return render(request, 'staff/reserve_one_book.html', context=context)
+        return HttpResponsePermanentRedirect('/')
